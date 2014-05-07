@@ -15,7 +15,7 @@ namespace skjatextar.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Þið eruð allir fávitar";
+            ViewBag.Message = "Þið eruð allir mongóar";
 
             return View();
         }
