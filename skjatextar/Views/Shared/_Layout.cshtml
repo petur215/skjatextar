@@ -9,40 +9,44 @@
 
 </head>
 <body>
-    <div class="navbar navbar-default">
+    <div class="nav navbar-nav navbar-right">
+        @Html.Partial("_LoginPartial")
+    </div>
+
+
+        <div class="navbar navbar-default">
             <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
             </div>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Heim", "Index", "Home")</li>
-                <li>@Html.ActionLink("Skjátextar", "Translations", "Home")</li>
-                <li>@Html.ActionLink("Hlaða inn skrá", "LoadNewFile", "Home")</li>
-                <li>@Html.ActionLink("Fyrirspurnir", "Requests", "Home")</li>
-                <li>@Html.ActionLink("Reglur", "Rules", "Home")</li>
-                @Html.Partial("_LoginPartial")
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <form class="navbar-form navbar-left">
-                    <input type="text" class="form-control col-lg-8" placeholder="Search">
-                </form>
+                    <li>@Html.ActionLink("Heim", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Skjátextar", "Translations", "Home")</li>
+                    <li>@Html.ActionLink("Hlaða inn skrá", "LoadNewFile", "Home")</li>
+                    <li>@Html.ActionLink("Fyrirspurnir", "Requests", "Home")</li>
+                    <li>@Html.ActionLink("Reglur", "Rules", "Home")</li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <form class="navbar-form navbar-left">
+                        <input type="text" class="form-control col-lg-8" placeholder="Search">
+                    </form>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Skjátextar.is</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Skjátextar.is</p>
+            </footer>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>
