@@ -5,14 +5,14 @@ namespace skjatextar.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<skjatextar.Models.TranslationDataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<skjatextar.Models.AppDataContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(skjatextar.Models.TranslationDataContext context)
+        protected override void Seed(skjatextar.Models.AppDataContext context)
         {
             //  This method will be called after migrating to the latest version.
 
