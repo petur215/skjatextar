@@ -9,11 +9,19 @@
 
 </head>
 <body>
-    <div class="nav navbar-nav navbar-right">
-        @Html.Partial("_LoginPartial")
+    <div class = "login-field">
+        <form class="form-signin" role="form">
+            Notendanafn: <input type="email" class="form-control" placeholder="Email address" required autofocus>
+            Lykilorð: <input type="password" class="form-control" placeholder="Password" required>
+            <label class="checkbox">
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+            <div>
+             @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+            <button class ="logintakki" type="submit">Sign in</button>
+            </div>
+        </form>
     </div>
-
-
         <div class="navbar navbar-default">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -29,12 +37,11 @@
                     <li>@Html.ActionLink("Hlaða inn skrá", "LoadNewFile", "Home")</li>
                     <li>@Html.ActionLink("Fyrirspurnir", "Requests", "Home")</li>
                     <li>@Html.ActionLink("Reglur", "Rules", "Home")</li>
+                    <li>@Html.Partial("_LoginPartial")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <form class="navbar-form navbar-left">
+                    <form class="navbar-form navbar-right">
                         <input type="text" class="form-control col-lg-8" placeholder="Search">
                     </form>
-                </ul>
             </div>
         </div>
         <div class="container body-content">
