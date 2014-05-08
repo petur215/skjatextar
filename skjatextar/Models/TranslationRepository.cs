@@ -10,7 +10,7 @@ namespace skjatextar.Models
     {
         TranslationContext m_db = new TranslationContext();
 
-        public IEnumerable<Translation> Newsest10()
+        public IEnumerable<Translation> Newest10()
         {
             var result = (from s in m_db.Translations
                           orderby s.DateLastEdited descending

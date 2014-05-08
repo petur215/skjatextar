@@ -14,7 +14,7 @@ namespace skjatextar.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<Translation> newest10 = repo.Newsest10();
+            IEnumerable<Translation> newest10 = repo.Newest10();
 
             return View(newest10);
 
@@ -31,6 +31,28 @@ namespace skjatextar.Controllers
             ViewBag.Message = "smuuu";
 
             return View();
+        }
+        public ActionResult Requests()
+        {
+            ViewBag.Message = "trolololololol";
+
+            return View();
+        }
+        public ActionResult Rules()
+        {
+            ViewBag.Message = "Reglur eru til þess að fara eftir þeim!";
+
+            return View();
+        }
+
+        public ViewResult About()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ViewResult Contact()
+        {
+            throw new NotImplementedException();
         }
     }
 }
