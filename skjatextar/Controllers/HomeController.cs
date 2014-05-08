@@ -14,21 +14,33 @@ namespace skjatextar.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<Translation> newest10 = repo.Newsest10();
+            IEnumerable<Translation> newest10 = repo.Newest10();
 
             return View(newest10);
 
         }
 
-        public ActionResult About()
+        public ActionResult Translations()
         {
             ViewBag.Message = "Þið eruð allir mongóar";
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult LoadNewFile()
         {
             ViewBag.Message = "smuuu";
+
+            return View();
+        }
+        public ActionResult Requests()
+        {
+            ViewBag.Message = "trolololololol";
+
+            return View();
+        }
+        public ActionResult Rules()
+        {
+            ViewBag.Message = "Reglur eru til þess að fara eftir þeim!";
 
             return View();
         }
