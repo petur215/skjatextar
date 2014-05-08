@@ -167,12 +167,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\CategoryDataContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Translation.cs" />
+    <Compile Include="Models\TranslationDataContext.cs" />
     <Compile Include="Models\TranslationRepository.cs" />
     <Compile Include="Models\Video.cs" />
+    <Compile Include="Models\VideoDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

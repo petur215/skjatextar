@@ -11,6 +11,5 @@ namespace skjatextar.Models
         public string FileName { get; set; }
         public string Text { get; set; }
         public DateTime DateLastEdited { get; set; }
-        //public string Category { get; set; }
     }
 }
