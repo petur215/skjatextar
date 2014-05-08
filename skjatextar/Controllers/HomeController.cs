@@ -14,7 +14,7 @@ namespace skjatextar.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<Translation> newest10 = repo.Newsest10();
+            IEnumerable<Translation> newest10 = repo.Newest10();
 
             return View(newest10);
 
