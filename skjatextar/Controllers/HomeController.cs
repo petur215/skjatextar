@@ -20,13 +20,13 @@ namespace skjatextar.Controllers
 
         }
 
-        public ActionResult About()
+        public ActionResult Translations()
         {
             ViewBag.Message = "Þið eruð allir mongóar";
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult LoadNewFile()
         {
             ViewBag.Message = "smuuu";
 
