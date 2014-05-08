@@ -13,81 +13,68 @@ namespace skjatextar.DAL
             var translations = new List<Translation>
             {
                 new Translation{
-                    Title= "Batman",
+                    FileName= "Batman",
                     Text= "texti texti",
-                    Category= "Spenna",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Superman",
+                    FileName= "Batman 2",
                     Text= "texti texti",
-                    Category= "Spenna",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Die Hard",
+                    FileName= "Spiderman",
                     Text= "texti texti texti",
-                    Category= "Spenna",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Lord of the Rings 1",
+                    FileName= "This is it",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Lord of the Rings 2",
+                    FileName= "Breaking bad S01E04",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Lord of the Rings 3",
+                    FileName= "Breaking bad S01E05",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "This is the end",
+                    FileName= "Harry Potter 2",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "The Hobbit",
+                    FileName= "Harry Potter 3",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Fargo",
+                    FileName= "Fargo",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Avangers",
+                    FileName= "Jango",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Peter Pan",
+                    FileName= "Friends S01E07",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Harry Potter 1",
+                    FileName= "Pulp Fiction",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
                 new Translation{
-                    Title= "Harry Potter 2",
+                    FileName= "Running with Scissors",
                     Text= "texti texti texti",
-                    Category= "Gaman",
                     DateLastEdited= DateTime.Parse("2014-05-07 16:58:00")
                 },
             };
