@@ -1,4 +1,6 @@
-﻿using System;
+﻿using skjatextar.Models;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,15 +10,19 @@ namespace skjatextar.Controllers
 {
     public class HomeController : Controller
     {
+        TranslationRepository repo = new TranslationRepository();
+
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Translation> newest10 = repo.Newsest10();
+
+            return View(newest10);
+
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Þið eruð allir mongóar";
-
             return View();
         }
 
