@@ -10,6 +10,6 @@ namespace skjatextar.Models
         public int ID { get; set; }
         public int UserID { get; set; }
         public int LikeCount { get; set; }
-        string Request { get; set; }
+        string NewRequest { get; set; }
     }
 }
