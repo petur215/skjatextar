@@ -32,5 +32,17 @@ namespace skjatextar.Controllers
 
             return View();
         }
+        public ActionResult Requests()
+        {
+            ViewBag.Message = "trolololololol";
+
+            return View();
+        }
+        public ActionResult Rules()
+        {
+            ViewBag.Message = "Reglur eru til þess að fara eftir þeim!";
+
+            return View();
+        }
     }
 }
