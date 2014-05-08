@@ -172,7 +172,7 @@
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Translation.cs" />
-    <Compile Include="Models\TranslationDataContext.cs" />
+    <Compile Include="Models\AppDataContext.cs" />
     <Compile Include="Models\TranslationRepository.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

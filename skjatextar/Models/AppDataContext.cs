@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace skjatextar.Models
 {
-    public class TranslationDataContext : DbContext
+    public class AppDataContext : DbContext
     {
         public DbSet<Translation> Translations { get; set; }
         public DbSet<Categories> Category { get; set; }
