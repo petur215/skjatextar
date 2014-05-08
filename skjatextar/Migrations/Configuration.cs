@@ -9,7 +9,7 @@ namespace skjatextar.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(skjatextar.Models.TranslationDataContext context)
