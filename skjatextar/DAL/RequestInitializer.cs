@@ -39,7 +39,6 @@ namespace skjatextar.DAL
                     RequestSent = DateTime.Parse("2014-02-08 16:58:00")
                 },
             };
-
             requests.ForEach(s => context.Requests.Add(s));
             context.SaveChanges();
         }
