@@ -7,9 +7,9 @@ using skjatextar.Models;
 
 namespace skjatextar.DAL
 {
-    public class RequestInitializer : DropCreateDatabaseAlways<RequestContext>
+    public class RequestInitializer : DropCreateDatabaseAlways<TranslationContext>
     {
-        public override void InitializeDatabase(RequestContext context)
+        public override void InitializeDatabase(TranslationContext context)
         {
             var requests = new List<Request>
             {
@@ -39,6 +39,8 @@ namespace skjatextar.DAL
                     RequestSent = DateTime.Parse("2014-02-08 16:58:00")
                 },
             };
+            requests.ForEach(s => context.Requests.Add(s));
+            context.SaveChanges();
         }
     }
 }
