@@ -21,7 +21,7 @@ namespace skjatextar.Models
         public IEnumerable<Translation> GetTranslationByVideoID(int id)
         {
             var result = (from s in m_db.Translations
-                          where s.VideoID == id
+                          where s.VideoConnection == id
                           select s).Take(10);
             return result;
         }

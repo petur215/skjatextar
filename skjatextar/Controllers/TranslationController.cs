@@ -39,7 +39,7 @@ namespace skjatextar.Controllers
         {
             Translation item = new Translation(); //býr til nýtt item
 
-            //item.VideoID = Video.ID;
+            //item.VideoConnection = Video.VideoID;
             item.Title = formData["Title"];
             item.Text = formData["Text"];
             item.Category = formData["Category"]; //category harðkóðað samkvæmt verkefnalýsingu
