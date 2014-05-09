@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Skjátextar";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="content-translations">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="skjatextar">Skjátextar</th>
+                <th class="dateLastUpdated">Síðast uppfært</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>>@item.Title</td>
+                    <td>@item.DateLastEdited</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

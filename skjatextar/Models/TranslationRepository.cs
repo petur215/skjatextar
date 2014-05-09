@@ -18,14 +18,49 @@ namespace skjatextar.Models
 
             return result;
         }
-
-        /*public IEnumerable<Translation> Top10()
+        public IEnumerable<Translation> Top10()
         {
             var result = (from s in m_db.Translations
-                          orderby s.DateLastEdited descending
+                          orderby s.LikeCount descending
                           select s).Take(10);
 
             return result;
-        }*/
+        }
+
+        public IEnumerable<Translation> GetTranslationByVideoID(int id)
+        {
+            var result = (from s in m_db.Translations
+                          where s.VideoID == id
+                          select s).Take(10);
+            return result;
+        }
+        public Translation GetTranslationById(int id)
+        {
+            var result = (from s in m_db.Translations
+                          where s.ID == id
+                          select s).SingleOrDefault();
+
+            return result;
+        }
+        public void AddTranslation(Translation s)
+        {
+            m_db.Translations.Add(s);
+            m_db.SaveChanges();
+        }
+        public void Save()
+        {
+            m_db.SaveChanges();
+        }
+        public void UpdateNews(Translation s)
+        {
+            Translation t = GetTranslationById(s.ID);
+            if (t != null)
+            {
+                t.Title = s.Title;
+                t.Text = s.Text;
+                t.Category = s.Category;
+                m_db.SaveChanges();
+            }
+        }
     }
 }

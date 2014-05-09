@@ -7,9 +7,11 @@ namespace skjatextar.Models
 {
     public class Request
     {
-        public int ID { get; set; }
+        public string Username { get; set; }
+        public int RequestID { get; set; }
         public int UserID { get; set; }
         public int LikeCount { get; set; }
-        string NewRequest { get; set; }
+        public string NewRequest { get; set; }
+        public DateTime RequestSent { get; set; }
     }
 }

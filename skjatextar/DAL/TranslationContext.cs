@@ -15,8 +15,13 @@ namespace skjatextar.DAL
         {
 
         }
-
         public DbSet<Translation> Translations { get; set; }
+        public DbSet<Video> Videos { get; set; }
+        public DbSet<Categories> Categories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Likes> Likes { get; set; }
+        public DbSet<Request> Requests { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

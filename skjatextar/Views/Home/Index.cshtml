@@ -3,13 +3,42 @@
 }
 
 <h2>Skjátextar</h2>
+    <div class="table-header-home">
+        <span>Nýjustu 10</span>
+    </div>
+    <div class="content-home">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="translations">Skjátextar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>>@item.Title</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
-<ul>
-    @foreach (var item in Model)
-    {
-        <li class="Newest10">
-            <div class="textClass">@item.Title</div>
-            <div class="dateClass">@item.DateLastEdited</div>
-        </li>
-    }
-</ul>
+    <div class="content-home">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="translations">Skjátextar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>>@item.Title</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+

@@ -162,8 +162,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RequestController.cs" />
+    <Compile Include="Controllers\TranslationController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
+    <Compile Include="DAL\RequestContext.cs" />
+    <Compile Include="DAL\RequestInitializer.cs" />
     <Compile Include="DAL\TranslationContext.cs" />
     <Compile Include="DAL\TranslationsInitializer.cs" />
+    <Compile Include="DAL\VideoInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,6 +180,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Likes.cs" />
     <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\RequestRepository.cs" />
     <Compile Include="Models\Translation.cs" />
     <Compile Include="Models\AppDataContext.cs" />
     <Compile Include="Models\TranslationRepository.cs" />
@@ -185,6 +192,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PeturCustoms.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -203,7 +211,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -215,7 +225,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\LoadNewFile.cshtml" />
-    <Content Include="Views\Home\Translations.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
@@ -228,8 +237,11 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Requests.cshtml" />
     <Content Include="Views\Home\Rules.cshtml" />
+    <Content Include="Views\Translation\Translations.cshtml" />
+    <Content Include="Views\Request\Requests.cshtml" />
+    <Content Include="Views\Translation\Edit.cshtml" />
+    <Content Include="Views\Video\VideoDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
