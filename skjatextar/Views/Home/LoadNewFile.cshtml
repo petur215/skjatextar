@@ -2,26 +2,49 @@
     ViewBag.Title = "Hlaða inn skrá";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
 
-<div class="submit">
+
     <form action="" method="post" enctype="multipart/form-data">
 
-        <label for="file">Veldu skrá</label>
-        <input class="choose" type="file" name="file" id="file" value="Veldu skrá" />
-        <input type="submit" value="Senda inn"  />
-        <input type="radio"  value="Heyrnaskertir" Heyrnaskertir?/>
-        <select>
-            <option value="1">Gaman</option>
-            <option value="2">Spenna</option>
-            <option value="3">Ævintýri</option>
-            <option value="4">Rómantík</option>
-            <option value="5">Dramatík</option>
-            <option value="6">Hryllingur</option>
-            <option value="7">Barnaefni</option>
-            <option selected="selected">Veldu flokk</option>
-        </select>
+        <label id="file"for="file">Veldu skrá :</label>
+        <input type="file" name="file" id="file" value = "Veldu" />
+        <br />
+        <span id="Titill">
+        <label id="Titill" for="Textbox">Titill :</label>
+        <input type="text" name="Textbox"/>
+        </span>
+        </br>
+
+        <span id="ID">
+            <label id="ID" for="IDbox">Myndefni :</label>
+            <input type="text" name="IDbox" />
+        </span>
+
+        <br />
+        <span id="dropdown">
+            
+                <label for="Dropdown" id="dropdown">Veldu flokk :</label>
+            
+                <select name="Dropdown" id="dropdown">
+                    <option value="1">Gaman</option>
+                    <option value="2">Spenna</option>
+                    <option value="3">Ævintýri</option>
+                    <option value="4">Rómantík</option>
+                    <option value="5">Dramatík</option>
+                    <option value="6">Hryllingur</option>
+                    <option value="7">Barnaefni</option>
+                    <option selected="selected">-</option>
+                </select>
+        </span>
+        <br />
+
+        <span id="heyrn">
+                <label id ="radiobutton"for="Heyrnaskertir">Fyrir heyrnaskerta?</label>
+                <input type="radio" id="radiobutton"  name="Heyrnaskertir" value="Heyrnaskertir"> Já </input>
+                <input type="radio" id="radiobutton" name="Heyrnaskertir" value="Heyrnaskertir"> Nei </input>
+            </span>
+  
+        <input id="submittakki" type="submit" value="Senda inn" />
     </form>
 </div>
