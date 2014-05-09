@@ -18,7 +18,14 @@ namespace skjatextar.Models
 
             return result;
         }
-        public Translation GetNewsById(int id)
+        public IEnumerable<Translation> GetTranslationByVideoID(int id)
+        {
+            var result = (from s in m_db.Translations
+                          where s.VideoID == id
+                          select s).Take(10);
+            return result;
+        }
+        public Translation GetTranslationById(int id)
         {
             var result = (from s in m_db.Translations
                           where s.ID == id
@@ -37,7 +44,7 @@ namespace skjatextar.Models
         }
         public void UpdateNews(Translation s)
         {
-            Translation t = GetNewsById(s.ID);
+            Translation t = GetTranslationById(s.ID);
             if (t != null)
             {
                 t.TranslationTitle = s.TranslationTitle;

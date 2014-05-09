@@ -5,9 +5,8 @@ using System.Web;
 
 namespace skjatextar.Models
 {
-    public class Video : Categories
+    public class RequestRepository
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+
     }
 }
