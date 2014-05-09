@@ -39,6 +39,7 @@ namespace skjatextar.Controllers
         {
             Translation item = new Translation(); //býr til nýtt item
 
+            //item.VideoID = Video.ID;
             item.Title = formData["Title"];
             item.Text = formData["Text"];
             item.Category = formData["Category"]; //category harðkóðað samkvæmt verkefnalýsingu
@@ -60,7 +61,7 @@ namespace skjatextar.Controllers
         // GET: /Translation/Edit/5
         public ActionResult Edit(int? id)
         {
-            var newItem = repo.GetNewsById(id.Value);//ná í upplýsingarnar úr fréttinni
+            var newItem = repo.GetTranslationById(id.Value);//ná í upplýsingarnar úr fréttinni
             if (newItem != null)//ef newItem er ekki null
             {
                 return View(newItem);
@@ -73,7 +74,7 @@ namespace skjatextar.Controllers
         [HttpPost]
         public ActionResult Edit(int? id, FormCollection FormData)
         {
-            Translation item = repo.GetNewsById(id.Value);//tekur upplýsingarnar með inní edit gluggan
+            Translation item = repo.GetTranslationById(id.Value);//tekur upplýsingarnar með inní edit gluggan
 
             item.Title = FormData["Title"];
             item.Text = FormData["Text"];
