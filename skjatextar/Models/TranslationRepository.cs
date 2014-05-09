@@ -47,7 +47,7 @@ namespace skjatextar.Models
             Translation t = GetTranslationById(s.ID);
             if (t != null)
             {
-                t.TranslationTitle = s.TranslationTitle;
+                t.Title = s.Title;
                 t.Text = s.Text;
                 t.Category = s.Category;
                 m_db.SaveChanges();
