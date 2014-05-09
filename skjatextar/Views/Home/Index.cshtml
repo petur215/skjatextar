@@ -3,24 +3,23 @@
 }
 
 <h2>Skjátextar</h2>
-
-<!--<ul>-->
-    <table class="table table-bordered">
-        <tr>
-            <th>Skjátextar</th>
-            <th>Sent inn</th>
-        </tr>
-        @foreach (var item in Model)
-        {
+    <div class="table-header-home">
+        <span>Vinsælustu skjátextar</span>
+    </div>
+    <div class="content-home">
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                    <td>>@item.Title</td>
-                    <td>@item.DateLastEdited</td>
+                    <th class="skjatextar">Skjátextar</th>
                 </tr>
-            
-            @*<li class="Newest10">
-                <div class="textClass">@item.Title</div>
-                <div class="dateClass">@item.DateLastEdited</div>
-            </li>*@
-        }
-    </table>
-<!--</ul> -->
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>>@item.Title</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
