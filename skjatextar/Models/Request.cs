@@ -11,5 +11,6 @@ namespace skjatextar.Models
         public int UserID { get; set; }
         public int LikeCount { get; set; }
         string NewRequest { get; set; }
+        public DateTime RequestSent { get; set; }
     }
 }
