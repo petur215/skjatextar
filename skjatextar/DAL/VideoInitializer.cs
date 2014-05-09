@@ -6,9 +6,9 @@ using System.Web;
 
 namespace skjatextar.DAL
 {
-    public class VideoInitializer :System.Data.Entity.DropCreateDatabaseIfModelChanges<VideoContext>
+    public class VideoInitializer :System.Data.Entity.DropCreateDatabaseIfModelChanges<TranslationContext>
     {
-        protected override void Seed(VideoContext context)
+        protected override void Seed(TranslationContext context)
         {
             var videos = new List<Video>
             {

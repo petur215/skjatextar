@@ -169,7 +169,6 @@
     <Compile Include="DAL\RequestInitializer.cs" />
     <Compile Include="DAL\TranslationContext.cs" />
     <Compile Include="DAL\TranslationsInitializer.cs" />
-    <Compile Include="DAL\VideoContext.cs" />
     <Compile Include="DAL\VideoInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
