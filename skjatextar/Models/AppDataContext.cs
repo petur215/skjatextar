@@ -11,5 +11,8 @@ namespace skjatextar.Models
         public DbSet<Translation> Translations { get; set; }
         public DbSet<Categories> Category { get; set; }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Likes> Likes { get; set; }
     }
 }
