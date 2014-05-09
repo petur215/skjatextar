@@ -5,11 +5,10 @@ using System.Web;
 
 namespace skjatextar.Models
 {
-    public class Translation
+    public class User
     {
         public int ID { get; set; }
-        public string Title { get; set; }
-        public string Text { get; set; }
-        public DateTime DateLastEdited { get; set; }
+        String Username { get; set; }
+        String Password { get; set; }
     }
 }
