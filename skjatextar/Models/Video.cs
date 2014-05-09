@@ -7,7 +7,7 @@ namespace skjatextar.Models
 {
     public class Video : Categories
     {
-        public int VideoID { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
     }
 }

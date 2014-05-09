@@ -10,6 +10,7 @@ namespace skjatextar.Models
     {
         [Key]
         public int CategoryID { get; set; }
-        public string Category { get; set; }
+        public string Category { get; set; }    // spenna, drama, grín etc.
+        public string type { get; set; }    // kvikmynd, þáttur, skrípó etc.
     }
 }

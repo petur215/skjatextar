@@ -29,72 +29,65 @@ namespace skjatextar.Controllers
         // GET: /Translation/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new Translation());
         }
 
         //
         // POST: /Translation/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FormCollection formData)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Translation item = new Translation(); //býr til nýtt item
 
-                return RedirectToAction("Index");
-            }
-            catch
+            //item.VideoID = Video.ID;
+            item.Title = formData["Title"];
+            item.Text = formData["Text"];
+            item.Category = formData["Category"]; //category harðkóðað samkvæmt verkefnalýsingu
+            item.DateLastEdited = DateTime.Now;
+
+            if ((item.Title == "") || (item.Text == "")) //ef titill eða texti er tómt þá ferðu á Error síðu
             {
-                return View();
+                return View("Error");
             }
+            UpdateModel(item);
+            repo.AddTranslation(item);
+
+            repo.Save();
+            return RedirectToAction("Translations");//þegar ýtt er á save ferðu aftur á forsíðu
+            
         }
 
         //
         // GET: /Translation/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            var newItem = repo.GetTranslationById(id.Value);//ná í upplýsingarnar úr fréttinni
+            if (newItem != null)//ef newItem er ekki null
+            {
+                return View(newItem);
+            }
+            return View("Error");//error síða
         }
 
         //
         // POST: /Translation/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int? id, FormCollection FormData)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Translation item = repo.GetTranslationById(id.Value);//tekur upplýsingarnar með inní edit gluggan
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+            item.Title = FormData["Title"];
+            item.Text = FormData["Text"];
 
-        //
-        // GET: /Translation/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Translation/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            if ((item.Title == "") || (item.Text == ""))//ef title eða text er tómt þá error
             {
-                // TODO: Add delete logic here
+                return View("Error");
+            }
+            UpdateModel(item);
+            repo.UpdateNews(item);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            repo.Save();
+            return RedirectToAction("Edit");
         }
     }
 }
