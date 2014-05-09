@@ -65,3 +65,9 @@ input[type="checkbox"].input-validation-error {
 .choose{
     padding-bottom: 15px;
 }
+
+.content-home{
+    font-size:12px;
+    width: 20%;
+    height:5%;
+}
