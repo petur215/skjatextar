@@ -7,7 +7,7 @@ namespace skjatextar.Models
 {
     public class Likes
     {
-        public int LikeID { get; set; }
+        public int ID { get; set; }
         public int TranslationID { get; set; }
         public int UserID { get; set; }
 

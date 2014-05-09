@@ -2,3 +2,28 @@
     ViewBag.Title = "Fyrirspurnir";
 }
 
+<h2>Fyrirspurnir</h2>
+
+<button>Senda inn fyrirspurn</button>
+
+<div class="header-request">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Fyrirspurn</th>
+                <th>Dagsetning</th>
+                <th>Sent inn af</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NewRequest</td>
+                    <td>@item.RequestSent</td>
+                    <td>@item.Username</td>
+                </tr>
+            }
+        </tbody>
+    </table> 
+</div>

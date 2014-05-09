@@ -18,6 +18,15 @@ namespace skjatextar.Models
 
             return result;
         }
+        public IEnumerable<Translation> Top10()
+        {
+            var result = (from s in m_db.Translations
+                          orderby s.LikeCount descending
+                          select s).Take(10);
+
+            return result;
+        }
+
         public IEnumerable<Translation> GetTranslationByVideoID(int id)
         {
             var result = (from s in m_db.Translations
@@ -47,19 +56,11 @@ namespace skjatextar.Models
             Translation t = GetTranslationById(s.ID);
             if (t != null)
             {
-                t.TranslationTitle = s.TranslationTitle;
+                t.Title = s.Title;
                 t.Text = s.Text;
                 t.Category = s.Category;
                 m_db.SaveChanges();
             }
         }
-        /*public IEnumerable<Translation> Top10()
-        {
-            var result = (from s in m_db.Translations
-                          orderby s.DateLastEdited descending
-                          select s).Take(10);
-
-            return result;
-        }*/
     }
 }
