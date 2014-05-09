@@ -22,6 +22,7 @@ namespace skjatextar.Controllers
         // GET: /Translation/Details/5
         public ActionResult Details(int id)
         {
+
             return View();
         }
 
