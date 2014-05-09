@@ -169,10 +169,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201405081422386_InitialCreate.cs" />
-    <Compile Include="Migrations\201405081422386_InitialCreate.Designer.cs">
-      <DependentUpon>201405081422386_InitialCreate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Categories.cs" />
@@ -180,6 +176,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Likes.cs" />
     <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\RequestRepository.cs" />
     <Compile Include="Models\Translation.cs" />
     <Compile Include="Models\AppDataContext.cs" />
     <Compile Include="Models\TranslationRepository.cs" />
@@ -248,11 +245,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201405081422386_InitialCreate.resx">
-      <DependentUpon>201405081422386_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
