@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Skjátextar";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li class="Newest10">
+            <div class="textClass">@item.Title</div>
+            <div class="dateClass">@item.DateLastEdited</div>
+        </li>
+    }
+</ul>
