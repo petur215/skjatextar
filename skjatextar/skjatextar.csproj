@@ -165,7 +165,6 @@
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\TranslationController.cs" />
     <Compile Include="Controllers\VideoController.cs" />
-    <Compile Include="DAL\RequestContext.cs" />
     <Compile Include="DAL\RequestInitializer.cs" />
     <Compile Include="DAL\TranslationContext.cs" />
     <Compile Include="DAL\TranslationsInitializer.cs" />
