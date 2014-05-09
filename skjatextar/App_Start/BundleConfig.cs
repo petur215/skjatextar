@@ -24,7 +24,7 @@ namespace skjatextar
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/PeturCustoms.css",
                       "~/Content/site.css"));
         }
     }
