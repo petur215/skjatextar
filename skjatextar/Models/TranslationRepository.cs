@@ -18,6 +18,15 @@ namespace skjatextar.Models
 
             return result;
         }
+        public IEnumerable<Translation> Top10()
+        {
+            var result = (from s in m_db.Translations
+                          orderby s.LikeCount descending
+                          select s).Take(10);
+
+            return result;
+        }
+
         public IEnumerable<Translation> GetTranslationByVideoID(int id)
         {
             var result = (from s in m_db.Translations
@@ -53,13 +62,5 @@ namespace skjatextar.Models
                 m_db.SaveChanges();
             }
         }
-        /*public IEnumerable<Translation> Top10()
-        {
-            var result = (from s in m_db.Translations
-                          orderby s.DateLastEdited descending
-                          select s).Take(10);
-
-            return result;
-        }*/
     }
 }
