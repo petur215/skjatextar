@@ -5,7 +5,7 @@ using System.Web;
 
 namespace skjatextar.Models
 {
-    public class Translation
+    public class Translation : Video
     {
         public int ID { get; set; }
         public int VideoID { get; set; }
