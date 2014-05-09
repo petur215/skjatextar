@@ -9,7 +9,7 @@ namespace skjatextar.Models
     {
         public int ID { get; set; }
         public int VideoID { get; set; }
-        public string Title { get; set; }
+        public string TranslationTitle { get; set; }
         public int LikeCount { get; set; }
         public string Text { get; set; }
         public string Category { get; set; }

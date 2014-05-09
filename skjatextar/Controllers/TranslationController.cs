@@ -40,12 +40,12 @@ namespace skjatextar.Controllers
             Translation item = new Translation(); //býr til nýtt item
 
             //item.VideoID = Video.ID;
-            item.Title = formData["Title"];
+            item.TranslationTitle = formData["Title"];
             item.Text = formData["Text"];
             item.Category = formData["Category"]; //category harðkóðað samkvæmt verkefnalýsingu
             item.DateLastEdited = DateTime.Now;
 
-            if ((item.Title == "") || (item.Text == "")) //ef titill eða texti er tómt þá ferðu á Error síðu
+            if ((item.TranslationTitle == "") || (item.Text == "")) //ef titill eða texti er tómt þá ferðu á Error síðu
             {
                 return View("Error");
             }
@@ -76,10 +76,10 @@ namespace skjatextar.Controllers
         {
             Translation item = repo.GetTranslationById(id.Value);//tekur upplýsingarnar með inní edit gluggan
 
-            item.Title = FormData["Title"];
+            item.TranslationTitle = FormData["Title"];
             item.Text = FormData["Text"];
 
-            if ((item.Title == "") || (item.Text == ""))//ef title eða text er tómt þá error
+            if ((item.TranslationTitle == "") || (item.Text == ""))//ef title eða text er tómt þá error
             {
                 return View("Error");
             }
