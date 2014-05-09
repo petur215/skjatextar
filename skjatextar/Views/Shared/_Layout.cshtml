@@ -9,17 +9,15 @@
 
 </head>
 <body>
-    <div class = "login-field">
+    <div class="login-field">
         <form class="form-signin" role="form">
-            Notendanafn: <input type="email" class="form-control" placeholder="Email address" required autofocus>
-            Lykilorð: <input type="password" class="form-control" placeholder="Password" required>
-            <label class="checkbox">
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-            <div>
-             @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+           <input type="email" class="form-control" placeholder="Email address" required autofocus>
+          <input type="password" class="password-takki" placeholder="Password" required>
+            
+            <span id="register">
+            @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
             <button class ="logintakki" type="submit">Sign in</button>
-            </div>
+            </span>
         </form>
     </div>
         <div class="navbar navbar-default">
