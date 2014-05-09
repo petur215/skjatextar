@@ -9,10 +9,10 @@
 <div class="submit">
     <form action="" method="post" enctype="multipart/form-data">
 
-        <label for="file">Veldu skrá</label>
-        <input class="choose" type="file" name="file" id="file" value="Veldu skrá" />
-        <input type="submit" value="Senda inn"  />
-        <input type="radio"  value="Heyrnaskertir" Heyrnaskertir?/>
+        <span>
+            <label for="file">Veldu skrá: </label>
+            <input class="choose" type="file" name="file" id="file" value="Veldu skrá" />
+        </span>
         <select>
             <option value="1">Gaman</option>
             <option value="2">Spenna</option>
@@ -24,4 +24,9 @@
             <option selected="selected">Veldu flokk</option>
         </select>
     </form>
+    <br />
+    <input type="radio" value="Heyrnaskertir">Heyrnaskertir ?<br />
+    <br />
+
+    <input type="button" id="inputTranslation" value="Senda inn skrá">
 </div>
