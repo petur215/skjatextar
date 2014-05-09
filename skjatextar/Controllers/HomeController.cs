@@ -17,13 +17,6 @@ namespace skjatextar.Controllers
             IEnumerable<Translation> newest10 = repo.Newest10();
 
             return View(newest10);
-
-        }
-
-        public ActionResult Translations()
-        {
-            ViewBag.Message = "Þið eruð allir mongóar";
-            return View();
         }
 
         public ActionResult LoadNewFile()
