@@ -51,7 +51,7 @@ namespace skjatextar.Models
         {
             m_db.SaveChanges();
         }
-        public void UpdateNews(Translation s)
+        public void UpdateTranslation(Translation s)
         {
             Translation t = GetTranslationById(s.ID);
             if (t != null)
