@@ -9,6 +9,5 @@ namespace skjatextar.Models
     {
         public int VideoID { get; set; }
         public string Name { get; set; }
-        public int NumberOfTranslations { get; set; }
     }
 }
