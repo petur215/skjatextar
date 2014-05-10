@@ -69,7 +69,7 @@ namespace skjatextar.Controllers
             {
                 return View(newItem);
             }
-            return View("NotFound");//error síða
+            return View("Error");//error síða
         }
 
         //
@@ -87,7 +87,7 @@ namespace skjatextar.Controllers
                 return View("Error");
             }
             UpdateModel(item);
-            repo.UpdateTranslation(item);
+            repo.UpdateNews(item);
 
             repo.Save();
             return RedirectToAction("Edit");
