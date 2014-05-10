@@ -12,7 +12,8 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
+  margin: 1px;
+  width: 100%;
 }
 article,
 aside,
