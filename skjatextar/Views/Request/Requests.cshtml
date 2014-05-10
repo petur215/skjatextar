@@ -16,7 +16,14 @@
             </tr>
         </thead>
         <tbody>
-          
+          @foreach (var item in Model)
+          {
+              <tr>
+                  <td>@item.NewRequest</td>
+                  <td>@item.RequestSent</td>
+                  <td>@item.Username</td>
+              </tr>
+          }
         </tbody>
         
     </table>
