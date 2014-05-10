@@ -18,7 +18,37 @@ namespace skjatextar.Controllers
 
             return View(newest10);
         }
+        //
+        [HttpGet]
+        public ActionResult ViewTranslation(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
+        {
+            if(id.HasValue)
+            {
+                int realid = id.Value;
+                TranslationRepository repo = new TranslationRepository();
+                var model = repo.GetTranslationById(realid);
+                return View(model);
+            }
+            return View("NotFound");
+        }
 
+        [HttpPost]
+        public ActionResult ViewTranslation(int id, FormCollection formData)
+        {
+            TranslationRepository repo = new TranslationRepository();
+            Translation s = repo.GetTranslationById(id);
+            if(s != null)
+            {
+                UpdateModel(s);
+                repo.UpdateTranslation(s);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("NotFound");
+            }
+        }
+        //
         public ActionResult LoadNewFile()
         {
             ViewBag.Message = "smuuu";
