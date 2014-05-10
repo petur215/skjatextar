@@ -87,7 +87,7 @@ namespace skjatextar.Controllers
                 return View("Error");
             }
             UpdateModel(item);
-            repo.UpdateNews(item);
+            repo.UpdateTranslation(item);
 
             repo.Save();
             return RedirectToAction("Edit");
