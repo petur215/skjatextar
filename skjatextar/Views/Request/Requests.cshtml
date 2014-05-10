@@ -6,24 +6,18 @@
 
 <button>Senda inn fyrirspurn</button>
 
-<div class="header-request">
+<div id="requestTable">
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Fyrirspurn</th>
+                <th>Fyrirspurnir</th>
                 <th>Dagsetning</th>
-                <th>Sent inn af</th>
+                <th>Notendanafn</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.NewRequest</td>
-                    <td>@item.RequestSent</td>
-                    <td>@item.Username</td>
-                </tr>
-            }
+          
         </tbody>
-    </table> 
+        
+    </table>
 </div>
