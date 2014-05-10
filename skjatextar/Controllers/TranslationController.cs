@@ -13,9 +13,11 @@ namespace skjatextar.Controllers
         // GET: /Translation/
         public ActionResult Translations()
         {
-            IEnumerable<Video> newest10 = repo.Newest10();
+            //IEnumerable<Video> newest10 = repo.Newest10();
 
-            return View(newest10);
+            //return View(newest10);
+
+            return null;
         }
 
         //

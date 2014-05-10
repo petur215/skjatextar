@@ -6,7 +6,7 @@ using System.Web;
 
 namespace skjatextar.Models
 {
-    public class TranslationRepository
+    public class TranslationRepository : ITranslationRepository
     {
         TranslationContext m_db = new TranslationContext();
 
@@ -18,6 +18,7 @@ namespace skjatextar.Models
 
             return result;
         }
+
         public IEnumerable<Translation> Top10()
         {
             var result = (from s in m_db.Translations
@@ -29,11 +30,13 @@ namespace skjatextar.Models
 
         public IEnumerable<Translation> GetTranslationByVideoID(int id)
         {
-            var result = (from s in m_db.Translations
-                          where s.VideoID == id
-                          select s).Take(10);
-            return result;
+            //var result = (from s in m_db.Translations
+            //              where s.VideoID == id
+            //              select s).Take(10);
+            //return result;
+            throw new NotImplementedException();
         }
+        
         public Translation GetTranslationById(int id)
         {
             var result = (from s in m_db.Translations
@@ -42,15 +45,18 @@ namespace skjatextar.Models
 
             return result;
         }
+
         public void AddTranslation(Translation s)
         {
             m_db.Translations.Add(s);
             m_db.SaveChanges();
         }
+
         public void Save()
         {
             m_db.SaveChanges();
         }
+
         public void UpdateTranslation(Translation s)
         {
             Translation t = GetTranslationById(s.ID);
@@ -61,6 +67,13 @@ namespace skjatextar.Models
                 t.Category = s.Category;
                 m_db.SaveChanges();
             }
+        }
+
+        public int AddVideo(Video v)
+        {
+            this.m_db.Videos.Add(v);
+            this.m_db.SaveChanges();
+            return v.VideoID;
         }
     }
 }

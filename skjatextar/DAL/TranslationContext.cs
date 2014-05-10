@@ -10,9 +10,11 @@ namespace skjatextar.DAL
 {
     public class TranslationContext : DbContext
     {
+        
         public TranslationContext()
-            : base("TranslationContext")
+            : base("DefaultConnection")
         {
+            
 
         }
         public DbSet<Translation> Translations { get; set; }
@@ -23,9 +25,9 @@ namespace skjatextar.DAL
         public DbSet<Request> Requests { get; set; }
         public DbSet<User> Users { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        //}
     }
 }

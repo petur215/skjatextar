@@ -172,11 +172,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ITranslationRepository.cs" />
     <Compile Include="Models\Likes.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\RequestRepository.cs" />
