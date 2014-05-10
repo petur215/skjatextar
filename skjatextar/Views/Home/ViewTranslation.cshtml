@@ -1,5 +1,10 @@
-﻿@{
+﻿@model IEnumerable<skjatextar.Models.Translation>
+@{
     ViewBag.Title = "ViewTranslation";
 }
 <h2>Translations</h2>
 
+@foreach (var item in Model)
+{
+    <p> @item.Title </p>
+}
