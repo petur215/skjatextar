@@ -1,5 +1,4 @@
-﻿@model IEnumerable<skjatextar.Models.Translation>
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
@@ -36,7 +35,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td> @Html.ActionLink(item.Title, "ViewTranslations", new { id = item.ID }) </td> 
+                        <td>>@item.Title</td>
                     </tr>
                 }
             </tbody>
