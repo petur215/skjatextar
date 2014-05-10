@@ -7,7 +7,7 @@
 <button>Senda inn fyrirspurn</button>
 
 <div class="header-request">
-    <table class="table table-bordered table-responsive">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Fyrirspurn</th>
@@ -16,12 +16,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var item in Model)
+            @foreach (var item in Model)
             {
                 <tr>
-                    <td>item.NewRequest</td>
-                    <td>item.RequestSent</td>
-                    <td>item.UserID</td>
+                    <td>@item.NewRequest</td>
+                    <td>@item.RequestSent</td>
+                    <td>@item.Username</td>
                 </tr>
             }
         </tbody>

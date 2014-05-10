@@ -5,7 +5,7 @@ using System.Web;
 
 namespace skjatextar.Models
 {
-    public class Video : Categories
+    public class Video
     {
         public int VideoID { get; set; }
         public string Name { get; set; }
