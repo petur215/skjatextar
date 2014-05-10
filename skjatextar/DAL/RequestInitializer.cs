@@ -56,6 +56,7 @@ namespace skjatextar.DAL
             };
             requests.ForEach(s => context.Requests.Add(s));
             context.SaveChanges();
+            
         }
     }
 }
