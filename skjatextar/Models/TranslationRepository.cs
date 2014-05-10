@@ -38,7 +38,7 @@ namespace skjatextar.Models
         {
             var result = (from s in m_db.Translations
                           where s.ID == id
-                          select s).SingleOrDefault();
+                          select s).First();
 
             return result;
         }

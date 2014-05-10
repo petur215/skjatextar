@@ -20,7 +20,7 @@ namespace skjatextar.Controllers
         }
         //
         [HttpGet]
-        public ActionResult ViewTranslations(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
+        public ActionResult ViewTranslation(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
         {
             if(id.HasValue)
             {
@@ -31,9 +31,9 @@ namespace skjatextar.Controllers
             }
             return View("NotFound");
         }
-
+/*
         [HttpPost]
-        public ActionResult ViewTranslations(int id, FormCollection formData)
+        public ActionResult ViewTranslation(int id, FormCollection formData)
         {
             TranslationRepository repo = new TranslationRepository();
             Translation s = repo.GetTranslationById(id);
@@ -47,7 +47,7 @@ namespace skjatextar.Controllers
             {
                 return View("NotFound");
             }
-        }
+        }*/
         //
         public ActionResult LoadNewFile()
         {
