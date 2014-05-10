@@ -20,7 +20,7 @@ namespace skjatextar.Controllers
         }
         //
         [HttpGet]
-        public ActionResult ViewTranslation(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
+        public ActionResult ViewTranslations(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
         {
             if(id.HasValue)
             {
@@ -33,7 +33,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
-        public ActionResult ViewTranslation(int id, FormCollection formData)
+        public ActionResult ViewTranslations(int id, FormCollection formData)
         {
             TranslationRepository repo = new TranslationRepository();
             Translation s = repo.GetTranslationById(id);
