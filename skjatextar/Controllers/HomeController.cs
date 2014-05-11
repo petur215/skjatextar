@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
+using System.IO;
 
 namespace skjatextar.Controllers
 {
@@ -33,23 +35,20 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
-        public ActionResult ViewTranslation(int id)
+        public void ViewTranslation(int id, object sender, EventArgs e)
         {
-            TranslationRepository repo = new TranslationRepository();
             Translation s = repo.GetTranslationById(id);
-            if(s != null)
-            {
-                UpdateModel(s);
-                repo.UpdateTranslation(s);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View("NotFound");
-            }
+                // Write the string to a file.
+                StreamWriter file = new StreamWriter("c:/Users/Petur/Documents/prufa/test.srt");
+                file.WriteLine(s.Text);
+                file.Close();
+                string filePath = lblFilename.Text;
+
+                Response.AddHeader("Content-Disposition", "attachment;filename=\"" + filePath + "\"");
+                Response.TransmitFile(Server.MapPath(filePath));
+                Response.End();
         }
         //
-
         [HttpGet]
         public ActionResult LoadNewFile()
         {
