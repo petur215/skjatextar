@@ -9,7 +9,7 @@ namespace skjatextar.DAL
 {
     public class RequestInitializer : DropCreateDatabaseAlways<TranslationContext>
     {
-        public override void InitializeDatabase(TranslationContext context)
+        protected override void Seed(TranslationContext context)
         {
             var requests = new List<Request>
             {
@@ -56,6 +56,7 @@ namespace skjatextar.DAL
             };
             requests.ForEach(s => context.Requests.Add(s));
             context.SaveChanges();
+            
         }
     }
 }

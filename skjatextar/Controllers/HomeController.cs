@@ -11,7 +11,7 @@ namespace skjatextar.Controllers
     public class HomeController : Controller
     {
         TranslationRepository repo = new TranslationRepository();
-
+        
         public ActionResult Index()
         {
             IEnumerable<Translation> newest10 = repo.Newest10();

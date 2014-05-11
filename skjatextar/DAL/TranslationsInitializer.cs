@@ -6,7 +6,7 @@ using System.Web;
 
 namespace skjatextar.DAL
 {
-    public class TranslationsInitializer :System.Data.Entity.DropCreateDatabaseIfModelChanges<TranslationContext>
+    public class TranslationsInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<TranslationContext>
     {
         protected override void Seed(TranslationContext context)
         {
