@@ -18,7 +18,10 @@ namespace skjatextar.Controllers
             //IEnumerable<Video> newest10 = repo.Newest10();
 
             //return View(newest10);
-            return View();
+            var translations = repo.GetAllTranslations();
+            var newest = (from n in translations orderby n.Title select n).Take(10);
+
+            return View(newest);
             //return View(translations);
         }
 
