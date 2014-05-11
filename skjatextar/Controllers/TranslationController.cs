@@ -40,6 +40,7 @@ namespace skjatextar.Controllers
         [HttpPost]
         public ActionResult LoadNewFile(TranslationViewModel s)
         {
+
             if (ModelState.IsValid)
             {
                 Translation t = new Translation();
@@ -57,6 +58,8 @@ namespace skjatextar.Controllers
             {
                 return View(s);
             }
+
+            
         }
  
         //
