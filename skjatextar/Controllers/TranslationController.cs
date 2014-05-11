@@ -32,9 +32,10 @@ namespace skjatextar.Controllers
 
         //
         // GET: /Translation/Create
+        [HttpGet]
         public ActionResult Create()
         {
-            return View(new Translation());
+            return View(new TranslationViewModel());
         }
 
         //
