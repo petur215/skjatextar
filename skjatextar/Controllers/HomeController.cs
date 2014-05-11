@@ -14,7 +14,7 @@ namespace skjatextar.Controllers
         
         public ActionResult Index()
         {
-            IEnumerable<Translation> newest10 = repo.Newest10();
+            var newest10 = repo.GetAllTranslations().Take(10).ToList(); // skilar nyjustu 10 þýðingunum
 
             return View(newest10);
         }
