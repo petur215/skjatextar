@@ -2,6 +2,7 @@
 using skjatextar.Repos;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,7 +14,7 @@ namespace skjatextar.Controllers
         TranslationRepository repo = new TranslationRepository();
         VideoRepository repo2 = new VideoRepository();
         // GET: /Translation/
-        public ActionResult Translations()   
+        public ActionResult Translations()
         {
             //var translations = repo.GetAllTranslations().ToList;
 
@@ -44,8 +45,9 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoadNewFile(TranslationViewModel s)
+        public ActionResult LoadNewFile(TranslationViewModel s, HttpPostedFileBase file)
         {
+
             if (ModelState.IsValid)
             {
                 Translation t = new Translation();
@@ -63,8 +65,11 @@ namespace skjatextar.Controllers
             {
                 return View(s);
             }
+            
+
         }
  
+
         //
         // GET: /Translation/Edit/5
         public ActionResult Edit(int? id)

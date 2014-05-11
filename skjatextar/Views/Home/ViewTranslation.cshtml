@@ -1,8 +1,22 @@
-﻿
+﻿@model skjatextar.Models.Translation
 @{
     ViewBag.Title = "ViewTranslation";
 }
 <h2>Translations</h2>
 
+@Model.Title
+@Model.Text
+@Model.LikeCount
+@Model.DateLastEdited
 
+@using (Html.BeginForm())
+{
+    <div class="GetTranslationById">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="File://localhost/C:/Users/Petur/Documents/prufa/test.srt" download="PeturYouAreAGenious.srt"><input type="submit" value="Download" /></a>
+            </div>
+        </div>
+    </div>
+}
 
