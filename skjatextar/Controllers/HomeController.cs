@@ -42,11 +42,11 @@ namespace skjatextar.Controllers
                 StreamWriter file = new StreamWriter("c:/Users/Petur/Documents/prufa/test.srt");
                 file.WriteLine(s.Text);
                 file.Close();
-                string filePath = lblFilename.Text;
+                /*string filePath = lblFilename.Text;
 
                 Response.AddHeader("Content-Disposition", "attachment;filename=\"" + filePath + "\"");
                 Response.TransmitFile(Server.MapPath(filePath));
-                Response.End();
+                Response.End();*/
         }
         //
 
