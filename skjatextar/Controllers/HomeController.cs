@@ -50,32 +50,7 @@ namespace skjatextar.Controllers
         }
         //
 
-        [HttpGet]
-        public ActionResult LoadNewFile()
-        {
-            return View(new TranslationViewModel());
-        }
-
-        [HttpPost]
-        public ActionResult LoadNewFile(TranslationViewModel s)
-        {
-            if( ModelState.IsValid)
-            {
-                Translation t = new Translation();
-                t.ID = s.ID;
-                t.Title = s.Title;
-                t.Text = s.Text;
-                t.LikeCount = s.LikeCount;
-                t.DateLastEdited = s.DateLastEdited;
-                t.Category = s.Category;
-                repo.AddTranslation(t);
-                return RedirectToAction("Index"); // tharf ad breyta i RedirectToAction i skjatexta
-            }
-            else
-            {
-                return View(s);
-            }
-        }
+       
 
 
         /*public ActionResult LoadNewFile()
