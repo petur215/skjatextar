@@ -19,7 +19,7 @@ namespace skjatextar.Models
         /// 
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Translation> Newest10();
+        IEnumerable<Translation> GetAllTranslations();
 
     }
 }
