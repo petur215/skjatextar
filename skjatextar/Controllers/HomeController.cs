@@ -29,11 +29,11 @@ namespace skjatextar.Controllers
                 var model = repo.GetTranslationById(realid);
                 return View(model);
             }
-            return View("NotFound");
+            return View("Error");
         }
-/*
+
         [HttpPost]
-        public ActionResult ViewTranslation(int id, FormCollection formData)
+        public ActionResult ViewTranslation(int id)
         {
             TranslationRepository repo = new TranslationRepository();
             Translation s = repo.GetTranslationById(id);
@@ -47,7 +47,7 @@ namespace skjatextar.Controllers
             {
                 return View("NotFound");
             }
-        }*/
+        }
         //
         public ActionResult LoadNewFile()
         {
