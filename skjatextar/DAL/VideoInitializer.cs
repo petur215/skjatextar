@@ -13,19 +13,19 @@ namespace skjatextar.DAL
             var videos = new List<Video>
             {
                 new Video{
-                    VideoID= 1,
+                   ID= 1,
                     Name= "Batman",
                 },
                 new Video{
-                    VideoID= 2,
+                    ID= 2,
                     Name= "Superman",
                 },
                 new Video{
-                    VideoID= 3,
+                    ID= 3,
                     Name= "Harry potter 1",
                 },
                 new Video{
-                    VideoID= 4,
+                    ID= 4,
                     Name= "Harry potter 2",
                 },
 

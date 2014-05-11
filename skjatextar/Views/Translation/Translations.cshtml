@@ -1,6 +1,6 @@
-﻿@model IEnumerable<skjatextar.Models.Translation>
+﻿@model IEnumerable<skjatextar.Models.Video>
 @{
-    ViewBag.Title = "Skjátextar";
+    ViewBag.Title = "Myndefni";
 }
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
@@ -9,16 +9,15 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th class="skjatextar">Skjátextar</th>
-                <th class="dateLastUpdated">Síðast uppfært</th>
+                <th class="skjatextar">Myndefni</th>
+                <th class="dateLastUpdated">Tegund</th>
             </tr>
         </thead>
         <tbody>
             @foreach(var movie in Model)
             {
                <tr>
-                   <td>@movie.Title</td>
-                   <td>@movie.DateLastEdited</td>
+                   <td>@movie.Name</td>
                </tr>
             }
         </tbody>

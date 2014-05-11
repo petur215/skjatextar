@@ -74,7 +74,7 @@ namespace skjatextar.Models
         {
             this.m_db.Videos.Add(v);
             this.m_db.SaveChanges();
-            return v.VideoID;
+            return v.ID;
         }
     }
 }
