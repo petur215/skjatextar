@@ -1,6 +1,7 @@
 ﻿using skjatextar.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -38,7 +39,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoadNewFile(TranslationViewModel s)
+        public ActionResult LoadNewFile(TranslationViewModel s, HttpPostedFileBase file)
         {
 
             if (ModelState.IsValid)
@@ -58,10 +59,11 @@ namespace skjatextar.Controllers
             {
                 return View(s);
             }
-
             
+
         }
- 
+        
+
         //
         // GET: /Translation/Edit/5
         public ActionResult Edit(int? id)
