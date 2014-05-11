@@ -176,13 +176,13 @@
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ITranslationRepository.cs" />
+    <Compile Include="Repos\ITranslationRepository.cs" />
     <Compile Include="Models\Likes.cs" />
     <Compile Include="Models\Request.cs" />
-    <Compile Include="Models\RequestRepository.cs" />
+    <Compile Include="Repos\RequestRepository.cs" />
     <Compile Include="Models\Translation.cs" />
     <Compile Include="Models\AppDataContext.cs" />
-    <Compile Include="Models\TranslationRepository.cs" />
+    <Compile Include="Repos\TranslationRepository.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -241,8 +241,6 @@
     <Content Include="Views\Request\Requests.cshtml" />
     <Content Include="Views\Translation\Edit.cshtml" />
     <Content Include="Views\Video\VideoDetails.cshtml" />
-    <Content Include="Views\Home\Edit.cshtml" />
-    <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\Home\ViewTranslation.cshtml" />
   </ItemGroup>
   <ItemGroup>

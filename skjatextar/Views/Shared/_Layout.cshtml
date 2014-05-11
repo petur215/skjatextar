@@ -9,7 +9,17 @@
 
 </head>
 <body>
-  
+    <div class="login-field">
+        <form class="form-signin" role="form">
+           <input type="email" class="form-control" placeholder="Email address" required autofocus>
+          <input type="password" class="password-takki" placeholder="Password" required>
+            
+            <span id="register">
+            @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+            <button class ="logintakki" type="submit">Sign in</button>
+            </span>
+        </form>
+    </div>
         <div class="navbar navbar-default">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
