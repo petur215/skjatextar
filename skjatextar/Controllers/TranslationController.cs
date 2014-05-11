@@ -13,11 +13,13 @@ namespace skjatextar.Controllers
         // GET: /Translation/
         public ActionResult Translations()
         {
+            //var translations = repo.GetAllTranslations().ToList;
+
             //IEnumerable<Video> newest10 = repo.Newest10();
 
             //return View(newest10);
-
-            return null;
+            return View();
+            //return View(translations);
         }
 
         //
@@ -92,5 +94,7 @@ namespace skjatextar.Controllers
             repo.Save();
             return RedirectToAction("Edit");
         }
+
+        public IView translations { get; set; }
     }
 }
