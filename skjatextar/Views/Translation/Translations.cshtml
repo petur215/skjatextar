@@ -14,7 +14,13 @@
             </tr>
         </thead>
         <tbody>
-            
+            @foreach(var movie in Model)
+            {
+               <tr>
+                   <td>@movie.Title</td>
+                   <td>@movie.DateLastEdited</td>
+               </tr>
+            }
         </tbody>
     </table>
 </div>

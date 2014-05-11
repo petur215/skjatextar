@@ -1,6 +1,7 @@
 ﻿using skjatextar.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,7 +19,10 @@ namespace skjatextar.Controllers
             //IEnumerable<Video> newest10 = repo.Newest10();
 
             //return View(newest10);
-            return View();
+            var translations = repo.GetAllTranslations();
+            var newest = (from n in translations orderby n.Title select n).Take(10);
+
+            return View(newest);
             //return View(translations);
         }
 
@@ -30,38 +34,38 @@ namespace skjatextar.Controllers
             return View();
         }
 
-        //
-        // GET: /Translation/Create
+
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult LoadNewFile()
         {
             return View(new TranslationViewModel());
         }
 
-        //
-        // POST: /Translation/Create
         [HttpPost]
-        public ActionResult Create(FormCollection formData)
+        public ActionResult LoadNewFile(TranslationViewModel s, HttpPostedFileBase file)
         {
-            Translation item = new Translation(); //býr til nýtt item
 
-            //item.VideoConnection = Video.VideoID;
-            item.Title = formData["Title"];
-            item.Text = formData["Text"];
-            item.Category = formData["Category"]; //category harðkóðað samkvæmt verkefnalýsingu
-            item.DateLastEdited = DateTime.Now;
-
-            if ((item.Title == "") || (item.Text == "")) //ef titill eða texti er tómt þá ferðu á Error síðu
+            if (ModelState.IsValid)
             {
-                return View("Error");
+                Translation t = new Translation();
+                t.ID = s.ID;
+                t.Title = s.Title;
+                t.Text = s.Text;
+                t.LikeCount = s.LikeCount;
+                t.DateLastEdited = s.DateLastEdited;
+                t.Category = s.Category;
+                repo.AddTranslation(t);
+                repo.Save();
+                return RedirectToAction("Translation"); // sendir aftur i skjatextana
             }
-            UpdateModel(item);
-            repo.AddTranslation(item);
-
-            repo.Save();
-            return RedirectToAction("Translations");//þegar ýtt er á save ferðu aftur á forsíðu
+            else
+            {
+                return View(s);
+            }
             
+
         }
+        
 
         //
         // GET: /Translation/Edit/5
