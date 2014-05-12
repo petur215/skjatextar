@@ -17,7 +17,8 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>>@item.Title</td>
+                    <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
+                    
                 </tr>
             }
         </tbody>
