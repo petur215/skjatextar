@@ -1,6 +1,23 @@
-﻿@{
-    ViewBag.Title = "Hlaða inn skrá";
-}
-<h2>@ViewBag.Title.</h2>
+﻿@model IEnumerable<skjatextar.Models.Video>
 
-@{Html.RenderPartial("Create");}
+
+<h3 style="color:green">@ViewBag.Message</h3>
+
+@using (Html.BeginForm("LoadNewFile", "Translation", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary();
+
+    <fieldset>
+        <legend>Bæta við skrá</legend>
+        <ol>
+            <li class="lifile">
+                <input type="file" id="fileToUpload" name="Translation" />
+                <span class="field-validation-error" id="spanfile"></span>
+            </li>
+            <li>
+                @{Html.RenderPartial("Create");}
+            </li>
+        </ol>
+        <input type="submit" id="btnSubmit" value="Upload" />
+    </fieldset>
+}

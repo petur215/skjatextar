@@ -12,6 +12,7 @@ namespace skjatextar.Controllers
     public class TranslationController : Controller
     {
         TranslationRepository repo = new TranslationRepository();
+        VideoRepository videorepo = new VideoRepository();
 
        
         //
@@ -26,32 +27,48 @@ namespace skjatextar.Controllers
         [HttpGet]
         public ActionResult LoadNewFile()
         {
-            return View(new TranslationViewModel());
+            IEnumerable<Video> videos = videorepo.GetAllVideos();
+
+            return View(videos);
         }
 
         [HttpPost]
-        public ActionResult LoadNewFile(TranslationViewModel s, HttpPostedFileBase file)
+        public ActionResult LoadNewFile(HttpPostedFileBase Translation, Video s)
         {
-
+            IEnumerable<Video> videos = videorepo.GetAllVideos();
             if (ModelState.IsValid)
             {
-                Translation t = new Translation();
-                t.ID = s.ID;
-                t.Title = s.Title;
-                t.Text = s.Text;
-                t.LikeCount = s.LikeCount;
-                t.DateLastEdited = s.DateLastEdited;
-                t.Category = s.Category;
-                repo.AddTranslation(t);
-                repo.Save();
-                return RedirectToAction("Translation"); // sendir aftur i skjatextana
-            }
-            else
-            {
-                return View(s);
-            }
-            
+                if (Translation == null)
+                {
+                    ModelState.AddModelError("File", "Vinsamlegast veldu skrá");
+                }
+                else if (Translation.ContentLength > 0)
+                {
+                    string[] AllowedFileType = new string[] {".srt", ".txt"};
 
+                    if (!AllowedFileType.Contains(Translation.FileName.Substring(Translation.FileName.LastIndexOf('.'))))
+                    {
+                        ModelState.AddModelError("File", "Aðeins eru leyfðar skrár af gerðinni: " + string.Join(", ", AllowedFileType));
+                    }
+                    else
+                    {
+                        //TO:DO
+                        var FileName = Path.GetFileName(Translation.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Uploads"), FileName);
+                        Translation.SaveAs(path);
+                        ModelState.Clear();
+                        Translation item = new Translation();
+                        item.Text = Translation.ToString();
+                        item.Title = Translation.FileName;
+                        item.LikeCount = 0;
+                        item.DateLastEdited = DateTime.Now;
+                        item.VideoID = s.ID;
+                        repo.AddTranslation(item);
+                        ViewBag.Message = "Það tókst að hlaða upp skránni";
+                    }
+                }
+            }
+            return View(videos);
         }
  
 

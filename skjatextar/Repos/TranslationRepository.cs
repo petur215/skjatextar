@@ -50,7 +50,7 @@ namespace skjatextar.Models
         public void AddTranslation(Translation s)
         {
             m_db.Translations.Add(s);
-            m_db.SaveChanges();
+            Save();
         }
 
         public void Save()

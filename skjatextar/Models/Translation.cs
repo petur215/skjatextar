@@ -14,5 +14,9 @@ namespace skjatextar.Models
         public int VideoID { get; set; }
         public string Category { get; set; }
         public DateTime DateLastEdited { get; set; }
+         public Translation()
+        {
+            DateLastEdited = DateTime.Now;
+        }
     }
 }
