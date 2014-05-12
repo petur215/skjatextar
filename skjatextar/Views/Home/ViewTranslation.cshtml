@@ -2,13 +2,31 @@
 @{
     ViewBag.Title = "ViewTranslation";
 }
-<h2>Translations</h2>
 
-@Model.Title
-@Model.Text
-@Model.LikeCount
-@Model.DateLastEdited
+<h2>@Model.Title</h2>
 
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Titill</th>
+            <th>Texti</th>
+            <th>Síðast sent inn</th>
+            <th>Flokkur</th>
+            <th>Fjöldi like-a</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Title</td>
+            <td>@Model.Text</td>
+            <td>@Model.DateLastEdited</td>
+            <td>@Model.Category</td>
+            <td>@Model.LikeCount</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
 @using (Html.BeginForm())
 {
     <div class="GetTranslationById">

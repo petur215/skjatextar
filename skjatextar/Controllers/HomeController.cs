@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using System.IO;
+using skjatextar.Repos;
 
 namespace skjatextar.Controllers
 {
@@ -21,7 +22,12 @@ namespace skjatextar.Controllers
             return View(newest10);
         }
 
-        //
+        [HttpGet]
+        public ActionResult LoadNewFile()
+        {
+            return View(new TranslationViewModel());
+        }
+
         [HttpGet]
         public ActionResult ViewTranslation(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
         {
@@ -29,14 +35,17 @@ namespace skjatextar.Controllers
             {
                 int realid = id.Value;
                 TranslationRepository repo3 = new TranslationRepository();
+                CommentRepository commentRepo = new CommentRepository();
                 var model = repo3.GetTranslationById(realid);
+                //var model = commentRepo.GetComments(); ???
+
                 return View(model);
             }
             return View("Error");
         }
 
         [HttpPost]
-        public void ViewTranslation(int id, object sender, EventArgs e)
+        public void ViewTranslation(int id, object sender, EventArgs e, FormCollection formData)
         {
             Translation s = repo.GetTranslationById(id);
             // Write the string to a file.
@@ -48,23 +57,37 @@ namespace skjatextar.Controllers
             Response.AddHeader("Content-Disposition", "attachment;filename=\"" + filePath + "\"");
             Response.TransmitFile(Server.MapPath(filePath));
             Response.End();*/
+
+            String strComment = formData["CommentText"];
+            if (!String.IsNullOrEmpty(strComment))
+            {
+                Comment c = new Comment();
+
+                c.CommentText = strComment;
+                String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                if (!String.IsNullOrEmpty(strUser))
+                {
+                    int slashPos = strUser.IndexOf("\\");
+                    if (slashPos != -1)
+                    {
+                        strUser = strUser.Substring(slashPos + 1);
+                    }
+                    //c.Username = strUser;
+
+                    CommentRepository commentRepo = new CommentRepository();
+                    commentRepo.AddComment(c);
+                }
+                else
+                {
+                    //c.Username = "Unknown user";
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("CommentText", "Comment text cannot be empty!");
+            }
         }
-        //
 
-        [HttpGet]
-        public ActionResult LoadNewFile()
-        {
-            return View(new TranslationViewModel());
-        }
-
-
-
-        /*public ActionResult LoadNewFile()
-        {
-            ViewBag.Message = "smuuu";
-
-            return View();
-        }*/
         public ActionResult Requests()
         {
             ViewBag.Message = "trolololololol";

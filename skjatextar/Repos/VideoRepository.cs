@@ -18,7 +18,7 @@ namespace skjatextar.Models
             return videos;
         }
 
-        public IEnumerable<Translation> GetAllTranslationsForVideo(int id)   // Tharf ad breyta thessu i GetAllTranslationsForThisVideoID
+        public IEnumerable<Translation> GetAllTranslationsForVideo(int id)   
         {
             var result = from s in m_db.Translations
                          where s.VideoID == id
@@ -33,6 +33,13 @@ namespace skjatextar.Models
                          where s.Name == name
                          select s).FirstOrDefault();
             return result;
+        }
+
+        public int addCategory(Category cat)
+        {
+            this.m_db.Categories.Add(cat);
+            this.m_db.SaveChanges();
+            return cat.ID;
         }
 
         // Get Video by categoryID

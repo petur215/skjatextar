@@ -1,11 +1,11 @@
-﻿@model IEnumerable<skjatextar.Models.Translation>
+﻿@model IEnumerable<skjatextar.Models.Request>
 @{
     ViewBag.Title = "Fyrirspurnir";
 }
 
 <h2>Fyrirspurnir</h2>
 
-<button>Senda inn fyrirspurn</button>
+<button class="btnAddNewRequest">Senda inn fyrirspurn</button>
 
 <div id="requestTable">
     <table class="table table-bordered">
@@ -17,7 +17,14 @@
             </tr>
         </thead>
         <tbody>
-           
+          @foreach(var item in Model)
+          {
+              <tr>
+                  <td>@item.NewRequest</td>
+                  <td>@item.RequestSent</td>
+                  <td>@item.Username</td>
+              </tr>
+          }
         </tbody>
         
     </table>

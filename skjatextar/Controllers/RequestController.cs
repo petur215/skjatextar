@@ -3,18 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using skjatextar.Models;
 
 namespace skjatextar.Controllers
 {
+
     public class RequestController : Controller
     {
+        RequestRepository Repoo = new RequestRepository();
+        
         //
         // GET: /Request/
         public ActionResult Requests()
         {
-            return View();
-        }
+            var requests = Repoo.GetAllRequests().Take(10);
 
+            var newest = (from r in requests 
+                         orderby r.RequestSent select r).Take(10);
+            return View(newest);
+        }
+        //GET
+        [HttpPost]
+        //[Authorize]
+        public PartialViewResult NewRequestButton()
+        {
+
+
+            return PartialView();
+        }
         //
         // GET: /Request/Details/5
         public ActionResult Details(int id)
