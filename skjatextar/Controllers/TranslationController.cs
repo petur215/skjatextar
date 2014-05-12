@@ -12,23 +12,8 @@ namespace skjatextar.Controllers
     public class TranslationController : Controller
     {
         TranslationRepository repo = new TranslationRepository();
-        VideoRepository repo2 = new VideoRepository();
-        // GET: /Translation/
-        public ActionResult Translations()
-        {
-            //var translations = repo.GetAllTranslations().ToList;
 
-            //IEnumerable<Video> newest10 = repo.Newest10();
-            var videos = repo2.GetAllVideos();
-            var display = from n in videos
-                          orderby n.Name
-                          select n;
-
-            //return View(newest10);
-            return View(display);
-            //return View(translations);
-        }
-
+       
         //
         // GET: /Translation/Details/5
         public ActionResult Details(int id)
