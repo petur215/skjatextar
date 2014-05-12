@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\TranslationController.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\TranslationViewModel.cs" />
+    <Compile Include="Repos\CommentRepository.cs" />
     <Compile Include="Repos\ITranslationRepository.cs" />
     <Compile Include="Models\Likes.cs" />
     <Compile Include="Models\Request.cs" />
@@ -246,6 +248,7 @@
     <Content Include="Views\Home\ViewTranslation.cshtml" />
     <Content Include="Views\Translation\Create.cshtml" />
     <Content Include="Views\Video\ViewVideo.cshtml" />
+    <Content Include="Views\Home\ViewTranslationPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

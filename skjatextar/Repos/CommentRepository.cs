@@ -27,9 +27,8 @@ namespace skjatextar.Repos
                 newID = m_db.Comments.Max(x => x.ID) + 1;
             }
             c.ID = newID;
-            //c.CommentDate = DateTime.Now;
+            c.commentDate = DateTime.Now;
             m_db.Comments.Add(c);
         }
-
     }
 }

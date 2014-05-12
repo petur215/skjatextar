@@ -1,27 +1,8 @@
-﻿@model skjatextar.Models.Translation
+﻿@model IEnumerable<skjatextar.Models.Comment>
 @{
     ViewBag.Title = "ViewTranslation";
 }
-<h2>@Model.Title</h2>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Nafn</th>
-            <th>Síðast uppfært</th>
-            <th>Fjöldi like-a</th>
-            <th>Fjöldi þýðinga</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.Title</td>
-            <td>@Model.DateLastEdited</td>
-            <td>@Model.LikeCount</td>
-        </tr>
-    </tbody>
-    
-</table>
 @using (Html.BeginForm())
 {
     <div class="GetTranslationById">
@@ -33,3 +14,30 @@
     </div>
 }
 
+<ul class="list-group">
+    @foreach(var item in Model)
+    {
+
+        <li class="list-group-item">
+            <p>
+                <span class="glyphicon glyphicon-user"></span>
+                <span>@item.CommentText</span>
+            </p>
+            <p>
+                <span class="text-muted">@item.commentDate.ToString("dd. MMMM HH:mm") - </span>
+                <a class="like-comment" href="#">Like <span class="glyphicon glyphicon-thumbs-up"></span></a>
+            </p>
+        </li>
+    }
+    <li class="list-group-item">
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+                <label class="sr-only" for="CommentText">Comment</label>
+                <textarea class="form-control" rows="3" id="CommentText" name="CommentText"></textarea>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+            @Html.ValidationSummary(false)
+        }
+    </li>
+</ul>
