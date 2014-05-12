@@ -1,4 +1,5 @@
 ﻿using skjatextar.Models;
+using skjatextar.Repos;
 //using skjatextar.Repos;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace skjatextar.Controllers
     {
         TranslationRepository repo = new TranslationRepository();
         VideoRepository videorepo = new VideoRepository();
+        CommentRepository commentRepo = new CommentRepository();
 
        
         //
