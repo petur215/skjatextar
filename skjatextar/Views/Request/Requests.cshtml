@@ -5,7 +5,8 @@
 
 <h2>Fyrirspurnir</h2>
 
-<button class="btnAddNewRequest">Senda inn fyrirspurn</button>
+@*<button class="btnAddNewRequest">Senda inn fyrirspurn</button>*@
+@Html.ActionLink("Senda inn fyrirspurn", "AddNewRequest", new { @class = "btn" })
 
 <div id="requestTable">
     <table class="table table-bordered">
