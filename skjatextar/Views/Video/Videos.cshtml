@@ -18,6 +18,7 @@
             {
                <tr>
                    <td>@movie.Name</td>
+                   <td>>@Html.ActionLink(movie.Name, "ViewVideo", new { id = movie.ID })</td>
                </tr>
             }
         </tbody>

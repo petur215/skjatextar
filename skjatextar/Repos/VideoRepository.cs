@@ -1,11 +1,10 @@
 ﻿using skjatextar.DAL;
-using skjatextar.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace skjatextar.Repos
+namespace skjatextar.Models
 {
     public class VideoRepository
     {
@@ -17,6 +16,15 @@ namespace skjatextar.Repos
                          orderby s.Name ascending
                          select s;
             return videos;
+        }
+
+        public Video GetVideoById(int id)   // Tharf ad breyta thessu i GetAllTranslationsForThisVideoID
+        {
+            var result = (from s in m_db.Videos
+                         where s.ID == id
+                         select s).First();
+
+            return result;
         }
 
         // Get Video by categoryID
