@@ -1,4 +1,4 @@
-﻿@model skjatextar.Models.Video
+﻿@model IEnumerable<skjatextar.Models.Translation>
 @{
     ViewBag.Title = "ViewVideo";
 }
@@ -14,11 +14,12 @@
             </tr>
         </thead>
         <tbody>
-            
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <td>>@Model.Name</td>
+                    <td>>@item.Title</td>
                 </tr>
-            
+            }
         </tbody>
     </table>
 </div>
