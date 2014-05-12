@@ -13,7 +13,7 @@ namespace skjatextar.Models
         public Request GetRequestById(int id)
         {
             var result = (from s in m_db.Requests
-                          where s.RequestID == id
+                          where s.ID == id
                           select s).SingleOrDefault();
 
             return result;

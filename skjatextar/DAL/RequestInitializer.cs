@@ -14,7 +14,7 @@ namespace skjatextar.DAL
             var requests = new List<Request>
             {
                 new Request{
-                    RequestID = 1,
+                    ID = 1,
                     UserID = 1,
                     LikeCount = 2,
                     Username = "ViggiCool",
@@ -22,7 +22,7 @@ namespace skjatextar.DAL
                     RequestSent = DateTime.Parse("2014-05-09 16:58:00")
                 },
                 new Request{
-                    RequestID = 2,
+                    ID = 2,
                     UserID = 2,
                     LikeCount = 3,
                     Username = "PesiSvali",
@@ -30,7 +30,7 @@ namespace skjatextar.DAL
                     RequestSent = DateTime.Parse("2014-05-08 16:58:00")
                 },
                 new Request{
-                    RequestID = 3,
+                    ID = 3,
                     UserID = 3,
                     LikeCount = 10,
                     Username = "ToniToff",
@@ -38,7 +38,7 @@ namespace skjatextar.DAL
                     RequestSent = DateTime.Parse("2014-03-08 16:58:00")
                 },
                 new Request{
-                    RequestID = 4,
+                    ID = 4,
                     UserID = 4,
                     LikeCount = 4,
                     Username = "EinsiPungur",
@@ -46,7 +46,7 @@ namespace skjatextar.DAL
                     RequestSent = DateTime.Parse("2014-05-08 16:58:00")
                 },
                 new Request{
-                    RequestID = 5,
+                    ID = 5,
                     UserID = 5,
                     LikeCount = 6,
                     Username = "PesiIceBerg",

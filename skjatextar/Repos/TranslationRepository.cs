@@ -65,7 +65,6 @@ namespace skjatextar.Models
             {
                 t.Title = s.Title;
                 t.Text = s.Text;
-                t.Category = s.Category;
                 m_db.SaveChanges();
             }
         }
