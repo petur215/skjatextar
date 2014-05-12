@@ -212,6 +212,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Scripts.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -247,6 +248,8 @@
     <Content Include="Views\Home\ViewTranslation.cshtml" />
     <Content Include="Views\Translation\Create.cshtml" />
     <Content Include="Views\Video\ViewVideo.cshtml" />
+    <Content Include="Views\Request\AddNewRequest.cshtml" />
+    <Content Include="Views\Request\CreateNewRequestPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

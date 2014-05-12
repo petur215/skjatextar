@@ -22,6 +22,21 @@ namespace skjatextar.Controllers
                          orderby r.RequestSent select r).Take(10);
             return View(newest);
         }
+
+        [HttpGet]
+        public ActionResult AddNewRequest()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddNewRequest(int id)
+        {
+
+            return View();
+        }
+
         //GET
         [HttpPost]
         //[Authorize]

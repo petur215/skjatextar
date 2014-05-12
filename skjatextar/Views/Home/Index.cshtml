@@ -11,7 +11,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th class="translations">Skjátextar</th>
+                    <th class="translations">Nýjustu 10</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,14 +29,14 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th class="translations">Skjátextar</th>
+                    <th class="translations">Vinsælast</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.Title</td>
+                        <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
                     </tr>
                 }
             </tbody>
