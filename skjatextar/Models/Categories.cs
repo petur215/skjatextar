@@ -6,11 +6,11 @@ using System.Web;
 
 namespace skjatextar.Models
 {
-    public class Categories
+    public class Category
     {
         [Key]
         public int ID { get; set; }
-        public string Category { get; set; }    // spenna, drama, grín etc.
+        public string Title { get; set; }    // spenna, drama, grín etc.
         //public string type { get; set; }    // kvikmynd, þáttur, skrípó etc.
     }
 }

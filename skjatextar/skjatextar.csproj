@@ -247,7 +247,6 @@
     <Content Include="Views\Home\ViewTranslation.cshtml" />
     <Content Include="Views\Translation\Create.cshtml" />
     <Content Include="Views\Video\ViewVideo.cshtml" />
-    <Content Include="Views\Home\ViewTranslationPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

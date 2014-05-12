@@ -27,6 +27,13 @@ namespace skjatextar.Models
             return result;
         }
 
+        public int addCategory(Category cat)
+        {
+            this.m_db.Categories.Add(cat);
+            this.m_db.SaveChanges();
+            return cat.ID;
+        }
+
         // Get Video by categoryID
     }
 }
