@@ -143,6 +143,27 @@ namespace skjatextar.Migrations
                 }
                 );
 
+
+            context.Videos.AddOrUpdate(
+                p => p.Name,
+
+                new Models.Video{
+                   ID= 1,
+                    Name= "Batman",
+                },
+                new Models.Video{
+                    ID= 2,
+                    Name= "Superman",
+                },
+                new Models.Video{
+                    ID= 3,
+                    Name= "Harry potter 1",
+                },
+                new Models.Video{
+                    ID= 4,
+                    Name= "Harry potter 2",
+                }
+                );
         }
     }
 }
