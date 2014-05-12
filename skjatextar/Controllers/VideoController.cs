@@ -1,4 +1,4 @@
-﻿using skjatextar.Repos;
+﻿using skjatextar.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +33,19 @@ namespace skjatextar.Controllers
         }
 
         //
+        [HttpGet]
+        public ActionResult ViewVideo(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
+        {
+            if (id.HasValue)
+            {
+                int realid = id.Value;
+                VideoRepository repo = new VideoRepository();
+                var model = repo.GetVideoById(realid);
+                return View(model);
+            }
+            return View("Error");
+        }
+
         // GET: /Video/Details/5
         public ActionResult VideoDetails(int id)
         {
