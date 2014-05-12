@@ -142,6 +142,7 @@ namespace skjatextar.Migrations
                     DateLastEdited = DateTime.Parse("2014-05-07 16:58:00")
                 }
                 );
+
         }
     }
 }
