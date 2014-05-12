@@ -18,11 +18,11 @@ namespace skjatextar.Models
             return videos;
         }
 
-        public Video GetVideoById(int id)   // Tharf ad breyta thessu i GetAllTranslationsForThisVideoID
+        public IEnumerable<Translation> GetAllTranslationsForVideo(int id)   // Tharf ad breyta thessu i GetAllTranslationsForThisVideoID
         {
-            var result = (from s in m_db.Videos
-                         where s.ID == id
-                         select s).First();
+            var result = from s in m_db.Translations
+                         where s.VideoID == id
+                         select s;
 
             return result;
         }
