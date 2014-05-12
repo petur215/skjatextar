@@ -106,6 +106,8 @@ namespace skjatextar.Controllers
             return RedirectToAction("Edit");
         }
 
+       
+
         public IView translations { get; set; }
     }
 }
