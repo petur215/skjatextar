@@ -7,7 +7,7 @@ namespace skjatextar.Models
 {
     public class User
     {
-        public int UserID { get; set; }
+        public int ID { get; set; }
         String Username { get; set; }
         String Password { get; set; }
     }
