@@ -172,16 +172,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201405120155154_init.cs" />
-    <Compile Include="Migrations\201405120155154_init.Designer.cs">
-      <DependentUpon>201405120155154_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\TranslationViewModel.cs" />
+    <Compile Include="Repos\CommentRepository.cs" />
     <Compile Include="Repos\ITranslationRepository.cs" />
     <Compile Include="Models\Likes.cs" />
     <Compile Include="Models\Request.cs" />
@@ -262,11 +258,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201405120155154_init.resx">
-      <DependentUpon>201405120155154_init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
