@@ -15,7 +15,12 @@
                 <span class="field-validation-error" id="spanfile"></span>
             </li>
             <li>
-                @{Html.RenderPartial("Create");}
+                <select>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Name">@item.Name</option>
+                    }
+                </select> 
             </li>
         </ol>
         <input type="submit" id="btnSubmit" value="Upload" />

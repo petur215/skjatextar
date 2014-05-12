@@ -33,7 +33,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoadNewFile(HttpPostedFileBase Translation, Video s)
+        public ActionResult LoadNewFile(HttpPostedFileBase Translation, int ID)
         {
             IEnumerable<Video> videos = videorepo.GetAllVideos();
             if (ModelState.IsValid)
@@ -54,15 +54,16 @@ namespace skjatextar.Controllers
                     {
                         //TO:DO
                         var FileName = Path.GetFileName(Translation.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Uploads"), FileName);
+                        var path = Path.Combine(Server.MapPath("~/Uploads/test.srt"));
                         Translation.SaveAs(path);
                         ModelState.Clear();
                         Translation item = new Translation();
-                        item.Text = Translation.ToString();
+                        StreamReader file = new StreamReader(FileName);
+                        item.Text = file.ReadLine();
                         item.Title = Translation.FileName;
                         item.LikeCount = 0;
                         item.DateLastEdited = DateTime.Now;
-                        item.VideoID = s.ID;
+                        item.VideoID = 0;
                         repo.AddTranslation(item);
                         ViewBag.Message = "Það tókst að hlaða upp skránni";
                     }
