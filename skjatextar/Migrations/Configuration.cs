@@ -26,6 +26,7 @@ namespace skjatextar.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
             context.Translations.AddOrUpdate(
                            p => p.Title,
                            new Models.Translation
@@ -207,28 +208,28 @@ namespace skjatextar.Migrations
                 }
                 );
             context.Comments.AddOrUpdate(
-                   new Models.Comment
-                   {
-                       TranslationID = 1,
-                       UserID = 1,
-                       CommentText= "Geggjuð þýðing",
-                       commentDate= DateTime.Parse("2014-05-07 16:58:00"),
-                   },
-                   new Models.Comment
-                   {
-                       TranslationID = 2,
-                       UserID = 2,
-                       CommentText= "Mjög ánægður",
-                       commentDate= DateTime.Parse("2014-05-07 16:58:00"),
-                   },
-                   new Models.Comment
-                   {
-                       TranslationID = 3,
-                       UserID = 3,
-                       CommentText= "Much Comment",
-                       commentDate= DateTime.Parse("2014-05-07 16:58:00"),
-                   }
-                   );
+               new Models.Comment
+               {
+                   TranslationID = 1,
+                   UserID = 1,
+                   CommentText = "Góð lýsing!",
+                   commentDate = DateTime.Parse("2014-05-07 16:58:00"),
+               },
+               new Models.Comment
+               {
+                   TranslationID = 2,
+                   UserID = 2,
+                   CommentText = "Much Comment!",
+                   commentDate = DateTime.Parse("2014-05-07 16:58:00"),
+               },
+               new Models.Comment
+               {
+                   TranslationID = 3,
+                   UserID = 3,
+                   CommentText = "Ánægður með þetta!",
+                   commentDate = DateTime.Parse("2014-05-07 16:58:00"),
+               }
+               );
         }
     }
 }

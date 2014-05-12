@@ -1,0 +1,24 @@
+﻿@model  skjatextar.Models.Translation
+
+<h2>@Model.Title</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nafn</th>
+            <th>Síðast uppfært</th>
+            <th>Fjöldi like-a</th>
+            <th>Fjöldi þýðinga</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Title</td>
+            <td>@Model.DateLastEdited</td>
+            <td>@Model.LikeCount</td>
+        </tr>
+    </tbody>
+
+</table>
+
+@{Html.RenderPartial("ViewTranslation");}
