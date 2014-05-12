@@ -177,21 +177,21 @@ namespace skjatextar.Migrations
                     }
                 );
             context.Categories.AddOrUpdate(
-                p => p.Title,
-                new Models.Category
+                p => p.Category,
+                new Models.Categories
                 {
                     ID = 1,
-                    Title = "Spenna",
+                    Category = "Spenna",
                 },
-                new Models.Category
+                new Models.Categories
                 {
                     ID = 2,
-                    Title = "Drama",
+                    Category = "Drama",
                 },
-                new Models.Category
+                new Models.Categories
                 {
                     ID = 3,
-                    Title = "Gaman",
+                    Category = "Gaman",
                 }
                 );
             context.Comments.AddOrUpdate(

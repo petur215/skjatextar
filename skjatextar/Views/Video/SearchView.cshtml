@@ -1,0 +1,29 @@
+﻿@model IEnumerable<skjatextar.Models.Video>
+@{
+    ViewBag.Title = "SearchView";
+}
+
+<h2>SearchView</h2>
+
+<div class="content-translations">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th> ID </th>
+                <th> Name </th>
+                <th> CategoryID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td> item.ID </td>
+                    <td> item.Name </td>
+                    <td> item.CategoryID </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+

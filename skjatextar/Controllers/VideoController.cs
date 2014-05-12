@@ -32,6 +32,20 @@ namespace skjatextar.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult SearchView(string SearchWord)
+        {
+            var Videos = repo2.GetAllVideos();
+            var search = from m in Videos
+                         select m;
+
+            if (!String.IsNullOrEmpty(SearchWord))
+            {
+                search = search.Where(s => s.Name.Contains(SearchWord));
+            }
+            return View(search);
+        }
+
         //
         [HttpGet]
         public ActionResult ViewVideo(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.

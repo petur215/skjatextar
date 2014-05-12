@@ -7,7 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using System.IO;
-using skjatextar.Repos;
 
 namespace skjatextar.Controllers
 {
@@ -22,6 +21,8 @@ namespace skjatextar.Controllers
             return View(newest10);
         }
 
+        
+
         [HttpGet]
         public ActionResult LoadNewFile()
         {
@@ -35,7 +36,6 @@ namespace skjatextar.Controllers
             {
                 int realid = id.Value;
                 TranslationRepository repo3 = new TranslationRepository();
-                CommentRepository commentRepo = new CommentRepository();
                 var model = repo3.GetTranslationById(realid);
                 //var model = commentRepo.GetComments(); ???
 
@@ -74,8 +74,8 @@ namespace skjatextar.Controllers
                     }
                     //c.Username = strUser;
 
-                    CommentRepository commentRepo = new CommentRepository();
-                    commentRepo.AddComment(c);
+                    
+                    
                 }
                 else
                 {
@@ -111,10 +111,7 @@ namespace skjatextar.Controllers
             throw new NotImplementedException();
         }
 
-        [HttpGet]
-        public ActionResult SearchWindow();
-        {
-            //herna kemur einhver snidugur kodi :D :)
-        }
+        
+       
     }
 }
