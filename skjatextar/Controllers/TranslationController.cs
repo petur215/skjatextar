@@ -33,7 +33,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoadNewFile(HttpPostedFileBase Translation, int ID)
+        public ActionResult LoadNewFile(HttpPostedFileBase Translation)
         {
             IEnumerable<Video> videos = videorepo.GetAllVideos();
             if (ModelState.IsValid)
@@ -63,7 +63,7 @@ namespace skjatextar.Controllers
                         item.Title = Translation.FileName;
                         item.LikeCount = 0;
                         item.DateLastEdited = DateTime.Now;
-                        item.VideoID = 0;
+                        //item.VideoID = null;
                         repo.AddTranslation(item);
                         ViewBag.Message = "Það tókst að hlaða upp skránni";
                     }
