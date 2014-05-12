@@ -21,7 +21,12 @@ namespace skjatextar.Controllers
             return View(newest10);
         }
 
-        //
+        [HttpGet]
+        public ActionResult LoadNewFile()
+        {
+            return View(new TranslationViewModel());
+        }
+
         [HttpGet]
         public ActionResult ViewTranslation(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
         {
@@ -49,22 +54,7 @@ namespace skjatextar.Controllers
             Response.TransmitFile(Server.MapPath(filePath));
             Response.End();*/
         }
-        //
 
-        [HttpGet]
-        public ActionResult LoadNewFile()
-        {
-            return View(new TranslationViewModel());
-        }
-
-
-
-        /*public ActionResult LoadNewFile()
-        {
-            ViewBag.Message = "smuuu";
-
-            return View();
-        }*/
         public ActionResult Requests()
         {
             ViewBag.Message = "trolololololol";
