@@ -22,7 +22,15 @@ namespace skjatextar.Controllers
                          orderby r.RequestSent select r).Take(10);
             return View(newest);
         }
+        //GET
+        [HttpPost]
+        //[Authorize]
+        public PartialViewResult NewRequestButton()
+        {
 
+
+            return PartialView();
+        }
         //
         // GET: /Request/Details/5
         public ActionResult Details(int id)

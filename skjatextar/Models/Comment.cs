@@ -10,7 +10,8 @@ namespace skjatextar.Models
         public int ID { get; set; }
         public int TranslationID { get; set; }
         public int UserID { get; set; }
-        string CommentText { get; set; }
+        public string CommentText { get; set; }
+        public DateTime commentDate { get; set; }
 
     }
 }

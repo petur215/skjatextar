@@ -23,6 +23,8 @@ namespace skjatextar.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         TranslationID = c.Int(nullable: false),
                         UserID = c.Int(nullable: false),
+                        CommentText = c.String(),
+                        commentDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
