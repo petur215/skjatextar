@@ -18,6 +18,14 @@ namespace skjatextar.Models
 
             return result;
         }
+        public IEnumerable<Request> GetAllRequests()
+        {
+            var requests = from r in m_db.Requests
+                           orderby r.RequestSent  ascending
+                           select r;
+
+            return requests;
+        }
         public void AddRequest(Request s)
         {
             m_db.Requests.Add(s);
