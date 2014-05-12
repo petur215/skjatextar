@@ -15,10 +15,10 @@
                 <span class="field-validation-error" id="spanfile"></span>
             </li>
             <li>
-                <select>
+                <select name="ValinMynd">
                     @foreach (var item in Model)
                     {
-                        <option value="@item.Name">@item.Name</option>
+                        <option value="@item.Name" id="dropdownlisti">@item.Name</option>
                     }
                 </select> 
             </li>

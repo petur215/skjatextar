@@ -33,7 +33,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoadNewFile(HttpPostedFileBase Translation, int ID)
+        public ActionResult LoadNewFile(HttpPostedFileBase Translation)
         {
             IEnumerable<Video> videos = videorepo.GetAllVideos();
             if (ModelState.IsValid)
@@ -52,27 +52,29 @@ namespace skjatextar.Controllers
                     }
                     else
                     {
-                        //TO:DO
                         var FileName = Path.GetFileName(Translation.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Uploads/test.srt"));
+                        var path = Path.Combine(Server.MapPath("~/Uploads/"), FileName);
                         Translation.SaveAs(path);
                         ModelState.Clear();
                         Translation item = new Translation();
-                        StreamReader file = new StreamReader(FileName);
+                        StreamReader file = new StreamReader(path);
+                        UpdateModel(item);
                         item.Text = file.ReadLine();
                         item.Title = Translation.FileName;
                         item.LikeCount = 0;
                         item.DateLastEdited = DateTime.Now;
-                        item.VideoID = 0;
+                        string Name = Request.Form["ValinMynd"];
+                        file.Close();
+                        var choosenvid = videorepo.GetVideoByName(Name);
+                        item.VideoID = choosenvid.ID;
                         repo.AddTranslation(item);
-                        ViewBag.Message = "Það tókst að hlaða upp skránni";
+                        ViewBag.Message = ("Það Tókst að hlaða upp skránni");
                     }
                 }
             }
             return View(videos);
         }
- 
-
+        
         //
         // GET: /Translation/Edit/5
         public ActionResult Edit(int? id)

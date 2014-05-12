@@ -27,6 +27,14 @@ namespace skjatextar.Models
             return result;
         }
 
+        public Video GetVideoByName(string name)
+        {
+            var result = (from s in m_db.Videos
+                         where s.Name == name
+                         select s).FirstOrDefault();
+            return result;
+        }
+
         // Get Video by categoryID
     }
 }
