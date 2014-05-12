@@ -18,7 +18,7 @@ namespace skjatextar.Models
             return videos;
         }
 
-        public IEnumerable<Translation> GetAllTranslationsForVideo(int id)   // Tharf ad breyta thessu i GetAllTranslationsForThisVideoID
+        public IEnumerable<Translation> GetAllTranslationsForVideo(int id)   
         {
             var result = from s in m_db.Translations
                          where s.VideoID == id
