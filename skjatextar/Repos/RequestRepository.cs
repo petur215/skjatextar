@@ -34,6 +34,12 @@ namespace skjatextar.Models
             m_db.SaveChanges();
         }
 
+        public void AddLike(Likes s)
+        {
+            m_db.Likes.Add(s);
+            Save();
+        }
+
         public void Save()
         {
             m_db.SaveChanges();

@@ -21,14 +21,14 @@ namespace skjatextar.Repos
             return result;
         }
 
-        public Likes CheckLike(int id)
-        {
-            var result = (from c in m_db.Likes
-                          where c.UserID == id
-                          select c).FirstOrDefault();
+        //public Likes CheckLike(int id)
+        //{
+        //    var result = (from c in m_db.Likes
+        //                  where c.UserID == id
+        //                  select c).FirstOrDefault();
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public void AddLike(Likes c)
         {
