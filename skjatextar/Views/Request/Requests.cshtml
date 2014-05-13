@@ -9,7 +9,7 @@
 @Html.ActionLink("Senda inn fyrirspurn", "AddNewRequest", new { @class = "btn" })
 
 <div id="requestTable">
-    <table class="table table-bordered">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Fyrirspurnir</th>
@@ -18,15 +18,15 @@
             </tr>
         </thead>
         <tbody>
-          @foreach(var item in Model)
-          {
-              <tr>
-                  <td>@item.NewRequest</td>
-                  <td>@item.RequestSent</td>
-                  <td>@item.Username</td>
-              </tr>
-          }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NewRequest</td>
+                    <td>@item.RequestSent</td>
+                    <td>@item.Username</td>
+                </tr>
+            }
         </tbody>
-        
+
     </table>
 </div>

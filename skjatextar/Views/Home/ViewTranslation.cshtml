@@ -5,24 +5,13 @@
 
 <h2>@Model.Title</h2>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Titill</th>
-            <th>Texti</th>
-            <th>Síðast sent inn</th>
-            <th>Fjöldi like-a</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.Title</td>
-            <td>@Model.Text</td>
-            <td>@Model.DateLastEdited</td>
-            <td>@Model.LikeCount</td>
-        </tr>
-    </tbody>
-</table>
+<div>
+    @Model.Title
+    @Model.LikeCount
+    @Model.DateLastEdited
+    @Model.DeafCheck
+    @Model.Text
+</div>
 
 <br />
 @using (Html.BeginForm())
