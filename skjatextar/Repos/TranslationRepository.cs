@@ -60,6 +60,11 @@ namespace skjatextar.Models
             m_db.Translations.Add(s);
             Save();
         }
+        public void AddLike(Likes s)
+        {
+            m_db.Likes.Add(s);
+            Save();
+        }
         public int AllLikes(int id)
         {
             var result = (from s in m_db.Likes
