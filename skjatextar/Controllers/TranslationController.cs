@@ -33,6 +33,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult LoadNewFile(HttpPostedFileBase Translation)
         {
             IEnumerable<Video> videos = videorepo.GetAllVideos();
@@ -90,6 +91,7 @@ namespace skjatextar.Controllers
         //
         // POST: /Translation/Edit/5
         [HttpPost]
+        [Authorize]
         public ActionResult Edit(int? id, FormCollection FormData)
         {
             Translation item = repo.GetTranslationById(id.Value);//tekur upplýsingarnar með inní edit gluggan
