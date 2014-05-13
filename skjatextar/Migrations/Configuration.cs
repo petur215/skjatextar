@@ -16,7 +16,7 @@ namespace skjatextar.Migrations
         {
             //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
             //    context.People.AddOrUpdate(
@@ -272,7 +272,7 @@ namespace skjatextar.Migrations
                 new Models.Request
                 {
                     ID = 2,
-                    
+                   
                     LikeCount = 3,
                     Username = "PesiSvali",
                     NewRequest = "Mig langar i Shopaholic",
@@ -281,7 +281,7 @@ namespace skjatextar.Migrations
                 new Models.Request
                 {
                     ID = 3,
-                    
+                   
                     LikeCount = 10,
                     Username = "ToniToff",
                     NewRequest = "Nennir e-h ad gera ToyStory 2",
@@ -290,7 +290,7 @@ namespace skjatextar.Migrations
                 new Models.Request
                 {
                     ID = 4,
-                    
+                   
                     LikeCount = 4,
                     Username = "EinsiPungur",
                     NewRequest = "Nennir e-r ad thyda Mama Mia",
@@ -305,7 +305,8 @@ namespace skjatextar.Migrations
                     RequestSent = DateTime.Parse("2014-02-08 16:58:00")
                 }
                 );
-
+ 
         }
     }
 }
+

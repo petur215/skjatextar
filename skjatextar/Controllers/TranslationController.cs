@@ -94,16 +94,15 @@ namespace skjatextar.Controllers
         {
             Translation item = repo.GetTranslationById(id.Value);//tekur upplýsingarnar með inní edit gluggan
 
-            item.Title = FormData["Title"];
             item.Text = FormData["Text"];
 
-            if ((item.Title == "") || (item.Text == ""))//ef title eða text er tómt þá error
+            if (((item.Text == "")))//ef title eða text er tómt þá error
             {
                 return View("Error");
             }
             UpdateModel(item);
             repo.UpdateTranslation(item);
-
+            item.DateLastEdited = DateTime.Now;
             repo.Save();
             return RedirectToAction("Edit");
         }
