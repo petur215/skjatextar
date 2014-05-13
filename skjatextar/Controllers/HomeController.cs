@@ -20,16 +20,18 @@ namespace skjatextar.Controllers
         
         public ActionResult Index()
         {
-            var newest10 = repo.Newest10().Take(10).ToList(); // skilar nyjustu 10 þýðingunum
+            //var newest10 = repo.GetAllTranslations().Take(10).ToList(); // skilar nyjustu 10 þýðingunum
+            //return View(newest10);
+            IndexViewModel result = new IndexViewModel();
 
-            return View(newest10);
-        }
-
-        public ActionResult IndexPartial()
-        {
-            var top10 = repo.Top10().Take(10).ToList();   // skilar eftir fjölda likes
-
-            return View(top10);
+            result.Top10 = (from s in repo.GetAllTranslations()
+                               orderby s.LikeCount descending
+                               select s).Take(10);
+            result.Newest10 = (from r in repo.GetAllTranslations()
+                               orderby r.DateLastEdited descending
+                               select r).Take(10);
+                
+            return View(result);
         }
 
         [HttpGet]

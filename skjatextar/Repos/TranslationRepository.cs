@@ -13,7 +13,7 @@ namespace skjatextar.Models
         public IEnumerable<Translation> GetAllTranslations()
         {
             var translations = from s in m_db.Translations
-                               orderby s.DateLastEdited descending
+                               orderby s.ID descending
                                select s;
 
             return translations;

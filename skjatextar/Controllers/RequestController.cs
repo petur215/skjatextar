@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using skjatextar.Models;
+using skjatextar.Repos;
 
 namespace skjatextar.Controllers
 {
@@ -30,6 +31,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
+        //[Authorize]
         public ActionResult AddNewRequest(FormCollection formData)
         {
             //RequestViewModel r = new RequestViewModel();
@@ -44,15 +46,27 @@ namespace skjatextar.Controllers
             return RedirectToAction("Requests");
         }
 
-        //GET
-        [HttpPost]
-        //[Authorize]
-        public PartialViewResult NewRequestButton()
+        public ActionResult GetLikes(int likeID)
         {
+            LikeRepository likeRepo = new LikeRepository();
+            var likes = likeRepo.GetLikesById(likeID);
+            //var newlikes = from c in likes
+            //               select new { ID = c.ID };
 
-
-            return PartialView();
+            return Json(likes, JsonRequestBehavior.AllowGet); 
         }
+
+        [HttpPost]
+        public ActionResult Likes(int likeID)
+        {
+            Likes c = new Likes();
+            c.UserID = likeID;
+
+
+            return View();
+        }
+
+
         //
         // GET: /Request/Details/5
         public ActionResult Details(int id)

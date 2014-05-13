@@ -181,12 +181,14 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\RequestViewModel.cs" />
     <Compile Include="Models\TranslationViewModel.cs" />
     <Compile Include="Repos\CommentRepository.cs" />
     <Compile Include="Repos\ITranslationRepository.cs" />
     <Compile Include="Models\Likes.cs" />
     <Compile Include="Models\Request.cs" />
+    <Compile Include="Repos\LikeRepository.cs" />
     <Compile Include="Repos\RequestRepository.cs" />
     <Compile Include="Models\Translation.cs" />
     <Compile Include="Models\AppDataContext.cs" />
@@ -218,7 +220,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\Scripts.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -256,7 +257,6 @@
     <Content Include="Views\Video\ViewVideo.cshtml" />
     <Content Include="Views\Request\AddNewRequest.cshtml" />
     <Content Include="Views\Request\CreateNewRequestPartial.cshtml" />
-    <Content Include="Views\Home\IndexPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
