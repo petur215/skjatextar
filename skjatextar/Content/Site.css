@@ -132,10 +132,19 @@ input[type="checkbox"].input-validation-error {
     margin-top:10px;
 }
 
-.content-home{
+.content-homeN{
     font-size:12px;
     width: 20%;
     height:5%;
+    margin-left:144px;
+    position:absolute;
+}
+.content-homeP{
+    font-size:12px;
+    width: 20%;
+    height:5%;
+    margin-left: 420px;
+    margin-top: 1px;
 }
 .GetTranslationById
 {
