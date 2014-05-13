@@ -30,6 +30,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult AddNewRequest(FormCollection formData)
         {
             //RequestViewModel r = new RequestViewModel();
