@@ -13,7 +13,7 @@ namespace skjatextar.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201405131959477_init"; }
+            get { return "201405132012581_init"; }
         }
         
         string IMigrationMetadata.Source

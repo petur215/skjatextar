@@ -56,15 +56,15 @@ namespace skjatextar.Controllers
             return Json(likes, JsonRequestBehavior.AllowGet); 
         }
 
-        [HttpPost]
-        public ActionResult Likes(int likeID)
-        {
-            Likes c = new Likes();
-            c.UserID = likeID;
+        //[HttpPost]
+        //public ActionResult Likes(int likeID)
+        //{
+        //    Likes c = new Likes();
+        //    c.UserID = likeID;
 
 
-            return View();
-        }
+        //    return View();
+        //}
 
 
         //
