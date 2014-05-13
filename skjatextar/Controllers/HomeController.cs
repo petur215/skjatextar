@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Net;
 using System.IO;
 using skjatextar.Repos;
+using skjatextar.DAL;
 using System.Text;
 
 
@@ -19,9 +20,16 @@ namespace skjatextar.Controllers
         
         public ActionResult Index()
         {
-            var newest10 = repo.GetAllTranslations().Take(10).ToList(); // skilar nyjustu 10 þýðingunum
+            var newest10 = repo.Newest10().Take(10).ToList(); // skilar nyjustu 10 þýðingunum
 
             return View(newest10);
+        }
+
+        public ActionResult IndexPartial()
+        {
+            var top10 = repo.Top10().Take(10).ToList();   // skilar eftir fjölda likes
+
+            return View(top10);
         }
 
         [HttpGet]
@@ -55,12 +63,12 @@ namespace skjatextar.Controllers
             content = content.Replace("@", System.Environment.NewLine);
             var byteArray = Encoding.ASCII.GetBytes(content);
             var stream = new MemoryStream(byteArray);
-            
+
             return File(stream, "text/plain", s.Title + ".srt");
         }
         [HttpPost]
         public ActionResult LikeFunction(int id)
-        {
+            {
             Likes item = new Likes();
             item.TranslationID = id;
             var model = repo.GetTranslationById(id);
