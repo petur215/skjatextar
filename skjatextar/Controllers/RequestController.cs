@@ -26,7 +26,6 @@ namespace skjatextar.Controllers
         [HttpGet]
         public ActionResult AddNewRequest()
         {
-
             return View();
         }
 
