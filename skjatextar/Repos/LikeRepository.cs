@@ -24,7 +24,7 @@ namespace skjatextar.Repos
         //public Likes CheckLike(int id)
         //{
         //    var result = (from c in m_db.Likes
-        //                  where c. == id
+        //                  where c.UserID == id
         //                  select c).FirstOrDefault();
 
         //    return result;

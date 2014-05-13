@@ -23,8 +23,7 @@
             <p>
                 <span class="text-muted">@item.RequestSent.ToString("dd. MMMM HH:mm") - </span>
                 <!-- Like takki -->
-                <span >@Html.ActionLink("Like", "LikeRequest", new { id = item.ID })</span><span class="glyphicon glyphicon-thumbs-up"></span>
-                @*<a class="like-request data-requestid" href="#"> Like <span class="glyphicon glyphicon-thumbs-up"></span></a>*@
+                <span > @Html.ActionLink("Like", "Requests", "Request", new { id = item.ID })</span><span class="glyphicon glyphicon-thumbs-up"></span>
             </p>
             <ul class="list-unstyled likes-for-id">
                 
