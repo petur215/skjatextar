@@ -183,7 +183,6 @@
     <Compile Include="Repos\ITranslationRepository.cs" />
     <Compile Include="Models\Likes.cs" />
     <Compile Include="Models\Request.cs" />
-    <Compile Include="Repos\LikeRepository.cs" />
     <Compile Include="Repos\RequestRepository.cs" />
     <Compile Include="Models\Translation.cs" />
     <Compile Include="Models\AppDataContext.cs" />
