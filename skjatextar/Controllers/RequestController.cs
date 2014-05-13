@@ -26,14 +26,22 @@ namespace skjatextar.Controllers
         [HttpGet]
         public ActionResult AddNewRequest()
         {
-            return View();
+            return View(new RequestViewModel());
         }
 
         [HttpPost]
-        public ActionResult AddNewRequest(int id)
+        public ActionResult AddNewRequest(FormCollection formData)
         {
+            //RequestViewModel r = new RequestViewModel();
+            //UpdateModel(r);
+            Request r = new Request();
+            UpdateModel(r);
+            RequestRepository repo = new RequestRepository();
+            repo.AddRequest(r);
+            repo.Save();
 
-            return View();
+
+            return RedirectToAction("Requests");
         }
 
         //GET

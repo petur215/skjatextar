@@ -26,14 +26,17 @@ namespace skjatextar.Models
 
             return requests;
         }
+        
         public void AddRequest(Request s)
         {
             m_db.Requests.Add(s);
             m_db.SaveChanges();
         }
+
         public void Save()
         {
             m_db.SaveChanges();
         }
+
     }
 }
