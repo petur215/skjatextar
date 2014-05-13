@@ -21,7 +21,7 @@
                     Atkvæði:
                 </td>
                 <td>
-                    <div>@Model.LikeCount @Html.Partial("LikeFunction")</div>
+                    <div>@Model.LikeCount @Html.ActionLink("LikeFunction", "ViewTranslation", "Home", new { id = Model.ID })</div>
                 </td>
             </tr>
             <tr>
