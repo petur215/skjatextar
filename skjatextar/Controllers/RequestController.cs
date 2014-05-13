@@ -24,17 +24,19 @@ namespace skjatextar.Controllers
             return View(newest);
         }
 
-        [HttpPost]
-        public ActionResult LikeFunction(int id)
+        [HttpGet]
+        public ActionResult LikeFunction(int? id)
         {
             Likes item = new Likes();
             UpdateModel(item);
-            item.RequestID = id;
+            item.RequestID = id.Value;
             item.UserName = User.Identity.Name;
             Repoo.AddLike(item);
 
-            return View("Requests");
+            return RedirectToAction("Requests", new { ID = id.Value });
         }
+
+
 
         [HttpGet]
         public ActionResult AddNewRequest()
