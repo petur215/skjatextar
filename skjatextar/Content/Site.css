@@ -16,6 +16,15 @@ textarea {
     max-width: 280px;
 }
 
+.table-borderedTop{
+    width:40%;
+    position:absolute;
+}
+.table-borderedNewest{
+    width:40%;
+    margin-left:535px;
+}
+
 /* styles for validation helpers */
 .field-validation-error {
     color: #b94a48;
