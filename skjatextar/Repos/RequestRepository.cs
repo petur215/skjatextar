@@ -18,6 +18,7 @@ namespace skjatextar.Models
 
             return result;
         }
+
         public IEnumerable<Request> GetAllRequests()
         {
             var requests = from r in m_db.Requests
@@ -37,6 +38,8 @@ namespace skjatextar.Models
         {
             m_db.SaveChanges();
         }
+
+       
 
     }
 }

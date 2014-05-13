@@ -2,13 +2,39 @@
 @{
     ViewBag.Title = "Fyrirspurnir";
 }
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/Scripts.js")"></script>
+}
 
 <h2>Fyrirspurnir</h2>
 
-@*<button class="btnAddNewRequest">Senda inn fyrirspurn</button>*@
 @Html.ActionLink("Senda inn fyrirspurn", "AddNewRequest", new { @class = "btn" })
 
-<div id="requestTable">
+<ul class="list-group comments">
+    @foreach(var item in Model)
+    {
+        <li class="list-group-item">
+            <p>
+                <span class="glyphicon glyphicon-user"></span>
+                <span class="text-primary">@Html.DisplayFor(modelItem => item.Username)</span>
+                <span>@Html.DisplayFor(modelItem => item.NewRequest) </span>
+            </p>
+            <p>
+                <span class="text-muted">@item.RequestSent.ToString("dd. MMMM HH:mm") - </span>
+                <!-- Like takki -->
+                <span>@Html.ActionLink("Like", "LikeRequest", new { id = item.ID })</span>
+                <a class="like-request data-requestid" href="#"> Like <span class="glyphicon glyphicon-thumbs-up"></span></a>
+            </p>
+            <ul class="list-unstyled likes-for-id">
+                
+            </ul>
+        </li>
+
+    }
+</ul>
+
+@*<div id="requestTable">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -29,4 +55,4 @@
         </tbody>
 
     </table>
-</div>
+</div>*@
