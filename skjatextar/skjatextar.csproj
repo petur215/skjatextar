@@ -181,6 +181,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\RequestViewModel.cs" />
     <Compile Include="Models\TranslationViewModel.cs" />
     <Compile Include="Repos\CommentRepository.cs" />
     <Compile Include="Repos\ITranslationRepository.cs" />

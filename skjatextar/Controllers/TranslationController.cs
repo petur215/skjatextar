@@ -96,7 +96,7 @@ namespace skjatextar.Controllers
 
             item.Text = FormData["Text"];
 
-            if (((item.Text == ""))//ef title eða text er tómt þá error
+            if (((item.Text == "")))//ef title eða text er tómt þá error
             {
                 return View("Error");
             }
