@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Net;
 using System.IO;
 using skjatextar.Repos;
+using skjatextar.DAL;
 
 namespace skjatextar.Controllers
 {
@@ -17,9 +18,16 @@ namespace skjatextar.Controllers
         
         public ActionResult Index()
         {
-            var newest10 = repo.GetAllTranslations().Take(10).ToList(); // skilar nyjustu 10 þýðingunum
+            var newest10 = repo.Newest10().Take(10).ToList(); // skilar nyjustu 10 þýðingunum
 
             return View(newest10);
+        }
+
+        public ActionResult IndexPartial()
+        {
+            var top10 = repo.Top10().Take(10).ToList();   // skilar eftir fjölda likes
+
+            return View(top10);
         }
 
         [HttpGet]

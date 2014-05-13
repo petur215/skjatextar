@@ -25,21 +25,4 @@
         </table>
     </div>
 
-    <div class="content-homeP">
-        <table class="table table-bordered2">
-            <thead>
-                <tr>
-                    <th class="translations">Vinsælast</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-
+    @Html.Partial("IndexPartial");
