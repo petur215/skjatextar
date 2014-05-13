@@ -18,14 +18,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.LikeCount, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LikeCount)
-                @Html.ValidationMessageFor(model => model.LikeCount)
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.NewRequest, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.NewRequest)
