@@ -24,6 +24,18 @@ namespace skjatextar.Controllers
             return View(newest);
         }
 
+        [HttpPost]
+        public ActionResult LikeFunction(int id)
+        {
+            Likes item = new Likes();
+            UpdateModel(item);
+            item.RequestID = id;
+            item.UserName = User.Identity.Name;
+            Repoo.AddLike(item);
+
+            return View("Requests");
+        }
+
         [HttpGet]
         public ActionResult AddNewRequest()
         {
@@ -37,6 +49,7 @@ namespace skjatextar.Controllers
             
             Request r = new Request();
             UpdateModel(r);
+            r.Username = User.Identity.Name;
             RequestRepository repo = new RequestRepository();
             repo.AddRequest(r);
             repo.Save();
