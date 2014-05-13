@@ -35,11 +35,11 @@ namespace skjatextar.Controllers
         [HttpGet]
         public ActionResult SearchView(string SearchWord)
         {
-            var Videos = repo2.GetAllVideos();
+            var Videos = repo2.GetAllVideos(); //Listi yfir oll video
             var search = from m in Videos
                          select m;
 
-            if (!String.IsNullOrEmpty(SearchWord))
+            if (!String.IsNullOrEmpty(SearchWord)) //Ef fallid faer inn streng keyrir tetta fall
             {
                 search = search.Where(s => s.Name.Contains(SearchWord));
             }
