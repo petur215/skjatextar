@@ -26,25 +26,20 @@ namespace skjatextar.Controllers
         [HttpGet]
         public ActionResult AddNewRequest()
         {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult AddNewRequest(int id)
-        {
 
             return View();
         }
 
-        //GET
         [HttpPost]
-        //[Authorize]
-        public PartialViewResult NewRequestButton()
+        public ActionResult AddNewRequest(int id, string newRequest)
         {
+            var req = new Request();
+            req.NewRequest = newRequest;
+           
 
-
-            return PartialView();
+            return View();
         }
+
         //
         // GET: /Request/Details/5
         public ActionResult Details(int id)
