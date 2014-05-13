@@ -19,7 +19,6 @@ namespace skjatextar.Models
             return translations;
         }
 
-        
         public IEnumerable<Translation> Top10()
         {
             var result = (from s in m_db.Translations
