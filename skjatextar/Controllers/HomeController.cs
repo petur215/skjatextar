@@ -9,6 +9,8 @@ using System.Net;
 using System.IO;
 using skjatextar.Repos;
 using skjatextar.DAL;
+using System.Text;
+
 
 namespace skjatextar.Controllers
 {
@@ -45,59 +47,38 @@ namespace skjatextar.Controllers
             {
                 int realid = id.Value;
                 TranslationRepository repo3 = new TranslationRepository();
-                CommentRepository commentRepo = new CommentRepository();
                 var model = repo3.GetTranslationById(realid);
                 //var model = commentRepo.GetComments(); ???
-
+                model.LikeCount = repo.AllLikes(realid);
                 return View(model);
             }
             return View("Error");
         }
-
-        [HttpPost]
-        public void ViewTranslation(int id, object sender, EventArgs e, FormCollection formData)
+        public FileStreamResult DownloadTranslation(int? id)
         {
-            Translation s = repo.GetTranslationById(id);
+            Translation s = repo.GetTranslationById(id.Value);
             // Write the string to a file.
-            StreamWriter file = new StreamWriter("c:/Users/Petur/Documents/prufa/test.srt");
+            StreamWriter file = new StreamWriter("~/Uploads/test.srt");
             file.WriteLine(s.Text);
             file.Close();
-            /*string filePath = lblFilename.Text;
+            var content = s.Text;
+            content = content.Replace("@", System.Environment.NewLine);
+            var byteArray = Encoding.ASCII.GetBytes(content);
+            var stream = new MemoryStream(byteArray);
 
-            Response.AddHeader("Content-Disposition", "attachment;filename=\"" + filePath + "\"");
-            Response.TransmitFile(Server.MapPath(filePath));
-            Response.End();*/
-
-            String strComment = formData["CommentText"];
-            if (!String.IsNullOrEmpty(strComment))
-            {
-                Comment c = new Comment();
-
-                c.CommentText = strComment;
-                String strUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-                if (!String.IsNullOrEmpty(strUser))
-                {
-                    int slashPos = strUser.IndexOf("\\");
-                    if (slashPos != -1)
-                    {
-                        strUser = strUser.Substring(slashPos + 1);
-                    }
-                    //c.Username = strUser;
-
-                    CommentRepository commentRepo = new CommentRepository();
-                    commentRepo.AddComment(c);
-                }
-                else
-                {
-                    //c.Username = "Unknown user";
-                }
-            }
-            else
-            {
-                ModelState.AddModelError("CommentText", "Comment text cannot be empty!");
-            }
+            return File(stream, "text/plain", s.Title + ".srt");
         }
+        [HttpPost]
+        public ActionResult LikeFunction(int id)
+            {
+            Likes item = new Likes();
+            item.TranslationID = id;
+            var model = repo.GetTranslationById(id);
+            model.LikeCount = repo.AllLikes(id);
+            repo.Save();
 
+            return View("ViewTranslation");
+        }
         public ActionResult Requests()
         {
             ViewBag.Message = "trolololololol";
