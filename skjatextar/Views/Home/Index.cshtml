@@ -1,45 +1,44 @@
-﻿@model IEnumerable<skjatextar.Models.Translation>
+﻿@model skjatextar.Models.IndexViewModel
 @{
     ViewBag.Title = "Home Page";
 }
 
 <h2>Skjátextar</h2>
-    <div class="table-header-home">
-        <span>Nýjustu 10</span>
-    </div>
-    <div class="content-homeN">
-        <table class="table table-bordered">
-            <thead>
+<div class="table-header-home">
+    <span></span>
+</div>
+<div class="content-home">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="translations">Top 10</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Top10)
+            {
                 <tr>
-                    <th class="translations">Nýjustu 10</th>
+                    <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                   <tr>
-                        <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
-                   </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+            }
+        </tbody>
+    </table>
+</div>
 
-    <div class="content-homeP">
-        <table class="table table-bordered2">
-            <thead>
+<div class="content-home">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="translations">Nýjustu 10</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Newest10)
+            {
                 <tr>
-                    <th class="translations">Vinsælast</th>
+                    <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-
+            }
+        </tbody>
+    </table>
+</div>

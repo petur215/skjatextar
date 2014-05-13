@@ -12,8 +12,8 @@ namespace skjatextar.Models
 
         public IEnumerable<Translation> GetAllTranslations()
         {
-             var translations = from s in m_db.Translations
-                               orderby s.DateLastEdited descending
+            var translations = from s in m_db.Translations
+                               orderby s.ID descending
                                select s;
 
             return translations;
@@ -23,6 +23,15 @@ namespace skjatextar.Models
         {
             var result = (from s in m_db.Translations
                           orderby s.LikeCount descending
+                          select s);
+
+            return result;
+        }
+
+        public IEnumerable<Translation> Newest10()
+        {
+            var result = (from s in m_db.Translations
+                          orderby s.DateLastEdited descending
                           select s).Take(10);
 
             return result;
@@ -51,7 +60,13 @@ namespace skjatextar.Models
             m_db.Translations.Add(s);
             Save();
         }
-
+        public int AllLikes(int id)
+        {
+            var result = (from s in m_db.Likes
+                          where s.TranslationID == id
+                          select s).Count();
+            return result;
+        }
         public void Save()
         {
             m_db.SaveChanges();
