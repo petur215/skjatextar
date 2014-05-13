@@ -31,11 +31,10 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public ActionResult AddNewRequest(FormCollection formData)
         {
-            //RequestViewModel r = new RequestViewModel();
-            //UpdateModel(r);
+            
             Request r = new Request();
             UpdateModel(r);
             RequestRepository repo = new RequestRepository();
@@ -46,25 +45,7 @@ namespace skjatextar.Controllers
             return RedirectToAction("Requests");
         }
 
-        public ActionResult GetLikes(int likeID)
-        {
-            LikeRepository likeRepo = new LikeRepository();
-            var likes = likeRepo.GetLikesById(likeID);
-            //var newlikes = from c in likes
-            //               select new { ID = c.ID };
-
-            return Json(likes, JsonRequestBehavior.AllowGet); 
-        }
-
-        [HttpPost]
-        public ActionResult Likes(int likeID)
-        {
-            Likes c = new Likes();
-            c.UserID = likeID;
-
-
-            return View();
-        }
+       
 
 
         //
