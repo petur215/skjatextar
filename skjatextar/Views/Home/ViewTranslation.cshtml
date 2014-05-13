@@ -6,11 +6,42 @@
 <h2>@Model.Title</h2>
 
 <div>
-    @Model.Title
-    @Model.LikeCount
-    @Model.DateLastEdited
-    @Model.DeafCheck
-    @Model.Text
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    Nafn:
+                </td>
+                <td>
+                    @Model.Title
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Atkvæði:
+                </td>
+                <td>
+                    @Model.LikeCount
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Síðast uppfært:
+                </td>
+                <td>
+                    @Model.DateLastEdited
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Sérstaklega fyrir heyrnalausa: 
+                </td>
+                <td>
+                    @Model.DeafCheck
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <br />
@@ -24,4 +55,5 @@
         </div>
     </div>
 }
+@Html.ActionLink("Breyta þessari þýðingu" , "Edit", "Translation", new { id = Model.ID }, null)
 

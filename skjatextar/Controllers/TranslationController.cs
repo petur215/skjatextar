@@ -103,7 +103,7 @@ namespace skjatextar.Controllers
             }
             UpdateModel(item);
             repo.UpdateTranslation(item);
-
+            item.DateLastEdited = DateTime.Now;
             repo.Save();
             return RedirectToAction("Edit");
         }
