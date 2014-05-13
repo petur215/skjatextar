@@ -51,7 +51,13 @@ namespace skjatextar.Models
             m_db.Translations.Add(s);
             Save();
         }
-
+        public int AllLikes(int id)
+        {
+            var result = (from s in m_db.Likes
+                          where s.TranslationID == id
+                          select s).Count();
+            return result;
+        }
         public void Save()
         {
             m_db.SaveChanges();

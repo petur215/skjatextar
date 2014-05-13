@@ -256,6 +256,7 @@
     <Content Include="Views\Video\ViewVideo.cshtml" />
     <Content Include="Views\Request\AddNewRequest.cshtml" />
     <Content Include="Views\Request\CreateNewRequestPartial.cshtml" />
+    <Content Include="Views\Home\LikeFunction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
