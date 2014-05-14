@@ -17,7 +17,7 @@ namespace skjatextar.Controllers
             var display = from n in videos
                           orderby n.Name
                           select n;
-            return View(display);
+            return View(videos);
         }
         //
         // GET: /Video/
@@ -109,5 +109,19 @@ namespace skjatextar.Controllers
             }                                                            //sem innihalda strenginn
             return View(search);
         }
+
+        public ActionResult Categories(int? id)
+        {
+            if(id.HasValue)
+            {
+                var realid = id.Value;
+                var cat = repo2.GetVideosByCategory(realid);
+
+            }
+            
+            return View();
+        }
+
+
     }
 }

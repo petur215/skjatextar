@@ -18,6 +18,16 @@ namespace skjatextar.Models
             return videos;
         }
 
+        public IEnumerable<Video> GetVideosByCategory(int id)
+        {
+            var videos = from s in m_db.Videos
+                         where s.CategoryID == id
+                         orderby s.Name ascending
+                         select s;
+
+            return videos;
+        }
+
         public IEnumerable<Translation> GetAllTranslationsForVideo(int id)   
         {
             var result = from s in m_db.Translations

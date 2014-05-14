@@ -14,11 +14,10 @@ namespace skjatextar.Controllers
         RequestRepository Repoo = new RequestRepository();
         
         //
-        // GET: /Request/
+        // GET: /Request/Requests
         public ActionResult Requests(int? id)
         {
             var requests = Repoo.GetAllRequests();
-            
             foreach(var i in requests)
             {
                 i.LikeCount = Repoo.CountAllLikes(i.ID);
@@ -29,6 +28,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult LikeFunction(int? id)
         {
             if (!Repoo.LikeFound(User.Identity.Name, id.Value))
@@ -63,7 +63,6 @@ namespace skjatextar.Controllers
             RequestRepository repo = new RequestRepository();
             repo.AddRequest(r);
             repo.Save();
-
 
             return RedirectToAction("Requests");
         }

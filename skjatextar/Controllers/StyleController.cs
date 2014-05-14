@@ -20,7 +20,7 @@ namespace skjatextar.Controllers
         public ActionResult Index(int? page)
         {
             var videos = db.Videos.Include(v => v.Category).OrderBy(s => s.Name);
-            if(Request.HttpMethod != "GET")
+            if (Request.HttpMethod != "GET")
             {
                 page = 1;
             }
@@ -56,7 +56,7 @@ namespace skjatextar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,Name,CategoryID")] Video video)
+        public ActionResult Create([Bind(Include = "ID,Name,CategoryID")] Video video)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace skjatextar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,Name,CategoryID")] Video video)
+        public ActionResult Edit([Bind(Include = "ID,Name,CategoryID")] Video video)
         {
             if (ModelState.IsValid)
             {

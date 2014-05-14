@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
@@ -258,6 +259,14 @@
     <Content Include="Views\Request\CreateNewRequestPartial.cshtml" />
     <Content Include="Views\Home\LikeFunction.cshtml" />
     <Content Include="Views\Home\AddComment.cshtml" />
+    <Content Include="Views\Video\Categories.cshtml" />
+    <Content Include="Views\Style\Create.cshtml" />
+    <Content Include="Views\Style\Delete.cshtml" />
+    <Content Include="Views\Style\Details.cshtml" />
+    <Content Include="Views\Style\Edit.cshtml" />
+    <Content Include="Views\Style\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

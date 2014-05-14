@@ -15,6 +15,8 @@ namespace skjatextar.Controllers
         TranslationRepository repo = new TranslationRepository();
         VideoRepository videorepo = new VideoRepository();
 
+        
+
         [HttpGet]
         public ActionResult LoadNewFile()
         {
