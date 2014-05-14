@@ -18,10 +18,10 @@
                 <select name="ValinMynd">
                     @foreach (var item in Model)
                     {
-                        <option value="@item.Name" id="dropdownlisti">@item.Name</option>
-                        
+                        <option value="@item.Name" id="dropdownlisti" class="VideoDropdown">@item.Name</option>
                     }
                 </select> 
+                @Html.ActionLink("Ef mynd er ekki í lista ýttu hér", "CreateVideo", "Video", new{}, null)
             </li>
         </ol>
         <input type="submit" id="btnSubmit" value="Upload" />

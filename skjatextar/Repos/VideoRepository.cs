@@ -17,6 +17,30 @@ namespace skjatextar.Models
                          select s;
             return videos;
         }
+        public IEnumerable<Category> GetAllCategories()
+        {
+            var result = from s in m_db.Categories
+                             orderby s.Title ascending
+                             select s;
+            return result;
+        }
+        public Category GetCategoryByName(string name)
+        {
+            var result = (from s in m_db.Categories
+                          where s.Title == name
+                          select s).FirstOrDefault();
+            return result;
+        }
+
+        public IEnumerable<Video> GetVideosByCategory(int id)
+        {
+            var videos = from s in m_db.Videos
+                         where s.CategoryID == id
+                         orderby s.Name ascending
+                         select s;
+
+            return videos;
+        }
 
         public IEnumerable<Video> SearchVideos(string LeitarStrengur)
         {
@@ -68,13 +92,15 @@ namespace skjatextar.Models
                          select s).Count();
             return count;
         }
-    //    public IEnumerable<Video> AllToLower()
-    //    {
-    //        var ToLowerCase = (from s in m_db.Videos
-    //                           orderby s.Name ascending
-    //                           select s);
-
-    //       return ToLowerCase;
-    //    }
+        public int AddVideo(Video v)
+        {
+            this.m_db.Videos.Add(v);
+            this.m_db.SaveChanges();
+            return v.ID;
+        }
+          public void Save()
+        {
+            m_db.SaveChanges();
+        }
     }
 }

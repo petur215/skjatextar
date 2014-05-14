@@ -21,8 +21,6 @@ namespace skjatextar.Controllers
         
         public ActionResult Index()
         {
-            //var newest10 = repo.GetAllTranslations().Take(10).ToList(); // skilar nyjustu 10 þýðingunum
-            //return View(newest10);
             IndexViewModel result = new IndexViewModel();
 
             result.Top10 = (from s in repo.GetAllTranslations()
@@ -68,6 +66,7 @@ namespace skjatextar.Controllers
             return File(stream, "text/plain", s.Title + ".srt");
         }
         [HttpGet]
+        [Authorize]
         public ActionResult LikeFunction(int? id)
         {
             if(!repo.LikeFound(User.Identity.Name, id.Value))

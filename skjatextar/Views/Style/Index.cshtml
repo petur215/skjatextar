@@ -1,17 +1,30 @@
 ﻿@*model IEnumerable<skjatextar.Models.Video>*@
-@model PagedList.IPagedList<skjatextar.Models.Video>
+@model PagedList.IPagedList<skjatextar.Models.CategoryViewModel>
 @{
     ViewBag.Title = "Myndefni";
 }
 
 <h2>Myndefni</h2>
 
-@using (Html.BeginForm("SearchView", "Video", @FormMethod.Get))
+<table>
+    <tbody>
+        @foreach( var item in Model)
+        {
+            <tr>
+                @*<td>@Html.ActionLink(item.ThoseCategories.Title , "Categories", "Video")</td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+@using (Html.BeginForm("SearchView", "Video", @FormMethod.Get, new { @class = "form-search" }))
 {
-    <form>
-        @Html.TextBox("LeitarStrengur", null, new { @class = "input-medium-search-query", @type = "Sláðu inn leitarstreng" })
-        <input type="submit" value="Leita" />
-    </form>
+    <div class="input-append">
+
+        @Html.TextBox("LeitarStrengur", null, new { @class = "span2 search-query", @type = "text" })
+        <button type="submit" class="submitTakki"><span class="glyphicon glyphicon-search"></span></button>
+
+    </div>
 }
 
 <p>
@@ -38,12 +51,7 @@
 
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Category.Title)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Model.ThoseVideos.Category.Title
         </td>
     </tr>
 }
