@@ -10,5 +10,6 @@ namespace skjatextar.Models
         public Translation ThisTranslation { get; set; }
         public IEnumerable<Comment> ThoseComments { get; set; }
         public Comment ThisComment { get; set; }
+ 
     }
 }

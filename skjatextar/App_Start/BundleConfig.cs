@@ -25,7 +25,7 @@ namespace skjatextar
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/PeturCustoms.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
         }
     }
 }

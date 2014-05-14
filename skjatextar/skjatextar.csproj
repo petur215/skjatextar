@@ -181,14 +181,15 @@
       <DependentUpon>201405141448578_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ViewModel\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\IndexViewModel.cs" />
-    <Compile Include="Models\RequestViewModel.cs" />
-    <Compile Include="Models\TranslationAndCommentViewModel.cs" />
-    <Compile Include="Models\TranslationViewModel.cs" />
+    <Compile Include="Models\ViewModel\IdentityModels.cs" />
+    <Compile Include="Models\ViewModel\IndexViewModel.cs" />
+    <Compile Include="Models\ViewModel\NewVideoViewModel.cs" />
+    <Compile Include="Models\ViewModel\RequestViewModel.cs" />
+    <Compile Include="Models\ViewModel\TranslationAndCommentViewModel.cs" />
+    <Compile Include="Models\ViewModel\TranslationViewModel.cs" />
     <Compile Include="Repos\CommentRepository.cs" />
     <Compile Include="Repos\ITranslationRepository.cs" />
     <Compile Include="Models\Likes.cs" />
@@ -226,6 +227,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\coollogo_com-144771999.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -263,10 +265,10 @@
     <Content Include="Views\Request\CreateNewRequestPartial.cshtml" />
     <Content Include="Views\Home\LikeFunction.cshtml" />
     <Content Include="Views\Home\AddComment.cshtml" />
+    <Content Include="Views\Video\CreateVideo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

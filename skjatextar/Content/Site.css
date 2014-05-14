@@ -182,3 +182,7 @@ input[type="checkbox"].input-validation-error {
     text-decoration-color: red;
     text-align: center;
 }
+.VideoDropdown
+{
+    color: black;
+}
