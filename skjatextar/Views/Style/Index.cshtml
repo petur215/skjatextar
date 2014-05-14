@@ -1,10 +1,21 @@
 ﻿@*model IEnumerable<skjatextar.Models.Video>*@
-@model PagedList.IPagedList<skjatextar.Models.Video>
+@model PagedList.IPagedList<skjatextar.Models.CategoryViewModel>
 @{
     ViewBag.Title = "Myndefni";
 }
 
 <h2>Myndefni</h2>
+
+<table>
+    <tbody>
+        @foreach( var item in Model)
+        {
+            <tr>
+                @*<td>@Html.ActionLink(item.ThoseCategories.Title , "Categories", "Video")</td>*@
+            </tr>
+        }
+    </tbody>
+</table>
 
 @using (Html.BeginForm("SearchView", "Video", @FormMethod.Get, new { @class = "form-search" }))
 {
@@ -40,12 +51,7 @@
 
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Category.Title)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Model.ThoseVideos.Category.Title
         </td>
     </tr>
 }
