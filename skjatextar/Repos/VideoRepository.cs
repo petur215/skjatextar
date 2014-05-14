@@ -59,5 +59,13 @@ namespace skjatextar.Models
                          select s).Count();
             return count;
         }
+    //    public IEnumerable<Video> AllToLower()
+    //    {
+    //        var ToLowerCase = (from s in m_db.Videos
+    //                           orderby s.Name ascending
+    //                           select s);
+
+    //       return ToLowerCase;
+    //    }
     }
 }
