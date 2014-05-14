@@ -176,9 +176,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201405140337582_init.cs" />
-    <Compile Include="Migrations\201405140337582_init.Designer.cs">
-      <DependentUpon>201405140337582_init.cs</DependentUpon>
+    <Compile Include="Migrations\201405141448578_init.cs" />
+    <Compile Include="Migrations\201405141448578_init.Designer.cs">
+      <DependentUpon>201405141448578_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModel\AccountViewModels.cs" />
@@ -260,7 +260,6 @@
     <Content Include="Views\Translation\Edit.cshtml" />
     <Content Include="Views\Video\VideoDetails.cshtml" />
     <Content Include="Views\Home\ViewTranslation.cshtml" />
-    <Content Include="Views\Translation\Create.cshtml" />
     <Content Include="Views\Video\ViewVideo.cshtml" />
     <Content Include="Views\Request\AddNewRequest.cshtml" />
     <Content Include="Views\Request\CreateNewRequestPartial.cshtml" />
@@ -279,8 +278,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201405140337582_init.resx">
-      <DependentUpon>201405140337582_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201405141448578_init.resx">
+      <DependentUpon>201405141448578_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

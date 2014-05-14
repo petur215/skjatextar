@@ -1,0 +1,48 @@
+﻿@model IEnumerable<skjatextar.Models.Video>
+@{
+    ViewBag.Title = "Myndefni";
+}
+
+<h2>SearchView</h2>
+
+@using (Html.BeginForm("SearchView", "Video", @FormMethod.Get))
+{
+    <form>
+        @Html.TextBox("LeitarStrengur", null, new { @class = "input-medium-search-query", @type = "Sláðu inn leitarstreng" })
+        <input type="submit" value="Leita" />
+    </form>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+    <table class ="table">
+        <tr>
+            <th>
+                Nafn
+            </th>
+            <th>
+                Flokkur
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "ViewVideo", "Video", new { id = item.ID }, null)
+        </td>
+        <td>
+           @*@ @Html.DisplayFor(modelItem => item.Category.Title) *@
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+        }
+</table>
+
+</div>
