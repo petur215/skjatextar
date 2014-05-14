@@ -92,6 +92,7 @@ namespace skjatextar.Controllers
             return View();
         }
         [HttpPost]
+        [Authorize]
         public ActionResult AddComment(int? id, TranslationAndCommentViewModel v)
         {
             Comment comment = new Comment();
