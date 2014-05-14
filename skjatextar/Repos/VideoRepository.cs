@@ -42,6 +42,15 @@ namespace skjatextar.Models
             return videos;
         }
 
+        public IEnumerable<Video> SearchVideos(string LeitarStrengur)
+        {
+            var search = (from m in m_db.Videos                                         //Finnur allt myndefni sem 
+                          where m.Name.ToLower().Contains(LeitarStrengur.ToLower())     //inniheldur leitarstrenginn
+                          select m).ToList();
+
+            return search;
+        }
+
         public IEnumerable<Translation> GetAllTranslationsForVideo(int id)   
         {
             var result = from s in m_db.Translations
