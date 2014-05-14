@@ -3736,11 +3736,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-width: 1px 0 0;
 }
 .navbar-brand {
-  float: left;
-  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
+  background: url("../Uploads/coollogo_com-144771999.png") no-repeat center;
+  display: block;
+  width: 250px;
   height: 50px;
+  margin-left: 10%;
+  text-indent: -9999px; /* hides the link text */
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -3984,7 +3985,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
   border-color: #2b2e32;
-  width: 700px;
+  width: 800px;
   margin: auto;
 }
 .navbar-default .navbar-nav > .open > a,

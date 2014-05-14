@@ -39,60 +39,33 @@ namespace skjatextar.Controllers
             }
             return View("Error");
         }
-
-        // GET: /Video/Details/5
-        public ActionResult VideoDetails(int id)
-        {
-
-            return View();
-        }
-
         //
         // GET: /Video/Create
-        public ActionResult Create()
+        [Authorize]
+        public ActionResult CreateVideo()
         {
-            return View();
+            IEnumerable<Category> model = repo2.GetAllCategories();
+            var model2 = new NewVideoViewModel { Categories = model };
+            return View(model2);
         }
 
         //
         // POST: /Video/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [Authorize]
+        public ActionResult CreateVideo(FormCollection formData, NewVideoViewModel v)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Video model = new Video();
+            UpdateModel(model);
+            model.Name = v.ThisVideo.Name;
+            string Category = Request.Form["ValinFlokkur"];
+            var Flokkur = repo2.GetCategoryByName(Category);
+            model.Category = Flokkur;
+            model.CategoryID = Flokkur.ID;
+            repo2.AddVideo(model);
+            repo2.Save();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Video/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Video/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("LoadNewFile", "Translation");
         }
     }
 }

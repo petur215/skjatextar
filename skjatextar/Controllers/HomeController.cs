@@ -36,12 +36,14 @@ namespace skjatextar.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult LoadNewFile()
         {
             return View(new TranslationViewModel());
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult ViewTranslation(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
         {
             if (id.HasValue)
@@ -68,6 +70,7 @@ namespace skjatextar.Controllers
             return File(stream, "text/plain", s.Title + ".srt");
         }
         [HttpGet]
+        [Authorize]
         public ActionResult LikeFunction(int? id)
         {
             if(!repo.LikeFound(User.Identity.Name, id.Value))
@@ -92,6 +95,7 @@ namespace skjatextar.Controllers
             return View();
         }
         [HttpPost]
+        [Authorize]
         public ActionResult AddComment(int? id, TranslationAndCommentViewModel v)
         {
             Comment comment = new Comment();

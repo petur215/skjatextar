@@ -29,6 +29,7 @@ namespace skjatextar.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult LikeFunction(int? id)
         {
             if (!Repoo.LikeFound(User.Identity.Name, id.Value))
@@ -47,6 +48,7 @@ namespace skjatextar.Controllers
             }
         }
         [HttpGet]
+        [Authorize]
         public ActionResult AddNewRequest()
         {
             return View(new RequestViewModel());
