@@ -1,4 +1,5 @@
 ﻿@model skjatextar.Models.IndexViewModel
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -7,6 +8,16 @@
 <div class="table-header-home">
     <span></span>
 </div>
+
+@using (Html.BeginForm("SearchView", "Video", @FormMethod.Get))
+{
+    <form>
+        @Html.TextBox("LeitarStrengur", null, new { @class = "input-medium-search-query", @type = "Sláðu inn leitarstreng" })
+        <input type="submit" value="Leita" />
+    </form>
+}
+
+
 <div class="content-home">
     <table class="table table-borderedTop">
         <thead>
