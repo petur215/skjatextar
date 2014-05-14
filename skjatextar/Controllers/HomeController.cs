@@ -17,6 +17,7 @@ namespace skjatextar.Controllers
     public class HomeController : Controller
     {
         TranslationRepository repo = new TranslationRepository();
+        CommentRepository CommentRepo = new CommentRepository();
         
         public ActionResult Index()
         {
@@ -47,23 +48,21 @@ namespace skjatextar.Controllers
             {
                 int realid = id.Value;
                 var model = repo.GetTranslationById(realid);
-                //var model = commentRepo.GetComments(); ???
+                var model2 = CommentRepo.GetComments(id.Value);
                 model.LikeCount = repo.CountAllLikes(realid);
                 string username = User.Identity.Name;
-                return View(model);
+                var model3 = new TranslationAndCommentViewModel { ThisTranslation = model, ThoseComments = model2};
+                return View(model3);
             }
             return View("Error");
         }
+    
         public FileStreamResult DownloadTranslation(int? id)
         {
             Translation s = repo.GetTranslationById(id.Value);
-            // Write the string to a file.
-            StreamWriter file = new StreamWriter("~/Uploads/test.srt");
-            file.WriteLine(s.Text);
-            file.Close();
+
             var content = s.Text;
-            content = content.Replace("@", System.Environment.NewLine);
-            var byteArray = Encoding.ASCII.GetBytes(content);
+            var byteArray = Encoding.UTF8.GetBytes(content);
             var stream = new MemoryStream(byteArray);
 
             return File(stream, "text/plain", s.Title + ".srt");
@@ -86,27 +85,24 @@ namespace skjatextar.Controllers
                 return RedirectToAction("ViewTranslation", new {ID = id.Value});
             }
         }
-        public ActionResult Requests()
-        {
-            ViewBag.Message = "trolololololol";
-
-            return View();
-        }
         public ActionResult Rules()
         {
             ViewBag.Message = "Reglur eru til þess að fara eftir þeim!";
 
             return View();
         }
-
-        public ViewResult About()
+        [HttpPost]
+        public ActionResult AddComment(int? id, TranslationAndCommentViewModel v)
         {
-            throw new NotImplementedException();
-        }
-
-        public ViewResult Contact()
-        {
-            throw new NotImplementedException();
+            Comment comment = new Comment();
+            UpdateModel(comment);
+            comment.CommentText = v.ThisComment.CommentText;
+            comment.TranslationID = id.Value;
+            comment.UserName = User.Identity.Name;
+            comment.commentDate = DateTime.Now;
+            CommentRepo.AddComment(comment);
+            
+            return RedirectToAction("ViewTranslation", new { ID = id.Value });
         }
     }
 }

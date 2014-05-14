@@ -21,9 +21,9 @@ namespace skjatextar.Models
 
         public IEnumerable<Request> GetAllRequests()
         {
-            var requests = from r in m_db.Requests
-                           orderby r.RequestSent  descending
-                           select r;
+            var requests = (from r in m_db.Requests
+                            orderby r.RequestSent descending
+                            select r).ToList();
 
             return requests;
         }
@@ -43,14 +43,14 @@ namespace skjatextar.Models
         public int CountAllLikes(int id)
         {
             var result = (from s in m_db.Likes
-                          where s.TranslationID == id
+                          where s.RequestID == id
                           select s).Count();
             return result;
         }
         public bool LikeFound(string User, int id)
         {
             var result = (from s in m_db.Likes
-                          where s.TranslationID == id && s.UserName == User
+                          where s.RequestID == id && s.UserName == User
                           select s).FirstOrDefault();
             if (result != null)
             {

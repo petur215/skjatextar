@@ -18,12 +18,13 @@ namespace skjatextar.Controllers
         public ActionResult Requests(int? id)
         {
             var requests = Repoo.GetAllRequests();
+            
+            foreach(var i in requests)
+            {
+                i.LikeCount = Repoo.CountAllLikes(i.ID);
+            }
 
-            var newest = from r in requests
-                         orderby r.RequestSent descending
-                         select r;
-
-            return View(newest);
+            return View(requests);
 
         }
 
@@ -34,7 +35,7 @@ namespace skjatextar.Controllers
             {
                 Likes item = new Likes();
                 UpdateModel(item);
-                item.TranslationID = id.Value;
+                item.RequestID = id.Value;
                 item.UserName = User.Identity.Name;
                 Repoo.AddLike(item);
 
@@ -45,9 +46,6 @@ namespace skjatextar.Controllers
                 return RedirectToAction("Requests", new { ID = id.Value });
             }
         }
-
-
-
         [HttpGet]
         public ActionResult AddNewRequest()
         {
@@ -68,88 +66,6 @@ namespace skjatextar.Controllers
 
 
             return RedirectToAction("Requests");
-        }
-
-       
-
-
-        //
-        // GET: /Request/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
-        // GET: /Request/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Request/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Request/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Request/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Request/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Request/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

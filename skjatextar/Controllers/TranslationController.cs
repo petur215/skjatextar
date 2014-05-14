@@ -15,16 +15,6 @@ namespace skjatextar.Controllers
         TranslationRepository repo = new TranslationRepository();
         VideoRepository videorepo = new VideoRepository();
 
-       
-        //
-        // GET: /Translation/Details/5
-        public ActionResult Details(int id)
-        {
-
-            return View();
-        }
-
-
         [HttpGet]
         public ActionResult LoadNewFile()
         {

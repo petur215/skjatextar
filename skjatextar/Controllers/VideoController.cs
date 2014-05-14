@@ -38,7 +38,7 @@ namespace skjatextar.Controllers
                 return View(model);
             }
             return View("Error");
-        } 
+        }
 
         // GET: /Video/Details/5
         public ActionResult VideoDetails(int id)
