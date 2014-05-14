@@ -46,10 +46,10 @@ namespace skjatextar.Controllers
             if (id.HasValue)
             {
                 int realid = id.Value;
-                TranslationRepository repo3 = new TranslationRepository();
-                var model = repo3.GetTranslationById(realid);
+                var model = repo.GetTranslationById(realid);
                 //var model = commentRepo.GetComments(); ???
-                model.LikeCount = repo.AllLikes(realid);
+                model.LikeCount = repo.CountAllLikes(realid);
+                string username = User.Identity.Name;
                 return View(model);
             }
             return View("Error");
@@ -68,16 +68,23 @@ namespace skjatextar.Controllers
 
             return File(stream, "text/plain", s.Title + ".srt");
         }
-        [HttpPost]
-        public ActionResult LikeFunction(int id)
+        [HttpGet]
+        public ActionResult LikeFunction(int? id)
+        {
+            if(!repo.LikeFound(User.Identity.Name, id.Value))
             {
-            Likes item = new Likes();
-            item.TranslationID = id;
-            var model = repo.GetTranslationById(id);
-            model.LikeCount = repo.AllLikes(id);
-            repo.Save();
+                Likes item = new Likes();
+                UpdateModel(item);
+                item.TranslationID = id.Value;
+                item.UserName = User.Identity.Name;
+                repo.AddLike(item);
 
-            return View("ViewTranslation");
+                return RedirectToAction("ViewTranslation", new { ID = id.Value});
+            }
+            else
+            {
+                return RedirectToAction("ViewTranslation", new {ID = id.Value});
+            }
         }
         public ActionResult Requests()
         {

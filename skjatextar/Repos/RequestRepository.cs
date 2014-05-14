@@ -18,6 +18,7 @@ namespace skjatextar.Models
 
             return result;
         }
+
         public IEnumerable<Request> GetAllRequests()
         {
             var requests = from r in m_db.Requests
@@ -33,10 +34,26 @@ namespace skjatextar.Models
             m_db.SaveChanges();
         }
 
+        public void AddLike(Likes s)
+        {
+            m_db.Likes.Add(s);
+            Save();
+        }
+
+        public int AllLikes(int id)
+        {
+            var result = (from s in m_db.Likes
+                          where s.TranslationID == id
+                          select s).Count();
+            return result;
+        }
+
         public void Save()
         {
             m_db.SaveChanges();
         }
+
+       
 
     }
 }

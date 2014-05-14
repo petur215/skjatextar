@@ -9,7 +9,8 @@ namespace skjatextar.Models
     {
         public int ID { get; set; }
         public int TranslationID { get; set; }
-        public int UserID { get; set; }
+        public int RequestID { get; set; }
+        public string UserName { get; set; }
 
     }
 }
