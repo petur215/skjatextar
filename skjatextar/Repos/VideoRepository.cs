@@ -17,6 +17,20 @@ namespace skjatextar.Models
                          select s;
             return videos;
         }
+        public IEnumerable<Category> GetAllCategories()
+        {
+            var result = from s in m_db.Categories
+                             orderby s.Title ascending
+                             select s;
+            return result;
+        }
+        public Category GetCategoryByName(string name)
+        {
+            var result = (from s in m_db.Categories
+                          where s.Title == name
+                          select s).FirstOrDefault();
+            return result;
+        }
 
         public IEnumerable<Video> GetVideosByCategory(int id)
         {
@@ -68,6 +82,16 @@ namespace skjatextar.Models
             int count = (from s in m_db.Videos
                          select s).Count();
             return count;
+        }
+        public int AddVideo(Video v)
+        {
+            this.m_db.Videos.Add(v);
+            this.m_db.SaveChanges();
+            return v.ID;
+        }
+          public void Save()
+        {
+            m_db.SaveChanges();
         }
     }
 }

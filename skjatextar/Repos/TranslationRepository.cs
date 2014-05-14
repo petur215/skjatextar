@@ -45,7 +45,7 @@ namespace skjatextar.Models
             //return result;
             throw new NotImplementedException();
         }
-        
+
         public Translation GetTranslationById(int id)
         {
             var result = (from s in m_db.Translations
@@ -98,7 +98,6 @@ namespace skjatextar.Models
                 m_db.SaveChanges();
             }
         }
-
         public int AddVideo(Video v)
         {
             this.m_db.Videos.Add(v);

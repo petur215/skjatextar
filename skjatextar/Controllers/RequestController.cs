@@ -47,6 +47,7 @@ namespace skjatextar.Controllers
             }
         }
         [HttpGet]
+        [Authorize]
         public ActionResult AddNewRequest()
         {
             return View(new RequestViewModel());
