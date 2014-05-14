@@ -1,0 +1,74 @@
+﻿@*model IEnumerable<skjatextar.Models.Video>*@
+@model PagedList.IPagedList<skjatextar.Models.Video>
+@{
+    ViewBag.Title = "Myndefni";
+}
+
+<h2>Myndefni</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*Html.DisplayNameFor(model => model.First().Name)*@
+            Nafn
+        </th>
+        <th>
+            @*Html.DisplayNameFor(model => model.First().Category.Title)*@
+            Flokkur
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @*Html.DisplayFor(modelItem => item.Name)*@
+            @Html.ActionLink(item.Name, "ViewVideo", "Video", new { id = item.ID }, null)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount
+
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new { page = 1 })
+        @Html.Raw(" ");
+        @Html.ActionLink("< Prev", "Index", new { page = Model.PageNumber - 1 })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw(" ");
+        @:< Prev
+    }
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink("Next >", "Index", new { page = Model.PageNumber + 1 })
+        @Html.Raw(" ");
+        @Html.ActionLink(">>", "Index", new { page = Model.PageCount })
+    }
+    else
+    {
+        @:Next >
+        @Html.Raw(" ");
+        @:>
+
+    }
+</div>
