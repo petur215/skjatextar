@@ -10,25 +10,20 @@ namespace skjatextar.Repos
     public class CommentRepository
     {
         TranslationContext m_db = new TranslationContext();
-
-        public IEnumerable<Comment> GetComments()
+        public IEnumerable<Comment> GetComments(int id)
         {
-            var result = from c in m_db.Comments
-                         orderby c.TranslationID ascending
-                         select c;
+            var result = (from c in m_db.Comments
+                          where c.TranslationID == id
+                          orderby c.commentDate ascending
+                          select c).ToList();
+
             return result;
         }
 
         public void AddComment(Comment c)
         {
-            int newID = 1;
-            if (m_db.Comments.Count() > 0)
-            {
-                newID = m_db.Comments.Max(x => x.ID) + 1;
-            }
-            c.ID = newID;
-            c.commentDate = DateTime.Now;
             m_db.Comments.Add(c);
+            m_db.SaveChanges();
         }
     }
 }

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Text;
 
 namespace skjatextar.Controllers
 {
@@ -13,16 +14,6 @@ namespace skjatextar.Controllers
     {
         TranslationRepository repo = new TranslationRepository();
         VideoRepository videorepo = new VideoRepository();
-
-       
-        //
-        // GET: /Translation/Details/5
-        public ActionResult Details(int id)
-        {
-
-            return View();
-        }
-
 
         [HttpGet]
         public ActionResult LoadNewFile()
@@ -58,9 +49,9 @@ namespace skjatextar.Controllers
                         Translation.SaveAs(path);
                         ModelState.Clear();
                         Translation item = new Translation();
-                        StreamReader file = new StreamReader(path);
+                        StreamReader file = new StreamReader(path, Encoding.Default, true);
                         UpdateModel(item);
-                        item.Text = file.ReadLine();
+                        item.Text = file.ReadToEnd();
                         item.Title = Translation.FileName;
                         item.LikeCount = 0;
                         item.DateLastEdited = DateTime.Now;

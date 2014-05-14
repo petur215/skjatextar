@@ -21,12 +21,21 @@ namespace skjatextar.Models
         public IEnumerable<Translation> GetAllTranslationsForVideo(int id)   
         {
             var result = from s in m_db.Translations
-                         where s.VideoID == id
+                         where s.VideoID == id 
+                         orderby s.LikeCount descending
                          select s;
 
             return result;
         }
+        public IEnumerable<Translation> GetAllTranslationsForVideoByDate(int id)
+        {
+            var result = from s in m_db.Translations
+                         where s.VideoID == id
+                         orderby s.DateLastEdited descending
+                         select s;
 
+            return result;
+        }
         public Video GetVideoByName(string name)
         {
             var result = (from s in m_db.Videos

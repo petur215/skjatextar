@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<skjatextar.Models.Translation>
+
 @{
     ViewBag.Title = "ViewVideo";
 }
-
 <div class="table-header-home">
     <span>Nýjustu 10</span>
 </div>
@@ -11,14 +11,26 @@
         <thead>
             <tr>
                 <th class="translations">Allir textar fyrir ákveðna mynd</th>
+                <th>Like</th>
+                <th>Síðast uppfært</th>
+                <th>Sérstaklega fyrir heyrnalausa<span class="glyphicon glyphicon-deaf"></span></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(item.Title, "ViewTranslation", "Home",  new { id = item.ID }, null)</td>
-                    
+                    <td>@Html.ActionLink(item.Title, "ViewTranslation", "Home", new { id = item.ID }, null)</td>
+                    <td>@item.LikeCount</td>
+                    <td>@item.DateLastEdited</td>
+                    <td>
+                        <script type="text/javascript">
+                            if (item.Deafcheck == true) {
+                                "Já"
+                            }
+                            else { "Nei" }
+                        </script>
+                    </td>
                 </tr>
             }
         </tbody>
