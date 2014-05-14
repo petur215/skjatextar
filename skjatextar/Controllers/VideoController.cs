@@ -98,19 +98,8 @@ namespace skjatextar.Controllers
         [HttpGet]
         public ActionResult SearchView(string LeitarStrengur)
         {
-          //  VideoRepository repo = new VideoRepository();
-          //  var Videos = repo.GetAllVideos().ToList(); //Listi yfir oll video
-          //  var search = from m in Videos
-          //               where m.Title
-          //               select m;
-
-            var search = repo2.SearchVideos(LeitarStrengur);
-
-        //    if (!String.IsNullOrEmpty(LeitarStrengur)) //Ef fallid faer inn streng keyrir tetta
-          // {
-          //      search = search.Where(s => s.Name.ToUpper().Contains(LeitarStrengur.ToUpper())); //Finnur allar myndir
-         //   }                                                            //sem innihalda strenginn
-            return View(search.ToList<Video>());
+            var search = repo2.SearchVideos(LeitarStrengur); //sendir leitarstrenginn i fallid searchvideos
+            return View(search.ToList<Video>());            //Prentar ut lista af ollum myndum sem innihalda leitarstrenginn
         }
     }
 }

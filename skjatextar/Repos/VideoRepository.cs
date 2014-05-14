@@ -20,9 +20,8 @@ namespace skjatextar.Models
 
         public IEnumerable<Video> SearchVideos(string LeitarStrengur)
         {
-           // var Videos = repo.GetAllVideos().ToList(); //Listi yfir oll video
-            var search = (from m in m_db.Videos
-                          where m.Name.ToLower().Contains(LeitarStrengur.ToLower())
+            var search = (from m in m_db.Videos                                         //Finnur allt myndefni sem 
+                          where m.Name.ToLower().Contains(LeitarStrengur.ToLower())     //inniheldur leitarstrenginn
                           select m).ToList();
 
             return search;
