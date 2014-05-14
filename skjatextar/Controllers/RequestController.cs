@@ -15,25 +15,35 @@ namespace skjatextar.Controllers
         
         //
         // GET: /Request/
-        public ActionResult Requests()
+        public ActionResult Requests(int? id)
         {
-            var requests = Repoo.GetAllRequests().Take(10);
+            var requests = Repoo.GetAllRequests();
 
-            var newest = (from r in requests 
-                         orderby r.RequestSent select r).Take(10);
+            var newest = from r in requests
+                         orderby r.RequestSent descending
+                         select r;
+
             return View(newest);
+
         }
 
         [HttpGet]
         public ActionResult LikeFunction(int? id)
         {
-            Likes item = new Likes();
-            UpdateModel(item);
-            item.RequestID = id.Value;
-            item.UserName = User.Identity.Name;
-            Repoo.AddLike(item);
+            if (!Repoo.LikeFound(User.Identity.Name, id.Value))
+            {
+                Likes item = new Likes();
+                UpdateModel(item);
+                item.TranslationID = id.Value;
+                item.UserName = User.Identity.Name;
+                Repoo.AddLike(item);
 
-            return RedirectToAction("Requests", new { ID = id.Value });
+                return RedirectToAction("Requests", new { ID = id.Value });
+            }
+            else
+            {
+                return RedirectToAction("Requests", new { ID = id.Value });
+            }
         }
 
 
