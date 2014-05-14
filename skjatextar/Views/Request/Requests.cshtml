@@ -23,7 +23,7 @@
                 <span>@Html.DisplayFor(modelItem => item.NewRequest) </span>
             </p>
             <p>
-                <span class="text-muted">@item.RequestSent.ToString("dd. MMMM HH:mm") - </span>
+                <span class="text-muted">@item.RequestSent.ToString("dd. MMMM HH:mm") </span>
                 <!-- Like takki -->
                 <span >@item.LikeCount @Html.ActionLink("Like", "LikeFunction", new { id = item.ID }, null)</span><span class="glyphicon glyphicon-thumbs-up"></span>
             </p>
