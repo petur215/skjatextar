@@ -17,7 +17,7 @@ namespace skjatextar.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = " {0} Verður að innihalda að minnska kosti {2}  stafi .", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Nýtt lykilorð")]
         public string NewPassword { get; set; }
@@ -46,11 +46,11 @@ namespace skjatextar.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = " {0} Verður að innihalda að minnska kosti {2} stafi.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Lykilorð")]
         public string Password { get; set; }
