@@ -105,7 +105,7 @@ namespace skjatextar.Controllers
 
             if (!String.IsNullOrEmpty(LeitarStrengur)) //Ef fallid faer inn streng keyrir tetta
             {
-                search = search.Where(s => s.Name.Contains(LeitarStrengur)); //Finnur allar myndir
+                search = search.Where(s => s.Name.ToUpper().Contains(LeitarStrengur.ToUpper())); //Finnur allar myndir
             }                                                            //sem innihalda strenginn
             return View(search);
         }
