@@ -18,12 +18,14 @@
             <p>
                 <span class="glyphicon glyphicon-user"></span>
                 <span class="text-primary">@Html.DisplayFor(modelItem => item.Username)</span>
+            </p>
+            <p>
                 <span>@Html.DisplayFor(modelItem => item.NewRequest) </span>
             </p>
             <p>
                 <span class="text-muted">@item.RequestSent.ToString("dd. MMMM HH:mm") - </span>
                 <!-- Like takki -->
-                <span > @Html.ActionLink("Like", "Requests", "Request", new { id = item.ID })</span><span class="glyphicon glyphicon-thumbs-up"></span>
+                <span >@item.LikeCount @Html.ActionLink("Like", "LikeFunction", new { id = item.ID }, null)</span><span class="glyphicon glyphicon-thumbs-up"></span>
             </p>
             <ul class="list-unstyled likes-for-id">
                 

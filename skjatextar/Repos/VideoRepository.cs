@@ -43,5 +43,12 @@ namespace skjatextar.Models
         }
 
         // Get Video by categoryID
+
+        public int VideoCount()
+        {
+            int count = (from s in m_db.Videos
+                         select s).Count();
+            return count;
+        }
     }
 }

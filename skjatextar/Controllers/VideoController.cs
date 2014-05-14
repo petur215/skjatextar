@@ -10,20 +10,14 @@ namespace skjatextar.Controllers
     public class VideoController : Controller
     {
         VideoRepository repo2 = new VideoRepository();
-        // GET: /Translation/
+        // GET: /Translation/Default1        
         public ActionResult Videos()
         {
-            //var translations = repo.GetAllTranslations().ToList;
-
-            //IEnumerable<Video> newest10 = repo.Newest10();
             var videos = repo2.GetAllVideos();
             var display = from n in videos
                           orderby n.Name
                           select n;
-
-            //return View(newest10);
             return View(display);
-            //return View(translations);
         }
         //
         // GET: /Video/
