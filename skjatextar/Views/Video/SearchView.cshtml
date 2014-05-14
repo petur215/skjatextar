@@ -7,10 +7,10 @@
 
 @using (Html.BeginForm("SearchView", "Video", @FormMethod.Get))
 {
-    <form>
+    
         @Html.TextBox("LeitarStrengur", null, new { @class = "input-medium-search-query", @type = "Sláðu inn leitarstreng" })
         <input type="submit" value="Leita" />
-    </form>
+    
 }
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -34,11 +34,12 @@
                 @Html.ActionLink(item.Name, "ViewVideo", "Video", new { id = item.ID }, null)
         </td>
         <td>
-           @*@ @Html.DisplayFor(modelItem => item.Category.Title) *@
+           @item.Category.Title  
+           
         </td>
         
     </tr>
         }
 </table>
 
-</div>
+
