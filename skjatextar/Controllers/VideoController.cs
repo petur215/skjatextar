@@ -82,8 +82,8 @@ namespace skjatextar.Controllers
                 var realid = id.Value;
                 var cat = repo2.GetVideosByCategory(realid);
                 var cat1 = repo2.GetAllCategories();
-                var cat2 = new CategoryViewModel { ThoseVideos = cat, ThoseCategories = cat1 };
-                return View(cat2);
+                //var cat2 = new CategoryViewModel { ThoseVideos = cat, ThoseCategories = cat1 };
+                return View(cat1);
             }
             
             return View("Error");
