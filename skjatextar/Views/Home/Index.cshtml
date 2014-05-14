@@ -8,17 +8,19 @@
     <span></span>
 </div>
 
-@using (Html.BeginForm("SearchView", "Video", @FormMethod.Get))
+@using (Html.BeginForm("SearchView", "Video", @FormMethod.Get, new { @class = "form-search" }))
 {
-    <form>
-        @Html.TextBox("LeitarStrengur", null, new { @class = "input-medium-search-query", @type = "Sláðu inn leitarstreng" })
-        <input type="submit" value="Leita" />
-    </form>
+    <div class ="input-append">
+        
+        @Html.TextBox("LeitarStrengur", null, new { @class = "span2 search-query", @type = "text" })
+        <button type="submit" class="submitTakki"><span class="glyphicon glyphicon-search"></span></button>
+        
+        </div>
 }
 
 
 <div class="content-home">
-    <table class="table table-borderedTop">
+    <table class="table table-bordered table-responsive">
         <thead>
             <tr>
                 <th class="translations">Top 10</th>
@@ -36,7 +38,7 @@
 </div>
 
 <div class="content-home">
-    <table class="table table-borderedNewest">
+    <table class="table table-bordered table-responsive">
         <thead>
             <tr>
                 <th class="translations">Nýjustu 10</th>

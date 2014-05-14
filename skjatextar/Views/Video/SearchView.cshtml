@@ -5,12 +5,14 @@
 
 <h2>SearchView</h2>
 
-@using (Html.BeginForm("SearchView", "Video", @FormMethod.Get))
+@using (Html.BeginForm("SearchView", "Video", @FormMethod.Get, new { @class = "form-search" }))
 {
-    <form>
-        @Html.TextBox("LeitarStrengur", null, new { @class = "input-medium-search-query", @type = "Sláðu inn leitarstreng" })
-        <input type="submit" value="Leita" />
-    </form>
+    <div class="input-append">
+
+        @Html.TextBox("LeitarStrengur", null, new { @class = "span2 search-query", @type = "text" })
+        <button type="submit" class="submitTakki"><span class="glyphicon glyphicon-search"></span></button>
+
+    </div>
 }
 <p>
     @Html.ActionLink("Create New", "Create")

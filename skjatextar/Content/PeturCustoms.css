@@ -2389,6 +2389,7 @@ input[type="button"].btn-block {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: black;
 }
 .glyphicon-asterisk:before {
   content: "\2a";
@@ -2419,6 +2420,7 @@ input[type="button"].btn-block {
 }
 .glyphicon-search:before {
   content: "\e003";
+  color:black;
 }
 .glyphicon-heart:before {
   content: "\e005";

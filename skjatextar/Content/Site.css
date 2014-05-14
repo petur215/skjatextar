@@ -49,6 +49,27 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+#LeitarStrengur{
+    width:280px;
+    margin-left:340px;
+    margin-top:20px;
+    margin-bottom:40px;
+    position:relative;
+   border-radius:10px;
+}
+#searchForm{
+     
+}
+#searchSubmit{
+     color:black;
+}
+#submitTakki:hover{
+ 
+}
+#submitTakki:active{
+    
+}
 .logintakki
 {
     color: #ffffff;
