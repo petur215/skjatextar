@@ -1,7 +1,10 @@
 ﻿@model skjatextar.Models.TranslationAndCommentViewModel
-
 @{
     ViewBag.Title = "ViewTranslation";
+}
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/scripts.js")"></script>
 }
 
 <h2>@Model.ThisTranslation.Title</h2>
@@ -22,7 +25,7 @@
                     Atkvæði:
                 </td>
                 <td>
-                    <div>@Model.ThisTranslation.LikeCount @Html.ActionLink("Þessi þýðing fær mitt atkvæði", "LikeFunction", new { id = Model.ThisTranslation.ID }, null)</div>
+                    <div class="likeTranslation">@Model.ThisTranslation.LikeCount @Html.ActionLink("Þessi þýðing fær mitt atkvæði", "LikeFunction", new { id = Model.ThisTranslation.ID }, null)</div>
                 </td>
             </tr>
             <tr>
