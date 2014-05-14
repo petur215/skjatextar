@@ -212,6 +212,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.2.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -220,6 +221,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\scrollingcarousel.2.0.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -253,7 +255,6 @@
     <Content Include="Views\Translation\Edit.cshtml" />
     <Content Include="Views\Video\VideoDetails.cshtml" />
     <Content Include="Views\Home\ViewTranslation.cshtml" />
-    <Content Include="Views\Translation\Create.cshtml" />
     <Content Include="Views\Video\ViewVideo.cshtml" />
     <Content Include="Views\Request\AddNewRequest.cshtml" />
     <Content Include="Views\Request\CreateNewRequestPartial.cshtml" />
