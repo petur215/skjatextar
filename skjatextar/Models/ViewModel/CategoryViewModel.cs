@@ -7,7 +7,8 @@ namespace skjatextar.Models
 {
     public class CategoryViewModel
     {
-        public Category ThisID { get; set; }
-        public IEnumerable<Category> ThisTitle { get; set; }
+        public IEnumerable<Video> ThoseVideos  { get; set;}
+        public IEnumerable<Category> ThoseCategories { get; set; }
+
     }
 }
