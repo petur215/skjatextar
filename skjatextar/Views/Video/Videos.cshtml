@@ -10,11 +10,11 @@
     <div class="input-append">
 
         @Html.TextBox("LeitarStrengur", null, new { @class = "span2 search-query", @type = "text" })
-        <button type="submit" class="submitTakki"><span class="glyphicon glyphicon-search"></span></button>
+        <span class="glyphicon glyphicon-search"><button type="submit" class="submitTakki"></button></span>
 
     </div>
 }
-
+<!-- Tafla sem synir flokkana -->
 <div>
     <table class="table table-bordered categoriesTable">
         <tbody>
@@ -27,36 +27,38 @@
         </tbody>
     </table>
 </div>
+
+<!-- Tafla fyrir oll video og leitarnidurstodur-->
 <div id="translationHeader">
     <table class="table table-striped tableTranslations">
-        <tr>
-            <th>
-                Nafn
-            </th>
-            <th>
-                Flokkur
-            </th>
-            <th>
-                Fjöldi þýðinga
-            </th>
-        </tr>
+    <tr>
+        <th>
+            Nafn
+        </th>
+        <th>
+            Flokkur
+        </th>
+        <th>
+            Fjöldi þýðinga
+        </th>
+    </tr>
         @foreach (var item in Model.SearchResults)
         {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.Name, "ViewVideo", "Video", new { }, null)
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name, "ViewVideo", "Video", new { }, null)
 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.Title)
-                </td>
-                <td>
-                    @item.TranslationCount
-                </td>
-            </tr>
-        }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Title)
+        </td>
+        <td>
+            @item.TranslationCount
+        </td>
+    </tr>
+}
 
-    </table>
+</table>
 </div>
 
 <div class="pageSplitter">
