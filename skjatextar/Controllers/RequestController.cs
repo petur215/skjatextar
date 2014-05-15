@@ -18,13 +18,20 @@ namespace skjatextar.Controllers
         public ActionResult Requests(int? id)
         {
             var requests = Repoo.GetAllRequests();
-            foreach(var i in requests)
-            {
-                i.LikeCount = Repoo.CountAllLikes(i.ID);
-            }
+            
+          
+            var requests2 = Repoo.GetRequestsByLikes();
 
-            return View(requests);
+            return View(requests2);
 
+        }
+
+        public ActionResult RequestsByDate(int ?id)
+        {
+            var requests = Repoo.GetAllRequests();
+          
+
+            return View("Requests", requests);
         }
 
         [HttpGet]
@@ -37,6 +44,8 @@ namespace skjatextar.Controllers
                 UpdateModel(item);
                 item.RequestID = id.Value;
                 item.UserName = User.Identity.Name;
+                var request = Repoo.GetRequestById(id.Value);
+                request.LikeCount += 1;
                 Repoo.AddLike(item);
 
                 return RedirectToAction("Requests", new { ID = id.Value });
