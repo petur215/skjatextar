@@ -188,3 +188,8 @@ input[type="checkbox"].input-validation-error {
 .PageNumber{
     display: inline;
 }
+.table-header-home
+{
+    text-align: center;
+    font-weight: 900;
+}
