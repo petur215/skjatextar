@@ -18,7 +18,9 @@ select,
 textarea {
     max-width: 280px;
 }
-
+.tableCentered{
+    margin-left:-31px;
+}
 .table-borderedTop{
     width:40%;
     position:absolute;
