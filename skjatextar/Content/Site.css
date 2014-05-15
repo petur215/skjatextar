@@ -15,7 +15,9 @@ select,
 textarea {
     max-width: 280px;
 }
-
+.centerTables{
+    margin-left:60px;
+}
 .table-borderedTop{
     width:40%;
     position:absolute;
@@ -52,14 +54,11 @@ input[type="checkbox"].input-validation-error {
 
 #LeitarStrengur{
     width:280px;
-    margin-left:340px;
+    margin-left:428px;
     margin-top:20px;
     margin-bottom:40px;
     position:relative;
    border-radius:10px;
-}
-#searchForm{
-     
 }
 #searchSubmit{
      color:black;

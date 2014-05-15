@@ -18,39 +18,44 @@
         </div>
 }
 
-
-<div class="content-home">
-    <table class="table table-bordered table-responsive">
-        <thead>
-            <tr>
-                <th class="translations">Top 10</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Top10)
-            {
+<div class="centerTables">
+    <div class="content-home">
+        <table class="table table-condensed table-responsive table-borderedTop">
+            <thead>
                 <tr>
-                    <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
+                    <th class="translations">Top 10</th>
+                    <th class="translations">Fjöldi atkvæða</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Top10)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
+                        <td>@item.LikeCount</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
-<div class="content-home">
-    <table class="table table-bordered table-responsive">
-        <thead>
-            <tr>
-                <th class="translations">Nýjustu 10</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Newest10)
-            {
+    <div class="content-home">
+        <table class="table table-condensed table-responsive table-borderedNewest">
+            <thead>
                 <tr>
-                    <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
+                    <th class="translations">Nýjustu 10</th>
+                    <th class="translations">Síðast breytt</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Newest10)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
+                        <td>@item.DateLastEdited</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
