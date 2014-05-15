@@ -166,7 +166,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
-    <Compile Include="Controllers\StyleController.cs" />
     <Compile Include="Controllers\TranslationController.cs" />
     <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="DAL\RequestInitializer.cs" />
@@ -176,12 +175,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405151807025_init.cs" />
+    <Compile Include="Migrations\201405151807025_init.Designer.cs">
+      <DependentUpon>201405151807025_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModel\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\ViewModel\IdentityModels.cs" />
     <Compile Include="Models\ViewModel\IndexViewModel.cs" />
     <Compile Include="Models\ViewModel\NewVideoViewModel.cs" />
+    <Compile Include="Models\ViewModel\PagedViewModel.cs" />
     <Compile Include="Models\ViewModel\RequestViewModel.cs" />
     <Compile Include="Models\ViewModel\TranslationAndCommentViewModel.cs" />
     <Compile Include="Models\ViewModel\TranslationViewModel.cs" />
@@ -271,6 +276,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201405151807025_init.resx">
+      <DependentUpon>201405151807025_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
