@@ -11,21 +11,24 @@
         <legend>Bæta við skrá</legend>
         <ul>
             <li class="lifile">
-                <input type="file" id="fileToUpload" name="Translation" />
+                <label for="Translation" id="labelinn">Veldu skrá</label>
+                <input type="file" id="fileToUpload" name="Translation" value="Veldu skrá" />
                 <span class="field-validation-error" id="spanfile"></span>
             </li>
-            <li>
-                <select name="ValinMynd">
+            <li class="dropdownvideo">
+                <select name="ValinMynd" class="biomynd" >
+                    <option selected="selected" class="VideoDropdown" id="dropdownlisti"> - Veldu titil  </option>
                     @foreach (var item in Model)
-                    {
+                    {   
+                        
                         <option value="@item.Name" id="dropdownlisti" class="VideoDropdown">@item.Name</option>
                     }
-                </select> 
-                @Html.ActionLink("Ef mynd er ekki í lista ýttu hér", "CreateVideo", "Video", new{}, null)
+                </select>
+                @Html.ActionLink("Ýttu hér ef titill er ekki í lista", "CreateVideo", "Video", new { }, null)
             </li>
-            <li>Sérstaklega fyrir heyrnalausa?
+            <li class="DeafPeople">Fyrir heyrnalausa?
             <input type="checkbox"name="DeafCheck"/>
         </ul>
-        <input type="submit" id="btnSubmit" value="Upload" />
+        <input type="submit" id="btnSubmit" value="Hlaða inn skrá" />
     </fieldset>
 }

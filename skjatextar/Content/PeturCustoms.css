@@ -340,6 +340,7 @@ hr {
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid #1c1e22;
+  border-color:white;
 }
 .sr-only {
   position: absolute;
@@ -1660,15 +1661,16 @@ input[type="search"] {
 }
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 4px 0 0;
-  margin-top: 1px \9;
+  margin: 0px 5px 0;
+  
   /* IE8-9 */
   line-height: normal;
 }
 input[type="file"] {
   display: inline;
-  margin-left:49px;
-  color: white;
+  margin-left:-39px;
+  margin-bottom:20px;
+  color:white;
 }
 input[type="range"] {
   display: block;
@@ -3990,7 +3992,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
   border-color: #2b2e32;
-  width: 800px;
+  width: 730px;
   margin: auto;
 }
 .navbar-default .navbar-nav > .open > a,
@@ -6003,7 +6005,8 @@ textarea {
   border-color: #62c462;
 }
 legend {
-  color: #fff;
+  color:white;
+  border-color:white;
 }
 .input-group-addon {
   border-color: rgba(0, 0, 0, 0.6);
