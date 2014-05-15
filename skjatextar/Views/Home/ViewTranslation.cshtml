@@ -4,10 +4,13 @@
 }
 @section Scripts
 {
-    <script src="@Url.Content("~/Scripts/scripts.js")"></script>
+    <script src="@Url.Content("~/Scripts/script.js")"></script>
 }
 
+<script type="text/javascript"></script>
+
 <h2>@Model.ThisTranslation.Title</h2>
+<input type="hidden" name="name" value="@Model.ThisTranslation.ID" class="currentTranslationId"/>
 
 <div>
     <table>
@@ -60,38 +63,26 @@
 
 @Html.ActionLink("Breyta þessari þýðingu", "Edit", "Translation", new { id = Model.ThisTranslation.ID }, null)
 
-<ul class="list-group comments">
-    @foreach (var item in Model.ThoseComments)
-    {
-        <li class="list-group-item">
-            <p>
-                <span class="glyphicon glyphicon-user"></span>
-                <span class="text-primary">@Html.DisplayFor(modelItem => item.UserName)</span>
-            </p>
-            <p>
-                <span>@Html.DisplayFor(modelItem => item.CommentText) </span>
-            </p>
-            <p>
-                <span class="text-muted">@item.commentDate.ToString("dd. MMMM HH:mm") </span>
-                <!-- Like takki -->
-                @*<span>@item.LikeCount @Html.ActionLink("Like", "LikeFunction", new { id = item.ID }, null)</span><span class="glyphicon glyphicon-thumbs-up"></span>*@
-            </p>
-            @*<ul class="list-unstyled likes-for-id"></ul>*@
-        </li>
+<ul id="commentList" class="list-group" style="max-width: 560px;"></ul>
+<script type="text/html" id="commentTemplate">
+    <li class="list-group-item">
+        <p>
+            <span class="glyphicon glyphicon-user"></span>
+            <span class="text-primary" data-content="UserName"></span>
+            <span data-content="CommentText"></span>
+        </p>
+        <p>
+            <span class="text-muted" data-content="commentDate"></span>
+        </p>
+    </li>
+</script>
 
-    }
-</ul>
-
-<li class="list-group-item" style="max-width: 560px;">
-@using (Html.BeginForm("AddComment", "Home", new { id = Model.ThisTranslation.ID }, FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
+<li class="list-group-item" style="max-width: 560px;" id="hideme">
 
     <div id="form-horizontal">
-        @Html.TextAreaFor(model => model.ThisComment.CommentText)
-        <input type="submit" value="Senda inn" class="btn btn-default" />
+        <!--<label class="sr-only" for="CommentText">Comment</label>-->
+        <textarea class="form-control" rows="3" id="CommentText" name="CommentText"></textarea>
+        <button type="submit" id="CommentTakki" class="btn btn-primary">Send</button>
+        <p class="error" id="empty"></p>
     </div>
-}
 </li>
-
-

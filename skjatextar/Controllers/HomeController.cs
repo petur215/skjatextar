@@ -90,19 +90,43 @@ namespace skjatextar.Controllers
 
             return View();
         }
+
         [HttpPost]
-        [Authorize]
-        public ActionResult AddComment(int? id, TranslationAndCommentViewModel v)
+        public ActionResult AddComment(int? id, string commentText)
         {
+            //TranslationAndCommentViewModel v = new TranslationAndCommentViewModel();
+            //v.ThisComment = commentText;
+            if(!User.Identity.IsAuthenticated)
+            {
+                Response.StatusCode = 404;
+                return Json(null, JsonRequestBehavior.DenyGet);
+            }
             Comment comment = new Comment();
             UpdateModel(comment);
-            comment.CommentText = v.ThisComment.CommentText;
+            comment.CommentText = commentText;
             comment.TranslationID = id.Value;
             comment.UserName = User.Identity.Name;
             comment.commentDate = DateTime.Now;
             CommentRepo.AddComment(comment);
-            
-            return RedirectToAction("ViewTranslation", new { ID = id.Value });
+
+            //return RedirectToAction("ViewTranslation", new { ID = id.Value });
+            return Json(comment, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetAllComments(int id)
+        {
+            var model = CommentRepository.Instance.GetComments(id);
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+        
+        public ActionResult CheckUser() // Athugar hvort user se loggadur inn
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                //Response.StatusCode = 404;
+                return Json(null, JsonRequestBehavior.DenyGet);
+            }
+            return Json(1, JsonRequestBehavior.AllowGet);
         }
     }
 }
