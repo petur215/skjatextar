@@ -10,6 +10,10 @@
 <h2>Fyrirspurnir</h2>
 
 @Html.ActionLink("Senda inn fyrirspurn", "AddNewRequest", new { @class = "btn" })
+<p>
+    <span>@Html.ActionLink("Raða eftir fjölda atkvæða", "Requests") | </span>
+    <span>@Html.ActionLink("Raða eftir dagsetningu", "RequestsByDate")</span>
+</p>
 
 <ul class="list-group comments">
     @foreach(var item in Model)

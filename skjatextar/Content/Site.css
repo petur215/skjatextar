@@ -64,11 +64,9 @@ input[type="checkbox"].input-validation-error {
 #searchSubmit{
      color:black;
 }
-#submitTakki:hover{
  
-}
-#submitTakki:active{
-    
+.submitTakki{
+    visibility:hidden;
 }
 .logintakki
 {

@@ -47,15 +47,15 @@ namespace skjatextar.Controllers
                 int realid = id.Value;
                 var model = repo.GetTranslationById(realid);
                 var model2 = CommentRepo.GetComments(id.Value);
-                model.LikeCount = repo.CountAllLikes(realid);
                 string username = User.Identity.Name;
+
                 var model3 = new TranslationAndCommentViewModel { ThisTranslation = model, ThoseComments = model2};
                 return View(model3);
             }
             return View("Error");
         }
     
-        public FileStreamResult DownloadTranslation(int? id)
+        public FileStreamResult DownloadTranslationSrt(int? id)
         {
             Translation s = repo.GetTranslationById(id.Value);
 
@@ -64,6 +64,16 @@ namespace skjatextar.Controllers
             var stream = new MemoryStream(byteArray);
 
             return File(stream, "text/plain", s.Title + ".srt");
+        }
+        public FileStreamResult DownloadTranslationTxt(int? id)
+        {
+            Translation s = repo.GetTranslationById(id.Value);
+
+            var content = s.Text;
+            var byteArray = Encoding.UTF8.GetBytes(content);
+            var stream = new MemoryStream(byteArray);
+
+            return File(stream, "text/plain", s.Title + ".txt");
         }
         [HttpGet]
         [Authorize]
@@ -75,6 +85,8 @@ namespace skjatextar.Controllers
                 UpdateModel(item);
                 item.TranslationID = id.Value;
                 item.UserName = User.Identity.Name;
+                var request = repo.GetTranslationById(id.Value);
+                request.LikeCount += 1;
                 repo.AddLike(item);
 
                 return RedirectToAction("ViewTranslation", new { ID = id.Value});
@@ -90,19 +102,43 @@ namespace skjatextar.Controllers
 
             return View();
         }
+
         [HttpPost]
-        [Authorize]
-        public ActionResult AddComment(int? id, TranslationAndCommentViewModel v)
+        public ActionResult AddComment(int? id, string commentText)
         {
+            //TranslationAndCommentViewModel v = new TranslationAndCommentViewModel();
+            //v.ThisComment = commentText;
+            if(!User.Identity.IsAuthenticated)
+            {
+                Response.StatusCode = 404;
+                return Json(null, JsonRequestBehavior.DenyGet);
+            }
             Comment comment = new Comment();
             UpdateModel(comment);
-            comment.CommentText = v.ThisComment.CommentText;
+            comment.CommentText = commentText;
             comment.TranslationID = id.Value;
             comment.UserName = User.Identity.Name;
             comment.commentDate = DateTime.Now;
             CommentRepo.AddComment(comment);
-            
-            return RedirectToAction("ViewTranslation", new { ID = id.Value });
+
+            //return RedirectToAction("ViewTranslation", new { ID = id.Value });
+            return Json(comment, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetAllComments(int id)
+        {
+            var model = CommentRepository.Instance.GetComments(id);
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+        
+        public ActionResult CheckUser() // Athugar hvort user se loggadur inn
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                //Response.StatusCode = 404;
+                return Json(null, JsonRequestBehavior.DenyGet);
+            }
+            return Json(1, JsonRequestBehavior.AllowGet);
         }
     }
 }
