@@ -185,8 +185,11 @@ input[type="checkbox"].input-validation-error {
     text-decoration-color: red;
     text-align: center;
 }
+.biomynd{
+     margin-left: -30px;
+}
 .VideoDropdown
-{
+{   margin-left: -30px;
     color: black;
 }
 .PageNumber{
@@ -228,5 +231,81 @@ a:hover {
   color:red;
 }
 
+#labelinn{
+    font-weight:bold;
+    font-size:14px;
+    margin-right:58px;
+}
 
+.uolist{
+list-style-type:none;
+margin-top:23px;
+}
 
+.DeafPeople{
+    margin-top:30px;
+    margin-bottom:30px;
+    margin-left:42px;
+}
+
+select{color:black}
+
+.dropdownvideo{
+    
+    margin-bottom: 45px;
+    margin-top: 17px;
+}
+
+#btnSubmit{
+    margin-bottom:20px;
+    margin-top:25px;
+    margin-left:296px;
+}
+
+.FieldFont{
+    font-size:16px;
+}
+
+.Labelmargin{
+    margin-right:25px;
+}
+
+#label{
+    font-size:14px;
+    font-weight:bold;
+
+}
+
+.lifile{
+    margin-bottom:25px;
+}
+
+input[type=checkbox] 
+{
+    width:17px; 
+    height:17px;
+
+}
+
+#dropdownlist{
+    margin-top:50px;
+}
+
+.AddData{
+    margin-bottom: 41px;
+    margin-top: 19px;
+    margin-left: 42px;
+}
+
+#Createmargin{
+    font-weight:bold;
+    font-size:14px;
+    margin-right:10px;
+}
+
+#sendaskra{
+    margin-left:-25px;
+}
+#flokkur{
+    width:119px;
+}

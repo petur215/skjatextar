@@ -7,28 +7,32 @@
 {
     @Html.ValidationSummary();
 
-    <fieldset>
-        <legend>Bæta við skrá</legend>
-        <ul>
+    <fieldset class="FieldFont">
+        <legend>Hlaða inn skrá</legend>
+        <ul class="uolist">
             <li class="lifile">
-                <label for="Translation" id="labelinn">Veldu skrá</label>
-                <input type="file" id="fileToUpload" name="Translation" value="Veldu skrá" />
+                <label for="Translation" id="labelinn" class="Labelmargin">Veldu skrá :</label>
+                <input type="file" id="fileToUpload" name="Translation" />
                 <span class="field-validation-error" id="spanfile"></span>
             </li>
             <li class="dropdownvideo">
-                <select name="ValinMynd" class="biomynd" >
-                    <option selected="selected" class="VideoDropdown" id="dropdownlisti"> - Veldu titil  </option>
+                <label for="ValinMynd" id="labelinn"> Veldu titil : </label>
+                <select name="ValinMynd" class="biomynd">
+                    <option selected="selected" class="VideoDropdown" id="dropdownlisti"> -  </option>
                     @foreach (var item in Model)
-                    {   
-                        
+                    {
+
                         <option value="@item.Name" id="dropdownlisti" class="VideoDropdown">@item.Name</option>
                     }
                 </select>
                 @Html.ActionLink("Ýttu hér ef titill er ekki í lista", "CreateVideo", "Video", new { }, null)
             </li>
-            <li class="DeafPeople">Fyrir heyrnalausa?
-            <input type="checkbox"name="DeafCheck"/>
         </ul>
-        <input type="submit" id="btnSubmit" value="Hlaða inn skrá" />
+            <div class="DeafPeople">
+            <label for="DeafCheck" id="label">Fyrir heyrnaskerta?</label> 
+            <input type="checkbox"name="DeafCheck"/>
+            </div>
+
+        <input type="submit" id="btnSubmit" class="btn btn-default" value="Hlaða inn skrá" />
     </fieldset>
 }
