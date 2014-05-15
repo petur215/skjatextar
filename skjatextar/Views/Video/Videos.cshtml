@@ -15,8 +15,8 @@
     </div>
 }
 
-<div class="categoriesTable">
-    <table class="table table-bordered" style="">
+<div>
+    <table class="table table-bordered categoriesTable">
         <tbody>
             <tr>
                 @foreach (var item in Model.ThoseCategories)
@@ -27,37 +27,39 @@
         </tbody>
     </table>
 </div>
-a<table class="table">
-    <tr>
-        <th>
-            Nafn
-        </th>
-        <th>
-            Flokkur
-        </th>
-        <th>
-            Fjöldi þýðinga
-        </th>
-    </tr>
+<div id="translationHeader">
+    <table class="table table-striped tableTranslations">
+        <tr>
+            <th>
+                Nafn
+            </th>
+            <th>
+                Flokkur
+            </th>
+            <th>
+                Fjöldi þýðinga
+            </th>
+        </tr>
+        @foreach (var item in Model.SearchResults)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Name, "ViewVideo", "Video", new { }, null)
 
-@foreach (var item in Model.SearchResults) {
-    <tr>
-        <td>
-            @Html.ActionLink(item.Name, "ViewVideo", "Video", new {}, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Title)
+                </td>
+                <td>
+                    @item.TranslationCount
+                </td>
+            </tr>
+        }
 
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Title)
-        </td>
-        <td>
-            @item.TranslationCount
-        </td>
-    </tr>
-}
+    </table>
+</div>
 
-</table>
-
-<div>
+<div class="pageSplitter">
     @if (Model.SearchResults.HasPreviousPage)
     {
         @Html.ActionLink("<<", "Videos", new { page = 1, LeitarStrengur = Model.SearchString})
