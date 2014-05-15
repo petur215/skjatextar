@@ -5,26 +5,22 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Request</h4>
         <hr />
         @Html.ValidationSummary(true)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NewRequest, new { @class = "control-label col-md-2" })
+        <div class="form-group allTextToCenter">
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.NewRequest)
-                @Html.ValidationMessageFor(model => model.NewRequest)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Senda inn" class="btn btn-default" />
+                <p>
+                    <span class="newRequest">Titill: </span>
+                    <span>@Html.TextBoxFor(model => model.NewRequest)</span>
+                    <span>@Html.ValidationMessageFor(model => model.NewRequest)</span>
+                    <span><input type="submit" value="Senda inn" class="btn btn-default" /></span>
+                </p>
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Requests", "Request")
+    @Html.ActionLink("Til baka", "Requests", "Request")
 </div>

@@ -1,9 +1,6 @@
 ﻿body {
-    padding-top: 8px;
+    padding-top: 15px;
     padding-bottom: 20px;
-
-    
-    /* IE6-9 */
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -18,6 +15,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
 .tableCentered{
     margin-left:-31px;
 }
@@ -57,7 +55,6 @@ input[type="checkbox"].input-validation-error {
 
 #LeitarStrengur{
     width:280px;
-    margin-left:340px;
     margin-top:20px;
     margin-bottom:40px;
     position:relative;
@@ -70,9 +67,6 @@ input[type="checkbox"].input-validation-error {
      color:black;
 }
 
-.submitTakki{
-    visibility:hidden;
-}
 .logintakki
 {
     color: #ffffff;
@@ -191,6 +185,7 @@ input[type="checkbox"].input-validation-error {
 .VideoDropdown
 {   margin-left: -30px;
     color: black;
+    margin-left:30px;
 }
 .PageNumber{
     display: inline;
@@ -218,17 +213,38 @@ input[type="checkbox"].input-validation-error {
 
 }
 
-.videoLink{
-    text-decoration:none;
+h3{
+    text-align:center;
+}
+.viewTranslationTable{
+    width:40%;
+    border-radius:10px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
-.table a {
-  text-decoration: none;
+.allTextToCenter{
+    
+    text-align:center;
 }
 
-a:hover {
-    text-decoration: underline;
-  color:red;
+.requestList{
+    text-align:left;
+    width:60%;
+    border-radius:10px;
+    margin-left:auto;
+    margin-right:auto;
+    display:inline-flexbox;
+}
+
+p span.newRequest{
+    font-size: 20px;
+    font-weight:bold;
+}
+form.form-search {
+margin-left: auto;
+margin-right: auto;
+text-align: center;
 }
 
 #labelinn{
