@@ -185,7 +185,34 @@ input[type="checkbox"].input-validation-error {
 .VideoDropdown
 {
     color: black;
+    margin-left:30px;
 }
 .PageNumber{
     display: inline;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+.dropdownvideo{
+  margin-left:-39px;
+  margin-bottom:20px;
+  color:black;
+}
+
+.DeafPeople{
+    margin-left:-39px;
+    margin-bottom:20px;
+}
+
+#fileToUpload{
+    margin:20px 0 20px 0;
+}
+
+#labelinn{
+    font-size:14px;
+    font-weight:normal;
+    margin-right:20px;
 }
