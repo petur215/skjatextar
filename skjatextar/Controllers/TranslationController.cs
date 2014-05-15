@@ -54,7 +54,9 @@ namespace skjatextar.Controllers
                         StreamReader file = new StreamReader(path, Encoding.Default, true);
                         UpdateModel(item);
                         item.Text = file.ReadToEnd();
-                        item.Title = Translation.FileName;
+                        string str = Translation.FileName;
+                        str = str.Remove(str.Length - 4);
+                        item.Title = str;
                         item.LikeCount = 0;
                         item.DateLastEdited = DateTime.Now;
                         string Name = Request.Form["ValinMynd"];

@@ -4,7 +4,7 @@
     ViewBag.Title = "ViewVideo";
 }
 <div class="table-header-home">
-    <span>Nýjustu 10</span>
+    <span>@Model.First().Video</span>
 </div>
 <div class="content-home">
     <table class="table table-bordered">
@@ -28,4 +28,5 @@
             }
         </tbody>
     </table>
+    @Html.ActionLink("Til baka", "Videos")
 </div>

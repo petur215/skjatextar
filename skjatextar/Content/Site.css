@@ -1,6 +1,9 @@
 ﻿body {
     padding-top: 8px;
     padding-bottom: 20px;
+
+    
+    /* IE6-9 */
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -64,7 +67,7 @@ input[type="checkbox"].input-validation-error {
 #searchSubmit{
      color:black;
 }
- 
+
 .submitTakki{
     visibility:hidden;
 }
@@ -183,8 +186,45 @@ input[type="checkbox"].input-validation-error {
 .VideoDropdown
 {
     color: black;
-    margin-left:30px;
 }
 .PageNumber{
     display: inline;
 }
+
+.categoriesTable{
+    margin-bottom: 20px;
+    text-decoration-skip:none;
+    text-align:center;
+    border-radius:10px;
+}
+
+.tableTranslations{
+    border-radius:10px;
+    width: 70%;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#translationHeader table.tableTranslations tr th{
+    text-align:center;
+    font-size:15px;
+    font-weight: bold;
+
+}
+
+.videoLink{
+    text-decoration:none;
+}
+
+.table a {
+  text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+  color:red;
+}
+
+
+
