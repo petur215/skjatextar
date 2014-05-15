@@ -258,7 +258,6 @@
     <Content Include="Views\Video\ViewVideo.cshtml" />
     <Content Include="Views\Request\AddNewRequest.cshtml" />
     <Content Include="Views\Request\CreateNewRequestPartial.cshtml" />
-    <Content Include="Views\Home\LikeFunction.cshtml" />
     <Content Include="Views\Home\AddComment.cshtml" />
     <Content Include="Views\Video\CreateVideo.cshtml" />
   </ItemGroup>

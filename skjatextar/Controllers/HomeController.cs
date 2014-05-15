@@ -85,8 +85,8 @@ namespace skjatextar.Controllers
                 UpdateModel(item);
                 item.TranslationID = id.Value;
                 item.UserName = User.Identity.Name;
-                var request = repo.GetTranslationById(id.Value);
-                request.LikeCount += 1;
+                var Translation = repo.GetTranslationById(id.Value);
+                Translation.LikeCount += 1;
                 repo.AddLike(item);
 
                 return RedirectToAction("ViewTranslation", new { ID = id.Value});

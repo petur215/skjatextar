@@ -31,34 +31,34 @@
 <!-- Tafla fyrir oll video og leitarnidurstodur-->
 <div id="translationHeader">
     <table class="table table-striped tableTranslations">
-    <tr>
-        <th>
-            Nafn
-        </th>
-        <th>
-            Flokkur
-        </th>
-        <th>
-            Fjöldi þýðinga
-        </th>
-    </tr>
+        <tr>
+            <th>
+                Nafn
+            </th>
+            <th>
+                Flokkur
+            </th>
+            <th>
+                Fjöldi þýðinga
+            </th>
+        </tr>
         @foreach (var item in Model.SearchResults)
         {
-    <tr>
-        <td>
-            @Html.ActionLink(item.Name, "ViewVideo", "Video", new { }, null)
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Name, "ViewVideo", "Video", new {id = item.ID }, null)
 
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Title)
-        </td>
-        <td>
-            @item.TranslationCount
-        </td>
-    </tr>
-}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Title)
+                </td>
+                <td>
+                    @item.TranslationCount
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
 </div>
 
 <div class="pageSplitter">
