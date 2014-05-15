@@ -13,9 +13,11 @@
         <h4>Request</h4>
         <hr/>
         <div class="form-group">
+            <label for="video" class="VideoLabel">Titill </label>
             @Html.TextBoxFor(model => model.ThisVideo.Name)
             <div class="col-md-10">
-                <select name="ValinFlokkur">
+                <label for="Category" class="CategoryLabel">Veldu Flokk</label>
+                <select name="ValinFlokkur" class="TheCategory">
                     @foreach(var item in Model.Categories)
                     {
                         <option value="@item.Title" id="dropdownlisti" class="VideoDropdown">@item.Title</option>
