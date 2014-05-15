@@ -1,0 +1,83 @@
+﻿@model skjatextar.Models.ViewModel.PagedViewModel
+@{
+    ViewBag.Title = "Myndefni";
+}
+
+<h2>Myndefni</h2>
+
+@using (Html.BeginForm("Videos", "Video", @FormMethod.Get, new { @class = "form-search" }))
+{
+    <div class="input-append">
+
+        @Html.TextBox("LeitarStrengur", null, new { @class = "span2 search-query", @type = "text" })
+        <button type="submit" class="submitTakki"><span class="glyphicon glyphicon-search"></span></button>
+
+    </div>
+}
+<ul class="CategoryList">
+    @foreach(var item in Model.ThoseCategories)
+    {
+          <li>@Html.ActionLink(item.Title, "Videos", "Video", new {id = item.ID}, null)</li>
+    }
+</ul>
+<table class="table">
+    <tr>
+        <th>
+            Nafn
+        </th>
+        <th>
+            Flokkur
+        </th>
+        <th>
+            Fjöldi þýðinga
+        </th>
+    </tr>
+
+@foreach (var item in Model.SearchResults) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name, "ViewVideo", "Video", new {}, null)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Title)
+        </td>
+        <td>
+            @item.TranslationCount
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @if (Model.SearchResults.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Videos", new { page = 1, LeitarStrengur = Model.SearchString})
+        @Html.Raw(" ");
+        @Html.ActionLink("< Prev", "Videos", new { page = Model.SearchResults.PageNumber - 1, LeitarStrengur = Model.SearchString })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw(" ");
+        @:< Prev
+    }
+    <div class="PageNumber">
+    Page @(Model.SearchResults.PageCount < Model.SearchResults.PageNumber ? 0 : Model.SearchResults.PageNumber)
+    of @Model.SearchResults.PageCount
+    </div>
+    @if (Model.SearchResults.HasNextPage)
+    {
+        @Html.ActionLink("Next >", "Videos", new { page = Model.SearchResults.PageNumber + 1, LeitarStrengur = Model.SearchString})
+        @Html.Raw(" ");
+        @Html.ActionLink(">>", "Videos", new { page = Model.SearchResults.PageCount, LeitarStrengur = Model.SearchString })
+    }
+    else
+    {
+        @:Next >
+        @Html.Raw(" ");
+        @:>
+
+    }
+</div>
