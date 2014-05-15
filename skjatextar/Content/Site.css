@@ -186,3 +186,6 @@ input[type="checkbox"].input-validation-error {
 {
     color: black;
 }
+.PageNumber{
+    display: inline;
+}

@@ -1648,9 +1648,10 @@ legend {
   border-bottom: 1px solid #1c1e22;
 }
 label {
-  display: inline-block;
+  display: inline;
   margin-bottom: 5px;
   font-weight: bold;
+  font-size:150%;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -1665,7 +1666,8 @@ input[type="checkbox"] {
   line-height: normal;
 }
 input[type="file"] {
-  display: block;
+  display: inline;
+  margin-left:49px;
 }
 input[type="range"] {
   display: block;

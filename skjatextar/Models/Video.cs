@@ -13,6 +13,6 @@ namespace skjatextar.Models
         public int? CategoryID { get; set; }
         [ForeignKey("CategoryID")]
         public virtual Category Category { get; set; }
-
+        public int TranslationCount { get; set; }
     }
 }

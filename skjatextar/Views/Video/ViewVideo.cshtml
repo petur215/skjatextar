@@ -23,14 +23,7 @@
                     <td>@Html.ActionLink(item.Title, "ViewTranslation", "Home", new { id = item.ID }, null)</td>
                     <td>@item.LikeCount</td>
                     <td>@item.DateLastEdited</td>
-                    <td>
-                        <script type="text/javascript">
-                            if (item.Deafcheck == true) {
-                                "Já"
-                            }
-                            else { "Nei" }
-                        </script>
-                    </td>
+                    <td>@item.DeafCheck</td>
                 </tr>
             }
         </tbody>

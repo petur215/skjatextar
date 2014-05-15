@@ -56,7 +56,10 @@
     <div class="GetTranslationById">
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("Niðurhala textaskrá", "DownloadTranslation", new { id = Model.ThisTranslation.ID })
+                @Html.ActionLink("Niðurhala Skjátexta sem .srt", "DownloadTranslationSrt", new { id = Model.ThisTranslation.ID })
+            </div>
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Niðurhala skjátexta sem .txt", "DownloadTranslationTxt", new { id = Model.ThisTranslation.ID })
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@
 
     <fieldset>
         <legend>Bæta við skrá</legend>
-        <ol>
+        <ul>
             <li class="lifile">
                 <input type="file" id="fileToUpload" name="Translation" />
                 <span class="field-validation-error" id="spanfile"></span>
@@ -23,7 +23,9 @@
                 </select> 
                 @Html.ActionLink("Ef mynd er ekki í lista ýttu hér", "CreateVideo", "Video", new{}, null)
             </li>
-        </ol>
+            <li>Sérstaklega fyrir heyrnalausa?
+            <input type="radio"name="DeafCheck"/>Já<input type="radio" name="Deafcheck2"/>Nei</li>
+        </ul>
         <input type="submit" id="btnSubmit" value="Upload" />
     </fieldset>
 }

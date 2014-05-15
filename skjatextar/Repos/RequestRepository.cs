@@ -27,7 +27,16 @@ namespace skjatextar.Models
 
             return requests;
         }
-        
+
+        public IEnumerable<Request> GetRequestsByLikes()
+        {
+            var requests =  (from r in m_db.Requests
+                            orderby r.LikeCount descending
+                            select r).ToList();
+
+            return requests;
+        }
+
         public void AddRequest(Request s)
         {
             m_db.Requests.Add(s);
