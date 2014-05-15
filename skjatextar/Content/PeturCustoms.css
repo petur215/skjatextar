@@ -1668,6 +1668,7 @@ input[type="checkbox"] {
 input[type="file"] {
   display: inline;
   margin-left:49px;
+  color: white;
 }
 input[type="range"] {
   display: block;

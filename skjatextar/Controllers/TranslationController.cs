@@ -59,8 +59,19 @@ namespace skjatextar.Controllers
                         item.DateLastEdited = DateTime.Now;
                         string Name = Request.Form["ValinMynd"];
                         file.Close();
+                        videorepo.Save();
+                        if(item.DeafCheck != null)
+                        {
+                            item.DeafCheck = "Já";
+                        }
+                        else
+                        {
+                            item.DeafCheck = "Nei";
+                        }
                         var choosenvid = videorepo.GetVideoByName(Name);
                         item.VideoID = choosenvid.ID;
+                        choosenvid.TranslationCount += 1;
+                        videorepo.Save();
                         repo.AddTranslation(item);
                         ViewBag.Message = ("Það Tókst að hlaða upp skránni");
                     }
@@ -99,6 +110,7 @@ namespace skjatextar.Controllers
             repo.UpdateTranslation(item);
             item.DateLastEdited = DateTime.Now;
             repo.Save();
+            ViewBag.Message = ("Skráin hefur verið vistuð");
             return RedirectToAction("Edit");
         }
 

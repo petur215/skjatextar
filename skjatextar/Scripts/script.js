@@ -1,46 +1,48 @@
 ﻿$(document).ready(function () {
-    GetAllComments();
-
-    $("#CommentClick").click(function (comment) {
-        comment.preventDefault;
-
-        var myComment = $("#CommentText").val();
-        if (myComment == "") {
-            alert("Input field can not be empty!");
+    $.ajax({
+        type: "GET",
+        url: "/Home/CheckUser",
+        data: "{ }",
+        datatype: "json",
+        success: function (data) {
+            //alert(JSON.stringify(data));
+        },
+        error: function (xhr, err) {
+            $("#hideme").hide();
+        }
+    });
+    hi();
+    var s = $(".currentTranslationId").val(); //parseInt(@Model.ThisTranslation.ID);
+    console.log("current id is " + s);
+    $("#empty").hide();
+    //$("#hideme").hide();
+    //$.template();
+    $("#CommentTakki").click(function (ev) {
+        var temp = $('#CommentText').val();
+        ev.preventDefault;
+        if (temp == "") {
+            $("#empty").show();
+            $("#empty").html("Input field can not be empty!");
         }
         else {
-            $('#CommentText').val("");
+            $("#empty").hide();
+            $("#CommentText").val("");
             $.ajax({
-                type: "GET",
-                //contentType: "application/json; charset=utf8",
+                type: "POST",
                 url: "/Home/AddComment",
-                data: { commentText: myComment },
-                dataType: "json",
+                data: { id: s, commentText: temp },
+                datatype: "json",
                 success: function (commentText) {
-                    //$(".list-group").empty();
-                    GetAllComments();
+                    //alert("virkar");
+                    hi();
+                },
+                error: function (xhr, err) {
+                    //alert("vesen!!!");
                 }
             });
         }
     });
 });
-
-function GetAllComments() {
-    $.ajax({
-        type: "GET",
-        //contentType: "application/json; charset=utf8",
-        url: "/Home/GetAllComments",
-        data: "{}",
-        dataType: "json",
-        success: function (comment) {
-            for (var i = 0; i < comment.length; i++) {
-                comment[i].CommentDate = ConvertStringToJSDate(comment[i].CommentDate);
-            }
-            var myArray = comment;
-            $('#commentListi').loadTemplate($('#commentTemplate'), myArray);
-        },
-    });
-}
 function ConvertStringToJSDate(dt) {
     var dtE = /^\/Date\((-?[0-9]+)\)\/$/.exec(dt);
     if (dtE) {
@@ -48,4 +50,26 @@ function ConvertStringToJSDate(dt) {
         return dt;
     }
     return null;
+}
+function hi() {
+    var k = $(".currentTranslationId").val();
+    $.ajax({
+        type: "GET",
+        url: "/Home/GetAllComments",
+        data: { id: k },
+        datatype: "json",
+        success: function (data) {
+            //alert(JSON.stringify(data));
+            for (var i = 0; i < data.length; i++) {
+                data[i].commentDate = ConvertStringToJSDate(data[i].commentDate);
+            }
+
+            var array2 = data;
+            $('#commentList').loadTemplate($('#commentTemplate'), array2);
+
+        },
+        error: function (xhr, err) {
+            //alert("vesen");
+        }
+    });
 }
