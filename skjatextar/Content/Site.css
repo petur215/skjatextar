@@ -42,42 +42,14 @@ input[type="checkbox"].input-validation-error {
     border: 0 none;
 }
 
+.validation-summary-errors {
+    color: #b94a48;
+}
+
 .validation-summary-valid {
     display: none;
 }
-.validation-summary-errors{
-     position:absolute;
-    margin-left:270px;
-    margin-top:90px;
-    color: #b94a48;
-}
-.VideoLabel{
-    display:inline;
-    margin-left:70px;
-    float:left;
-}
-.CategoryLabel{
-    display:inline;
-    margin-left:-53px;
-    margin-top:75px;
-}
-.TheCategory{
-    margin-left:8px;
-    display:inline;
-    margin-top:46px;
-    width:160px;
-}
-#ThisVideo_Name{
-    float:left;
-    margin-left:92px;
-    display:inline;
-}
-#spanfile{
-     position:absolute;
-    margin-left:270px;
-    margin-top:90px;
-    color: #b94a48;
-}
+
 #LeitarStrengur{
     width:280px;
     margin-left:340px;
@@ -98,9 +70,6 @@ input[type="checkbox"].input-validation-error {
 #submitTakki:active{
     
 }
-ul{
-    list-style-type:none;
-}
 .logintakki
 {
     color: #ffffff;
@@ -112,21 +81,6 @@ ul{
     line-height: 0.2;
     border-radius: 6px;
     margin-left: 120px;
-}
-.VideoDropdown{
-    width:18%;
-    margin-top:10px;
-    color:black;
-    margin-left:20px;
-    margin-top:35px;
-}
-#btnSubmit{
-    margin-left:179px;
-}
-.inlineStyle{
-
-    display:inline;
-    margin-top:90px;
 }
 .login-field
 {
@@ -227,4 +181,11 @@ ul{
     display: inline-block;
     text-decoration-color: red;
     text-align: center;
+}
+.VideoDropdown
+{
+    color: black;
+}
+.PageNumber{
+    display: inline;
 }

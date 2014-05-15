@@ -9,7 +9,12 @@ namespace skjatextar.Models
     public class VideoRepository
     {
         TranslationContext m_db = new TranslationContext();
+        //public IEnumerable<Video> VideoIndex()
+        //{
+        //    //var result = m_db.Videos.Include(s => s.Category).OrderBy(s => s.Name);
 
+        //    //return result;
+        //}
         public IEnumerable<Video> GetAllVideos()
         {
             var videos = from s in m_db.Videos
@@ -34,12 +39,21 @@ namespace skjatextar.Models
 
         public IEnumerable<Video> GetVideosByCategory(int id)
         {
-            var videos = from s in m_db.Videos
+            var videos = (from s in m_db.Videos
                          where s.CategoryID == id
                          orderby s.Name ascending
-                         select s;
+                         select s).ToList();
 
             return videos;
+        }
+
+        public IEnumerable<Video> SearchVideos(string LeitarStrengur)
+        {
+            var search = (from m in m_db.Videos                                         //Finnur allt myndefni sem 
+                          where m.Name.ToLower().Contains(LeitarStrengur.ToLower())     //inniheldur leitarstrenginn
+                          select m).ToList();
+
+            return search;
         }
 
         public IEnumerable<Translation> GetAllTranslationsForVideo(int id)   

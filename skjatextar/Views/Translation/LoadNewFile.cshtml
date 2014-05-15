@@ -1,31 +1,31 @@
 ﻿@model IEnumerable<skjatextar.Models.Video>
 
 
-<h3>@ViewBag.Message</h3>
+<h3 style="color:green">@ViewBag.Message</h3>
 
 @using (Html.BeginForm("LoadNewFile", "Translation", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary();
 
     <fieldset>
-        <form>
-            <ul class="LoadNew">
-                <li class="lifile">
-                    <label for="upload" class="inlineStyle">SRT skrá</label><input type="file" class="inlineStyle" name="Translation" />
-                    <span  id="spanfile" class="spanerror"></span>
-                </li>
-                <li>
-                    <label for="dropDown" class="inlineStyle">Veldu Mynd</label>
-                   <select name="ValinMynd" class="VideoDropdown">
-                        @foreach (var item in Model)
-                        {
-                            <option value="@item.Name" id="dropdownlisti">@item.Name</option>
-                        }
-                    </select>
-                    @Html.ActionLink("Ef mynd er ekki í lista ýttu hér", "CreateVideo", "Video", new { }, null)
-                </li>
-            </ul>
-            <input type="submit" id="btnSubmit" value="Upload" />
-        </form>
+        <legend>Bæta við skrá</legend>
+        <ol>
+            <li class="lifile">
+                <input type="file" id="fileToUpload" name="Translation" />
+                <span class="field-validation-error" id="spanfile"></span>
+            </li>
+            <li>
+                <select name="ValinMynd">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Name" id="dropdownlisti" class="VideoDropdown">@item.Name</option>
+                    }
+                </select> 
+                @Html.ActionLink("Ef mynd er ekki í lista ýttu hér", "CreateVideo", "Video", new{}, null)
+            </li>
+            <li>Sérstaklega fyrir heyrnalausa?
+            <input type="radio"name="DeafCheck"/>Já<input type="radio" name="Deafcheck2"/>Nei</li>
+        </ol>
+        <input type="submit" id="btnSubmit" value="Upload" />
     </fieldset>
 }

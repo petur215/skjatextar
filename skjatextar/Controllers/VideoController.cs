@@ -4,29 +4,64 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data;
+using System.Data.Entity;
+using System.Net;
+using skjatextar.DAL;
+using PagedList;
+using skjatextar.Models.ViewModel;
 
 namespace skjatextar.Controllers
 {
     public class VideoController : Controller
     {
         VideoRepository repo2 = new VideoRepository();
-        // GET: /Translation/Default1        
-        public ActionResult Videos()
+        // GET: /Translation/Default1    
+        public ActionResult Videos(int? id, int? page, string LeitarStrengur)
         {
-            var videos = repo2.GetAllVideos();
-            var display = from n in videos
-                          orderby n.Name
-                          select n;
-            return View(videos);
-        }
-        //
-        // GET: /Video/
-        public ActionResult Index()
-        {
-            return View();
-        }
+            var model2 = new PagedViewModel();
+            
+            if (Request.HttpMethod != "GET")
+            {
+                page = 1;
+            }
 
-        //
+            int pageSize = 2;
+            int pageNumber = (page ?? 1);
+
+            if (id != null)
+            {
+                var videos = repo2.GetVideosByCategory(id.Value);
+                foreach (var item in videos)
+                {
+                    item.TranslationCount = repo2.GetAllTranslationsForVideo(item.ID).ToList().Count();
+                }
+                model2.SearchResults = videos.ToPagedList(pageNumber, pageSize);
+            }
+            else if(LeitarStrengur != null)
+            {
+                model2.SearchString = LeitarStrengur;
+                var videos = repo2.SearchVideos(model2.SearchString); //sendir leitarstrenginn i fallid searchvideos
+
+                foreach (var item in videos)
+                {
+                    item.TranslationCount = repo2.GetAllTranslationsForVideo(item.ID).ToList().Count();
+                }
+                model2.SearchResults = videos.ToPagedList(pageNumber, pageSize);
+            }
+            else
+            {
+                var videos = db.Videos.Include(v => v.Category).OrderBy(s => s.Name);
+                foreach (var item in videos)
+                {
+                    item.TranslationCount = repo2.GetAllTranslationsForVideo(item.ID).ToList().Count();
+                }
+                model2.SearchResults = videos.ToPagedList(pageNumber, pageSize);
+            }
+
+            model2.ThoseCategories = repo2.GetAllCategories();
+            return View("Videos", model2);
+        }
         [HttpGet]
         public ActionResult ViewVideo(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
         {
@@ -53,13 +88,15 @@ namespace skjatextar.Controllers
         // POST: /Video/Create
         [HttpPost]
         [Authorize]
-        public ActionResult CreateVideo(FormCollection formData, NewVideoViewModel v)
+        public ActionResult CreateVideo(FormCollection formData, NewVideoViewModel v, object sender, EventArgs e)
         {
             Video model = new Video();
             UpdateModel(model);
             model.Name = v.ThisVideo.Name;
             string Category = Request.Form["ValinFlokkur"];
             var Flokkur = repo2.GetCategoryByName(Category);
+            //bool isChecked = DeafCheck.Checked;
+            //if(isChecked)
             model.Category = Flokkur;
             model.CategoryID = Flokkur.ID;
             repo2.AddVideo(model);
@@ -67,32 +104,30 @@ namespace skjatextar.Controllers
 
             return RedirectToAction("LoadNewFile", "Translation");
         }
-
-        [HttpGet]
-        public ActionResult SearchView(string LeitarStrengur)
-        {
-            VideoRepository repo = new VideoRepository();
-            var Videos = repo.GetAllVideos(); //Listi yfir oll video
-            var search = from m in Videos
-                         select m;
-
-            if (!String.IsNullOrEmpty(LeitarStrengur)) //Ef fallid faer inn streng keyrir tetta
-            {
-                search = search.Where(s => s.Name.ToUpper().Contains(LeitarStrengur.ToUpper())); //Finnur allar myndir
-            }                                                            //sem innihalda strenginn
-            return View(search);
-        }
-
         public ActionResult Categories(int? id)
         {
             if(id.HasValue)
             {
                 var realid = id.Value;
                 var cat = repo2.GetVideosByCategory(realid);
-
+                var cat1 = repo2.GetAllCategories();
+                //var cat2 = new CategoryViewModel { ThoseVideos = cat, ThoseCategories = cat1 };
+                return View(cat1);
             }
             
-            return View();
+            return View("Error");
+        }
+       
+        private TranslationContext db = new TranslationContext();
+
+        // GET: /Style/
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
 
