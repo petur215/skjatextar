@@ -1,9 +1,14 @@
 ﻿body {
     padding-top: 8px;
     padding-bottom: 20px;
-
-    
-    /* IE6-9 */
+    background: #f0f9ff; /* Old browsers */
+background: -moz-linear-gradient(top,  #f0f9ff 0%, #cbebff 62%, #a1dbff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f9ff), color-stop(62%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f0f9ff 0%,#cbebff 62%,#a1dbff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f0f9ff 0%,#cbebff 62%,#a1dbff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f0f9ff 0%,#cbebff 62%,#a1dbff 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f0f9ff 0%,#cbebff 62%,#a1dbff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -186,6 +191,7 @@ input[type="checkbox"].input-validation-error {
 .VideoDropdown
 {
     color: black;
+    margin-left:30px;
 }
 .PageNumber{
     display: inline;
@@ -211,19 +217,6 @@ input[type="checkbox"].input-validation-error {
     font-size:15px;
     font-weight: bold;
 
-}
-
-.videoLink{
-    text-decoration:none;
-}
-
-.table a {
-  text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-  color:red;
 }
 
 
