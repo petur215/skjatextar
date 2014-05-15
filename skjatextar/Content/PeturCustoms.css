@@ -47,6 +47,7 @@ template {
 }
 a {
   background: transparent;
+  text-decoration: none;
 }
 a:active,
 a:hover {
@@ -5954,7 +5955,8 @@ h6 {
   color: #5bc0de;
 }
 .table a {
-  text-decoration: underline;
+  text-decoration: none;
+  font-size: 15px;
 }
 .table .success,
 .table .warning,
