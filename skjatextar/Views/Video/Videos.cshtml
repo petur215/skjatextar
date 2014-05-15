@@ -14,13 +14,20 @@
 
     </div>
 }
-<ul class="CategoryList">
-    @foreach(var item in Model.ThoseCategories)
-    {
-          <li>@Html.ActionLink(item.Title, "Videos", "Video", new {id = item.ID}, null)</li>
-    }
-</ul>
-<table class="table">
+
+<div class="categoriesTable">
+    <table class="table table-bordered" style="">
+        <tbody>
+            <tr>
+                @foreach (var item in Model.ThoseCategories)
+                {   
+                    <td>@Html.ActionLink(item.Title, "Videos", "Video", new { id = item.ID }, null)</td>
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>
+a<table class="table">
     <tr>
         <th>
             Nafn
