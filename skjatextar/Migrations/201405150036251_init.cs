@@ -87,6 +87,7 @@ namespace skjatextar.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         CategoryID = c.Int(),
+                        TranslationCount = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.Categories", t => t.CategoryID)
