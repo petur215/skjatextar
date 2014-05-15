@@ -47,15 +47,15 @@ namespace skjatextar.Controllers
                 int realid = id.Value;
                 var model = repo.GetTranslationById(realid);
                 var model2 = CommentRepo.GetComments(id.Value);
-                model.LikeCount = repo.CountAllLikes(realid);
                 string username = User.Identity.Name;
+
                 var model3 = new TranslationAndCommentViewModel { ThisTranslation = model, ThoseComments = model2};
                 return View(model3);
             }
             return View("Error");
         }
     
-        public FileStreamResult DownloadTranslation(int? id)
+        public FileStreamResult DownloadTranslationSrt(int? id)
         {
             Translation s = repo.GetTranslationById(id.Value);
 
@@ -64,6 +64,16 @@ namespace skjatextar.Controllers
             var stream = new MemoryStream(byteArray);
 
             return File(stream, "text/plain", s.Title + ".srt");
+        }
+        public FileStreamResult DownloadTranslationTxt(int? id)
+        {
+            Translation s = repo.GetTranslationById(id.Value);
+
+            var content = s.Text;
+            var byteArray = Encoding.UTF8.GetBytes(content);
+            var stream = new MemoryStream(byteArray);
+
+            return File(stream, "text/plain", s.Title + ".txt");
         }
         [HttpGet]
         [Authorize]
@@ -75,6 +85,8 @@ namespace skjatextar.Controllers
                 UpdateModel(item);
                 item.TranslationID = id.Value;
                 item.UserName = User.Identity.Name;
+                var request = repo.GetTranslationById(id.Value);
+                request.LikeCount += 1;
                 repo.AddLike(item);
 
                 return RedirectToAction("ViewTranslation", new { ID = id.Value});

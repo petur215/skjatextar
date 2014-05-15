@@ -61,6 +61,8 @@ namespace skjatextar.Controllers
                         file.Close();
                         var choosenvid = videorepo.GetVideoByName(Name);
                         item.VideoID = choosenvid.ID;
+                        choosenvid.TranslationCount += 1;
+                        videorepo.Save();
                         repo.AddTranslation(item);
                         ViewBag.Message = ("Það Tókst að hlaða upp skránni");
                     }
@@ -99,6 +101,7 @@ namespace skjatextar.Controllers
             repo.UpdateTranslation(item);
             item.DateLastEdited = DateTime.Now;
             repo.Save();
+            ViewBag.Message = ("Skráin hefur verið vistuð");
             return RedirectToAction("Edit");
         }
 

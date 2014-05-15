@@ -32,30 +32,17 @@ namespace skjatextar.Controllers
             if (id != null)
             {
                 var videos = repo2.GetVideosByCategory(id.Value);
-                foreach (var item in videos)
-                {
-                    item.TranslationCount = repo2.GetAllTranslationsForVideo(item.ID).ToList().Count();
-                }
                 model2.SearchResults = videos.ToPagedList(pageNumber, pageSize);
             }
             else if(LeitarStrengur != null)
             {
                 model2.SearchString = LeitarStrengur;
                 var videos = repo2.SearchVideos(model2.SearchString); //sendir leitarstrenginn i fallid searchvideos
-
-                foreach (var item in videos)
-                {
-                    item.TranslationCount = repo2.GetAllTranslationsForVideo(item.ID).ToList().Count();
-                }
                 model2.SearchResults = videos.ToPagedList(pageNumber, pageSize);
             }
             else
             {
                 var videos = db.Videos.Include(v => v.Category).OrderBy(s => s.Name);
-                foreach (var item in videos)
-                {
-                    item.TranslationCount = repo2.GetAllTranslationsForVideo(item.ID).ToList().Count();
-                }
                 model2.SearchResults = videos.ToPagedList(pageNumber, pageSize);
             }
 
