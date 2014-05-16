@@ -19,7 +19,7 @@ namespace skjatextar.Controllers
         // GET: /Translation/Default1    
         public ActionResult Videos(int? id, int? page, string LeitarStrengur)
         {
-            var model2 = new PagedViewModel();
+            var model2 = new PagedViewModel(); //býr til nýtt viewmodel sem sér um blaðsíðuskipti meðal annars
             
             if (Request.HttpMethod != "GET")
             {
@@ -29,23 +29,22 @@ namespace skjatextar.Controllers
             int pageSize = 10;
             int pageNumber = (page ?? 1);
 
-            if (id != null)
+            if (id != null)//ef ekkert id kemur inn í fallið er raðað eftir category
             {
                 var videos = repo2.GetVideosByCategory(id.Value);
                 model2.SearchResults = videos.ToPagedList(pageNumber, pageSize);
             }
-            else if(LeitarStrengur != null)
+            else if(LeitarStrengur != null)//ef notandi skrifaði í search bar er raðað eftir leitarstreng
             {
                 model2.SearchString = LeitarStrengur;
                 var videos = repo2.SearchVideos(model2.SearchString); //sendir leitarstrenginn i fallid searchvideos
                 model2.SearchResults = videos.ToPagedList(pageNumber, pageSize);
             }
-            else
+            else //annars er raðað eftir stafrófsröð
             {
                 var videos = db.Videos.Include(v => v.Category).OrderBy(s => s.Name);
                 model2.SearchResults = videos.ToPagedList(pageNumber, pageSize);
             }
-
             model2.ThoseCategories = repo2.GetAllCategories();
             return View("Videos", model2);
         }
@@ -55,61 +54,54 @@ namespace skjatextar.Controllers
             if (id.HasValue)
             {
                 int realid = id.Value;
-                var video = repo2.GetVideoByID(realid);
+                var video = repo2.GetVideoByID(realid);  //nær í rétt video úr gagnagrunni
                
-                var model = repo2.GetAllTranslationsForVideo(realid);
-                var model2 = new VideoAndTranslationViewModel { ThisVideo = video, ThoseTranslations = model };
+                var model = repo2.GetAllTranslationsForVideo(realid); //nær í allar þýðingar fyrir ákveðið video
+                var model2 = new VideoAndTranslationViewModel { ThisVideo = video, ThoseTranslations = model }; //býr til nýtt viewmodel með ákveðnum upplýsingum
                 return View(model2);
             }
             return View("Error");
         }
-        //
-        // GET: /Video/Create
+
         [Authorize]
         public ActionResult CreateVideo()
         {
-            IEnumerable<Category> model = repo2.GetAllCategories();
-            var model2 = new NewVideoViewModel { Categories = model };
+            IEnumerable<Category> model = repo2.GetAllCategories(); //nær í alla flokka úr gagnagrunni
+            var model2 = new NewVideoViewModel { Categories = model }; //býr til nýtt viewmodel
             return View(model2);
         }
 
-        //
-        // POST: /Video/Create
         [HttpPost]
         [Authorize]
-        public ActionResult CreateVideo(FormCollection formData, NewVideoViewModel v, object sender, EventArgs e)
+        public ActionResult CreateVideo(FormCollection formData, NewVideoViewModel v)
         {
-            Video model = new Video();
-            UpdateModel(model);
-            model.Name = v.ThisVideo.Name;
-            string Category = Request.Form["ValinFlokkur"];
-            var Flokkur = repo2.GetCategoryByName(Category);
-            //bool isChecked = DeafCheck.Checked;
-            //if(isChecked)
-            model.Category = Flokkur;
-            model.CategoryID = Flokkur.ID;
-            repo2.AddVideo(model);
+            Video model = new Video(); //býr til nýtt video
+            UpdateModel(model);  //update-ar videoið með viðeigandi upplýsingum
+            model.Name = v.ThisVideo.Name; //nær í titilinn sem notandi skrifaði inn og vistar
+            string Category = Request.Form["ValinFlokkur"]; //nær í dropdown category sem notandi valdi
+            var Flokkur = repo2.GetCategoryByName(Category); //finnur viðeigandi categoru
+            model.Category = Flokkur; //stillir viðeigandi flokk á video
+            model.CategoryID = Flokkur.ID; //category id vistað
+            repo2.AddVideo(model); //setur videoið í gagnagrunninn
             repo2.Save();
 
             return RedirectToAction("LoadNewFile", "Translation");
         }
-        public ActionResult Categories(int? id)
+        public ActionResult Categories(int? id)//nær í öll category-in
         {
-            if(id.HasValue)
+            if (id.HasValue)
             {
                 var realid = id.Value;
-                var cat = repo2.GetVideosByCategory(realid);
                 var cat1 = repo2.GetAllCategories();
-                //var cat2 = new CategoryViewModel { ThoseVideos = cat, ThoseCategories = cat1 };
+
                 return View(cat1);
             }
-            
+
             return View("Error");
         }
        
         private TranslationContext db = new TranslationContext();
 
-        // GET: /Style/
         protected override void Dispose(bool disposing)
         {
             if (disposing)
