@@ -32,15 +32,15 @@ namespace skjatextar.Controllers
             IEnumerable<Video> videos = videorepo.GetAllVideos();
             if (ModelState.IsValid)
             {
-                if (Translation == null)
+                if (Translation == null)//ef enginn skrá er valinn
                 {
                     ModelState.AddModelError("File", "Vinsamlegast veldu skrá");
                 }
-                else if (Translation.ContentLength > 0)
+                else if (Translation.ContentLength > 0) 
                 {
-                    string[] AllowedFileType = new string[] {".srt", ".txt"};
+                    string[] AllowedFileType = new string[] {".srt", ".txt"}; //leyfðar skráargerðir
 
-                    if (!AllowedFileType.Contains(Translation.FileName.Substring(Translation.FileName.LastIndexOf('.'))))
+                    if (!AllowedFileType.Contains(Translation.FileName.Substring(Translation.FileName.LastIndexOf('.'))))//ef skráin er af annarri týpu
                     {
                         ModelState.AddModelError("File", "Aðeins eru leyfðar skrár af gerðinni: " + string.Join(", ", AllowedFileType));
                     }
@@ -62,7 +62,7 @@ namespace skjatextar.Controllers
                         string Name = Request.Form["ValinMynd"];
                         file.Close();
                         videorepo.Save();
-                        if(item.DeafCheck != null)
+                        if(item.DeafCheck != null)//
                         {
                             item.DeafCheck = "Já";
                         }
