@@ -1,7 +1,6 @@
 ﻿body {
     padding-top: 8px;
     padding-bottom: 20px;
-
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -14,7 +13,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 700px;
 }
 .tableCentered{
     margin-left:-31px;
@@ -209,6 +208,21 @@ input[type="checkbox"].input-validation-error {
     font-weight: bold;
 
 }
-
+div.pageSplitter {
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+}
+div.table-header-home {
+    text-align: center;
+    font-size: 57px;
+    font-family: italic;
+    padding: 18px;
+}
+div.TilBaka {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
 
