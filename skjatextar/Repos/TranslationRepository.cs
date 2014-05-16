@@ -23,7 +23,7 @@ namespace skjatextar.Models
         {
             var result = (from s in m_db.Translations
                           orderby s.LikeCount descending
-                          select s);
+                          select s).Take(10);
 
             return result;
         }
