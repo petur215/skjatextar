@@ -3,31 +3,31 @@
 @{
     ViewBag.Title = "ViewVideo";
 }
-<div class="table-header-home">
-    <span>@Model.First().Video.Name</span>
-</div>
-<div class="content-home">
-    <table class="table table-striped tableTranslations">
-        <thead>
-            <tr>
-                <th class="translations">Titill</th>
-                <th>Atkvæði</th>
-                <th>Síðast uppfært</th>
-                <th>Fyrir heyrnalausa<span class="glyphicon glyphicon-deaf"></span></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+<div class="centerText">
+    <h2>@Model.First().Video.Name</h2>
+    <div id="content-home">
+        <table class="table table-striped tableTranslations">
+            <thead class="viewVideoTableHead">
                 <tr>
-                    <td>@Html.ActionLink(item.Title, "ViewTranslation", "Home", new { id = item.ID }, null)</td>
-                    <td>@item.LikeCount</td>
-                    <td>@item.DateLastEdited</td>
-                    <td>@item.DeafCheck</td>
+                    <th class="translations">Titill</th>
+                    <th>Atkvæði</th>
+                    <th>Síðast uppfært</th>
+                    <th>Fyrir heyrnalausa<span class="glyphicon glyphicon-deaf"></span></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-  
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(item.Title, "ViewTranslation", "Home", new { id = item.ID }, null)</td>
+                        <td>@item.LikeCount</td>
+                        <td>@item.DateLastEdited.ToString("dd.MM.yyyy. HH:mm")</td>
+                        <td>@item.DeafCheck</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
         @Html.ActionLink("Til baka", "Videos")
+    </div>
 </div>

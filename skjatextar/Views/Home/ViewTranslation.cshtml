@@ -11,59 +11,58 @@
 <div class="allTextToCenter">
     <h3>@Model.ThisTranslation.Title</h3>
     <input type="hidden" name="name" value="@Model.ThisTranslation.ID" class="currentTranslationId" />
-    <div>
+<div>
         <table class="table table-condensed table-striped viewTranslationTable">
-            <tbody>
-                <tr>
+        <tbody>
+            <tr>
                     <td>Nafn:</td>
                     <td>@Model.ThisTranslation.Title</td>
-                </tr>
-                <tr>
+            </tr>
+            <tr>
                     <td>Atkvæði: <span>@Model.ThisTranslation.LikeCount</span></td>
                     <td><div class="likeTranslation">@Html.ActionLink("Gefa atkvæði", "LikeFunction", new { id = Model.ThisTranslation.ID }, null) <span class="glyphicon glyphicon-thumbs-up"></span></div></td>
-                </tr>
-                <tr>
+            </tr>
+            <tr>
                     <td>Síðast uppfært:</td>
-                    <td>
+                <td>
                         @Model.ThisTranslation.DateLastEdited.ToString("dd.MM.yyyy. HH:mm")
-                    </td>
+                </td>
                 </tr>
                 <tr>
                     <td>Sérstaklega fyrir heyrnalausa: </td>
                     <td>@Model.ThisTranslation.DeafCheck</td>
-                </tr>
-                <tr>
+            </tr>
+            <tr>
                     <td>Sækja skrá</td>
-                    <td>
+                <td>
                         @Html.ActionLink("Niðurhala Skjátexta sem .srt", "DownloadTranslationSrt", new { id = Model.ThisTranslation.ID }) -
                         <span> @Html.ActionLink("Niðurhala skjátexta sem .txt", "DownloadTranslationTxt", new { id = Model.ThisTranslation.ID })</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div>
-        @Html.ActionLink("Til baka", "ViewVideo", "Video", new { id = Model.ThisTranslation.VideoID }, null)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> 
+<div class="centerText">
+    @Html.ActionLink("Til baka", "ViewVideo", "Video", new { id = Model.ThisTranslation.VideoID }, null)
         <span> | @Html.ActionLink("Breyta þessari þýðingu", "Edit", "Translation", new { id = Model.ThisTranslation.ID }, null)</span>
-    </div>
-    <br />
-    <ul id="commentList" class="list-group" style="max-width: 560px;"></ul>
-    <script type="text/html" id="commentTemplate">
-        <li class="list-group-item">
-            <p>
-                <span class="glyphicon glyphicon-user"></span>
-                <span class="text-primary" data-content="UserName"></span>
-                <span data-content="CommentText"></span>
-            </p>
-            <p>
-                <span class="text-muted" data-content="commentDate"></span>
-            </p>
-        </li>
-    </script>
+</div>
+<br />
+<ul id="commentList" class="list-group" style="max-width: 560px;"></ul>
+<script type="text/html" id="commentTemplate">
+    <li class="list-group-item">
+        <p>
+            <span class="glyphicon glyphicon-user"></span>
+            <span class="text-primary" data-content="UserName"></span>
+            <span data-content="CommentText"></span>
+        </p>
+        <p>
+            <span class="text-muted" data-content="commentDate"></span>
+        </p>
+    </li>
+</script>
 </div>
 
-<!-- Muna ad centera comments-->
-<li class="list-group-item commentList" style="max-width: 560px;" id="hideme">
+<li class="list-group-item" style="max-width: 560px;" id="hideme">
 
     <div id="form-horizontal">
         <textarea class="form-control" rows="3" id="CommentText" name="CommentText"></textarea>
