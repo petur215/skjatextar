@@ -24,8 +24,8 @@ namespace skjatextar.Controllers
         {
             IndexViewModel result = new IndexViewModel();
             
-            result.Top10 = repo.Top10();
-            result.Newest10 = repo.Newest10();
+            result.Top10 = repo.Top10(); //nær í vinsælustu þýðingarnar í gagnagrunninn
+            result.Newest10 = repo.Newest10(); //nær í nýjustu þýðingarnar í gagnagrunninn
                 
             return View(result);
         }
@@ -35,8 +35,8 @@ namespace skjatextar.Controllers
             if (id.HasValue)
             {
                 int realid = id.Value;
-                var model = repo.GetTranslationById(realid);
-                var model2 = CommentRepo.GetComments(id.Value);
+                var model = repo.GetTranslationById(realid); //nær í skjátexta eftir id
+                var model2 = CommentRepo.GetComments(id.Value); //nær í comment fyrir skjátextann
                 string username = User.Identity.Name;
 
                 var model3 = new TranslationAndCommentViewModel { ThisTranslation = model, ThoseComments = model2};
@@ -45,7 +45,7 @@ namespace skjatextar.Controllers
             return View("Error");
         }
     
-        public FileStreamResult DownloadTranslationSrt(int? id)
+        public FileStreamResult DownloadTranslationSrt(int? id)//til að downloada sem .srt skrá
         {
             Translation s = repo.GetTranslationById(id.Value);
 
@@ -55,7 +55,7 @@ namespace skjatextar.Controllers
 
             return File(stream, "text/plain", s.Title + ".srt");
         }
-        public FileStreamResult DownloadTranslationTxt(int? id)
+        public FileStreamResult DownloadTranslationTxt(int? id)//til að downloada sem .txt skrá
         {
             Translation s = repo.GetTranslationById(id.Value);
 
@@ -67,14 +67,14 @@ namespace skjatextar.Controllers
         }
         [HttpGet]
         [Authorize]
-        public ActionResult LikeFunction(int? id)
+        public ActionResult LikeFunction(int? id) //Like virkni
         {
-            if(!repo.LikeFound(User.Identity.Name, id.Value))
+            if(!repo.LikeFound(User.Identity.Name, id.Value))//er notandi búinn að like-a áður
             {
                 Likes item = new Likes();
                 UpdateModel(item);
                 item.TranslationID = id.Value;
-                item.UserName = User.Identity.Name;
+                item.UserName = User.Identity.Name; //heldur utan um hvaða user like-aði
                 var Translation = repo.GetTranslationById(id.Value);
                 Translation.LikeCount += 1;
                 repo.AddLike(item);
@@ -97,6 +97,8 @@ namespace skjatextar.Controllers
         public ActionResult AddComment(int? id, string commentText) // Baerir vid commenti
         {                                                           // í gagnagrunn fyrir
             if(!User.Identity.IsAuthenticated)                      // ákveðið TranslationID
+        {
+            if(!User.Identity.IsAuthenticated)
             {
                 Response.StatusCode = 404;
                 return Json(null, JsonRequestBehavior.DenyGet);     // Deny ef user er ekki innskráður
