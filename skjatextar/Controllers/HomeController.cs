@@ -95,18 +95,16 @@ namespace skjatextar.Controllers
 
         [HttpPost]
         public ActionResult AddComment(int? id, string commentText) // Baerir vid commenti
-        {                                                           // í gagnagrunn fyrir
-            if(!User.Identity.IsAuthenticated)                      // ákveðið TranslationID
-        {
-            if(!User.Identity.IsAuthenticated)
+        {                                                           // í gagnagrunn fyrir                   
+            if (!User.Identity.IsAuthenticated)                     // ákveðið TranslationID
             {
                 Response.StatusCode = 404;
                 return Json(null, JsonRequestBehavior.DenyGet);     // Deny ef user er ekki innskráður
             }
-            Comment comment = new Comment();
-            UpdateModel(comment);
-            comment.CommentText = commentText;
-            comment.TranslationID = id.Value;
+            Comment comment = new Comment();                        // Byr til tilvik af comment og
+            UpdateModel(comment);                                   // og gefur thvi rétt gildi,
+            comment.CommentText = commentText;                      // addar svo í gagnagrunn
+            comment.TranslationID = id.Value;                       // og skilar json
             comment.UserName = User.Identity.Name;
             comment.commentDate = DateTime.Now;
             CommentRepo.AddComment(comment);
@@ -114,8 +112,8 @@ namespace skjatextar.Controllers
             return Json(comment, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetAllComments(int id)
-        {
+        public ActionResult GetAllComments(int id)      // Saekir oll komment i gagnagrunn fyrir akvedid TranslatioID
+        {                                               // og skilar sem json streng
             var model = CommentRepository.Instance.GetComments(id);
             return Json(model, JsonRequestBehavior.AllowGet);
         }
