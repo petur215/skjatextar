@@ -53,13 +53,13 @@ namespace skjatextar.Controllers
                         Translation item = new Translation();
                         StreamReader file = new StreamReader(path, Encoding.Default, true);
                         UpdateModel(item);
-                        item.Text = file.ReadToEnd();
+                        item.Text = file.ReadToEnd(); //tekur allan textann úr skjalinu og setur sem streng í gagnagrunn
                         string str = Translation.FileName;
-                        str = str.Remove(str.Length - 4);
+                        str = str.Remove(str.Length - 4); //tekur seinustu 4 stafina af skráarnafninu (.srt/.txt)
                         item.Title = str;
                         item.LikeCount = 0;
                         item.DateLastEdited = DateTime.Now;
-                        string Name = Request.Form["ValinMynd"];
+                        string Name = Request.Form["ValinMynd"]; //Tekur nafnið úr dropdowninu
                         file.Close();
                         videorepo.Save();
                         if(item.DeafCheck != null)//
