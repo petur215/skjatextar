@@ -15,19 +15,16 @@ namespace skjatextar.Controllers
         
         //
         // GET: /Request/Requests
-        public ActionResult Requests(int? id)
-        {
-            var requests = Repoo.GetAllRequests();
-            
-          
+        public ActionResult Requests(int? id) // Saekir öll requests í gagnagrunn
+        {                                     // raðða eftir fjölda likes
             var requests2 = Repoo.GetRequestsByLikes();
 
             return View(requests2);
 
         }
 
-        public ActionResult RequestsByDate(int ?id)
-        {
+        public ActionResult RequestsByDate(int? id) // Saekir öll requests í gagnagrunn
+        {                                           // raða eftir dagsetningu
             var requests = Repoo.GetAllRequests();
           
 
@@ -38,9 +35,9 @@ namespace skjatextar.Controllers
         [Authorize]
         public ActionResult LikeFunction(int? id)
         {
-            if (!Repoo.LikeFound(User.Identity.Name, id.Value))
+            if (!Repoo.LikeFound(User.Identity.Name, id.Value)) // Athugar hvort núverandi user hafi lækað áður
             {
-                Likes item = new Likes();
+                Likes item = new Likes();                       // Ef ekki, þá er búið til nýtt like
                 UpdateModel(item);
                 item.RequestID = id.Value;
                 item.UserName = User.Identity.Name;
@@ -67,9 +64,9 @@ namespace skjatextar.Controllers
         public ActionResult AddNewRequest(FormCollection formData)
         {
             
-            Request r = new Request();
+            Request r = new Request();          // Býr til tilvik af request
             UpdateModel(r);
-            r.Username = User.Identity.Name;
+            r.Username = User.Identity.Name;   // stillir user sem er loggaður inn
             RequestRepository repo = new RequestRepository();
             repo.AddRequest(r);
             repo.Save();

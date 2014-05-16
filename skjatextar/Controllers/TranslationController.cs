@@ -1,5 +1,4 @@
 ﻿using skjatextar.Models;
-//using skjatextar.Repos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,15 +12,13 @@ namespace skjatextar.Controllers
     public class TranslationController : Controller
     {
         TranslationRepository repo = new TranslationRepository();
-        VideoRepository videorepo = new VideoRepository();
-
-        
+        VideoRepository videorepo = new VideoRepository();      
 
         [HttpGet]
         public ActionResult LoadNewFile()
         {
-            IEnumerable<Video> videos = videorepo.GetAllVideos();
-
+            IEnumerable<Video> videos = videorepo.GetAllVideos(); // Saekir öll Video objects í gagnagrunn
+                                                                  // raðað eftir sagsetningu
             return View(videos);
         }
 
@@ -32,15 +29,15 @@ namespace skjatextar.Controllers
             IEnumerable<Video> videos = videorepo.GetAllVideos();
             if (ModelState.IsValid)
             {
-                if (Translation == null)//ef enginn skrá er valinn
+                if (Translation == null)    //ef enginn skrá er valinn
                 {
                     ModelState.AddModelError("File", "Vinsamlegast veldu skrá");
                 }
                 else if (Translation.ContentLength > 0) 
                 {
-                    string[] AllowedFileType = new string[] {".srt", ".txt"}; //leyfðar skráargerðir
+                    string[] AllowedFileType = new string[] {".srt", ".txt"}; // leyfðar skráargerðir
 
-                    if (!AllowedFileType.Contains(Translation.FileName.Substring(Translation.FileName.LastIndexOf('.'))))//ef skráin er af annarri týpu
+                    if (!AllowedFileType.Contains(Translation.FileName.Substring(Translation.FileName.LastIndexOf('.')))) //ef skráin er af annarri týpu
                     {
                         ModelState.AddModelError("File", "Aðeins eru leyfðar skrár af gerðinni: " + string.Join(", ", AllowedFileType));
                     }
