@@ -6,60 +6,31 @@
 {
     <script src="@Url.Content("~/Scripts/scripts.js")"></script>
 }
-
-<h2>Fyrirspurnir</h2>
-
-@Html.ActionLink("Senda inn fyrirspurn", "AddNewRequest", new { @class = "btn" })
-<p>
-    <span>@Html.ActionLink("Raða eftir fjölda atkvæða", "Requests") | </span>
-    <span>@Html.ActionLink("Raða eftir dagsetningu", "RequestsByDate")</span>
-</p>
-
-<ul class="list-group comments">
-    @foreach(var item in Model)
-    {
-        <li class="list-group-item">
-            <p>
-                <span class="glyphicon glyphicon-user"> </span>
-                <span class="text-primary">@Html.DisplayFor(modelItem => item.Username)</span>
-            </p>
-            <p>
-                <span>@Html.DisplayFor(modelItem => item.NewRequest) </span>
-            </p>
-            <p>
-                <span class="text-muted">@item.RequestSent.ToString("dd. MMMM HH:mm") </span>
-            </p>
-            <p>
-                <!-- Like takki -->
-                <span>Fjöldi atkvæða: @item.LikeCount - @Html.ActionLink("Like", "LikeFunction", new { id = item.ID }, null) </span><span class="glyphicon glyphicon-thumbs-up"></span>
-            </p>
-            <ul class="list-unstyled likes-for-id">
-                
-            </ul>
-        </li>
-
-    }
-</ul>
-
-@*<div id="requestTable">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Fyrirspurnir</th>
-                <th>Dagsetning</th>
-                <th>Notendanafn</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.NewRequest</td>
-                    <td>@item.RequestSent</td>
-                    <td>@item.Username</td>
-                </tr>
-            }
-        </tbody>
-
-    </table>
-</div>*@
+<div class="allTextToCenter">
+    <p>@Html.ActionLink("Senda inn fyrirspurn", "AddNewRequest", new { @class = "btn" })</p>
+    <br />
+    <p>
+        <span>@Html.ActionLink("Raða eftir fjölda atkvæða", "Requests") | </span>
+        <span>@Html.ActionLink("Raða eftir dagsetningu", "RequestsByDate")</span>
+    </p>
+    <ul class="list-group requestList">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                <p>
+                    <span class="glyphicon glyphicon-user"> </span>
+                    <span class="text-primary">@Html.DisplayFor(modelItem => item.Username)</span>   |   
+                    <span class="text-muted">@item.RequestSent.ToString("dd.MM.yyyy. HH:mm") </span>
+                </p>
+                <p>
+                    <span>@Html.DisplayFor(modelItem => item.NewRequest) </span>
+                </p>
+                <p>
+                    <!-- Like takki -->
+                    <span class="text-muted">Fjöldi atkvæða: @item.LikeCount - @Html.ActionLink("Like", "LikeFunction", new { id = item.ID }, null) </span><span class="glyphicon glyphicon-thumbs-up"></span>
+                </p>
+                <ul class="list-unstyled likes-for-id"></ul>
+            </li>
+        }
+    </ul>
+</div>
