@@ -3,35 +3,32 @@
     ViewBag.Title = "CreateVideo";
 }
 
-<h2>Bæta við myndefni í gagnagrunn</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Request</h4>
-        <hr/>
-        <div class="form-group">
-            <label for="video" class="VideoLabel">Titill </label>
+    <fieldset class="FieldFont">
+        <legend>Bæta við myndefni í gagnagrunn</legend>
+        <div class="AddData">
+            <label for="video" id="Createmargin">Titill :</label>
             @Html.TextBoxFor(model => model.ThisVideo.Name)
-            <div class="col-md-10">
-                <label for="Category" class="CategoryLabel">Veldu Flokk</label>
-                <select name="ValinFlokkur" class="TheCategory">
-                    @foreach(var item in Model.Categories)
-                    {
-                        <option value="@item.Title" id="dropdownlisti" class="VideoDropdown">@item.Title</option>
-                    }
-                </select>
-                   
-            </div>
+        </div>
+        <div class="AddData">
+            <label for="Category"  id="Createmargin">Veldu Flokk :</label>
+            <select name="ValinFlokkur" class="TheCategory" id="flokkur">
+                <option selected="selected"> - </option>
+                @foreach (var item in Model.Categories)
+                {
+                    <option value="@item.Title" id="dropdownlisti" class="VideoDropdown">@item.Title</option>
+                }
+            </select>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Senda inn" class="btn btn-default" />
+                <input type="submit" value="Senda inn" class="btn btn-default" id="sendaskra" />
             </div>
         </div>
-    </div>
+    </fieldset>
 }
 

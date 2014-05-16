@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 8px;
+    padding-top: 15px;
     padding-bottom: 20px;
 }
 
@@ -15,6 +15,7 @@ select,
 textarea {
     max-width: 700px;
 }
+
 .tableCentered{
     margin-left:-31px;
 }
@@ -54,7 +55,6 @@ input[type="checkbox"].input-validation-error {
 
 #LeitarStrengur{
     width:280px;
-    margin-left:340px;
     margin-top:20px;
     margin-bottom:40px;
     position:relative;
@@ -178,8 +178,11 @@ input[type="checkbox"].input-validation-error {
     text-decoration-color: red;
     text-align: center;
 }
+.biomynd{
+     margin-left: -30px;
+}
 .VideoDropdown
-{
+{   margin-left: -30px;
     color: black;
     margin-left:30px;
 }
@@ -230,6 +233,91 @@ h3{
     text-align:left;
 }
 
-#content-home table.tableTranslations thead tr th{
-    text-align:center;
+p span.newRequest{
+    font-size: 20px;
+    font-weight:bold;
+}
+form.form-search {
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+}
+
+#labelinn{
+    font-weight:bold;
+    font-size:14px;
+    margin-right:58px;
+}
+
+.uolist{
+list-style-type:none;
+margin-top:23px;
+}
+
+.DeafPeople{
+    margin-top:30px;
+    margin-bottom:30px;
+    margin-left:42px;
+}
+
+select{color:black}
+
+.dropdownvideo{
+    
+    margin-bottom: 45px;
+    margin-top: 17px;
+}
+
+#btnSubmit{
+    margin-bottom:20px;
+    margin-top:25px;
+    margin-left:296px;
+}
+
+.FieldFont{
+    font-size:16px;
+}
+
+.Labelmargin{
+    margin-right:25px;
+}
+
+#label{
+    font-size:14px;
+    font-weight:bold;
+
+}
+
+.lifile{
+    margin-bottom:25px;
+}
+
+input[type=checkbox] 
+{
+    width:17px; 
+    height:17px;
+
+}
+
+#dropdownlist{
+    margin-top:50px;
+}
+
+.AddData{
+    margin-bottom: 41px;
+    margin-top: 19px;
+    margin-left: 42px;
+}
+
+#Createmargin{
+    font-weight:bold;
+    font-size:14px;
+    margin-right:10px;
+}
+
+#sendaskra{
+    margin-left:-25px;
+}
+#flokkur{
+    width:119px;
 }

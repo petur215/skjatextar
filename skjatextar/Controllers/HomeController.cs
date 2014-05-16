@@ -14,6 +14,7 @@ using System.Text;
 
 namespace skjatextar.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         TranslationRepository repo = new TranslationRepository();
