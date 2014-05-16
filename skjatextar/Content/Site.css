@@ -328,3 +328,17 @@ input[type=checkbox]
 .centerText{
     text-align:center;
 }
+
+#NextPrev{
+    margin-left:446px;
+    margin-bottom:35px;
+    margin-top:35px;
+}
+
+#FrontPage{
+    margin: 0px 0px 0px -39px;
+}
+
+#FrontPageright{
+    margin: 4px 0px 30px 605px;
+}
