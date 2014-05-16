@@ -342,3 +342,9 @@ input[type=checkbox]
 #FrontPageright{
     margin: 4px 0px 30px 605px;
 }
+
+#notFoundInList{
+    text-decoration:underline;
+    font-weight:bold;
+    color:red;
+}
