@@ -26,7 +26,7 @@ namespace skjatextar.Controllers
                 page = 1;
             }
 
-            int pageSize = 2;
+            int pageSize = 10;
             int pageNumber = (page ?? 1);
 
             if (id != null)
