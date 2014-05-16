@@ -13,6 +13,7 @@
         <span>@Html.ActionLink("Raða eftir fjölda atkvæða", "Requests") | </span>
         <span>@Html.ActionLink("Raða eftir dagsetningu", "RequestsByDate")</span>
     </p>
+</div>
     <ul class="list-group requestList">
         @foreach (var item in Model)
         {
@@ -33,4 +34,4 @@
             </li>
         }
     </ul>
-</div>
+

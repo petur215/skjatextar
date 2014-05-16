@@ -1,7 +1,7 @@
 ﻿@model skjatextar.Models.Translation
 @Styles.Render("~/Content/css")
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Breyta skrá";
 }
 
 @using (Html.BeginForm())
@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>NewsItem</h4>
+        
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.ID)
