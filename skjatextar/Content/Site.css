@@ -324,3 +324,7 @@ input[type=checkbox]
 #flokkur{
     width:119px;
 }
+
+.centerText{
+    text-align:center;
+}
