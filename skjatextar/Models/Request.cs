@@ -11,10 +11,6 @@ namespace skjatextar.Models
         public int ID { get; set; }
         public string Username { get; set; }
 
-        public int? UserID { get; set; }
-        [ForeignKey("UserID")]
-        public virtual User User { get; set; }
-
         public int LikeCount { get; set; }
         public string NewRequest { get; set; }
         public DateTime RequestSent { get; set; }

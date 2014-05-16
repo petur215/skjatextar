@@ -15,7 +15,6 @@ namespace skjatextar.DAL
             {
                 new Request{
                     ID = 1,
-                    UserID = 1,
                     LikeCount = 2,
                     Username = "ViggiCool",
                     NewRequest = "Mig langar i Mean Girls",
@@ -23,7 +22,6 @@ namespace skjatextar.DAL
                 },
                 new Request{
                     ID = 2,
-                    UserID = 2,
                     LikeCount = 3,
                     Username = "PesiSvali",
                     NewRequest = "Mig langar i Shopaholic",
@@ -31,7 +29,6 @@ namespace skjatextar.DAL
                 },
                 new Request{
                     ID = 3,
-                    UserID = 3,
                     LikeCount = 10,
                     Username = "ToniToff",
                     NewRequest = "Nennir e-h ad gera ToyStory 2",
@@ -39,7 +36,6 @@ namespace skjatextar.DAL
                 },
                 new Request{
                     ID = 4,
-                    UserID = 4,
                     LikeCount = 4,
                     Username = "EinsiPungur",
                     NewRequest = "Nennir e-r ad thyda Mama Mia",
@@ -47,7 +43,6 @@ namespace skjatextar.DAL
                 },
                 new Request{
                     ID = 5,
-                    UserID = 5,
                     LikeCount = 6,
                     Username = "PesiIceBerg",
                     NewRequest = "Mig langar ad sja Pirates(klammyndina)",

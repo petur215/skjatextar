@@ -15,7 +15,6 @@ namespace skjatextar.DAL
             : base("DefaultConnection")
         {
             
-
         }
         public DbSet<Translation> Translations { get; set; }
         public DbSet<Video> Videos { get; set; }
@@ -23,11 +22,5 @@ namespace skjatextar.DAL
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Likes> Likes { get; set; }
         public DbSet<Request> Requests { get; set; }
-        public DbSet<User> Users { get; set; }
-
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-       // }
     }
 }
