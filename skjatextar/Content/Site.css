@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 8px;
+    padding-top: 15px;
     padding-bottom: 20px;
 }
 
@@ -54,7 +54,6 @@ input[type="checkbox"].input-validation-error {
 
 #LeitarStrengur{
     width:280px;
-    margin-left:340px;
     margin-top:20px;
     margin-bottom:40px;
     position:relative;
@@ -224,5 +223,9 @@ div.TilBaka {
     margin-right: auto;
     text-align: center;
 }
-
+form.form-search {
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+}
 
