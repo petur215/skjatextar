@@ -94,14 +94,12 @@ namespace skjatextar.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddComment(int? id, string commentText)
-        {
-            //TranslationAndCommentViewModel v = new TranslationAndCommentViewModel();
-            //v.ThisComment = commentText;
-            if(!User.Identity.IsAuthenticated)
+        public ActionResult AddComment(int? id, string commentText) // Baerir vid commenti
+        {                                                           // í gagnagrunn fyrir
+            if(!User.Identity.IsAuthenticated)                      // ákveðið TranslationID
             {
                 Response.StatusCode = 404;
-                return Json(null, JsonRequestBehavior.DenyGet);
+                return Json(null, JsonRequestBehavior.DenyGet);     // Deny ef user er ekki innskráður
             }
             Comment comment = new Comment();
             UpdateModel(comment);
@@ -111,7 +109,6 @@ namespace skjatextar.Controllers
             comment.commentDate = DateTime.Now;
             CommentRepo.AddComment(comment);
 
-            //return RedirectToAction("ViewTranslation", new { ID = id.Value });
             return Json(comment, JsonRequestBehavior.AllowGet);
         }
 
