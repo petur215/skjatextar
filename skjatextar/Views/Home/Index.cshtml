@@ -52,7 +52,7 @@
                 {
                     <tr>
                         <td>@Html.ActionLink(item.Title, "ViewTranslation", new { id = item.ID })</td>
-                        <td>@item.DateLastEdited</td>
+                        <td>@item.DateLastEdited.ToString("dd.MM.yyyy.HH:mm")</td>
                 </tr>
                 }
             </tbody>
