@@ -35,16 +35,19 @@
             <tr>
                     <td>Sækja skrá</td>
                 <td>
-                        @Html.ActionLink("Niðurhala Skjátexta sem .srt", "DownloadTranslationSrt", new { id = Model.ThisTranslation.ID }) -
+                        @Html.ActionLink("Niðurhala Skjátexta sem .srt", "DownloadTranslationSrt", new { id = Model.ThisTranslation.ID }) <br />
                         <span> @Html.ActionLink("Niðurhala skjátexta sem .txt", "DownloadTranslationTxt", new { id = Model.ThisTranslation.ID })</span>
                 </td>
+            </tr>
+            <tr>
+                <td>Breyta</td>
+                <td>@Html.ActionLink("Breyta þessari þýðingu", "Edit", "Translation", new { id = Model.ThisTranslation.ID }, null)</td>
             </tr>
         </tbody>
     </table>
 </div> 
 <div class="centerText">
     @Html.ActionLink("Til baka", "ViewVideo", "Video", new { id = Model.ThisTranslation.VideoID }, null)
-        <span> | @Html.ActionLink("Breyta þessari þýðingu", "Edit", "Translation", new { id = Model.ThisTranslation.ID }, null)</span>
 </div>
 <br />
 <ul id="commentList" class="list-group" style="max-width: 560px;"></ul>
