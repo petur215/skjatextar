@@ -33,7 +33,7 @@
     <table class="table table-striped tableTranslations">
         <tr>
             <th>
-                Nafn
+                Titill
             </th>
             <th>
                 Flokkur
@@ -66,7 +66,7 @@
     {
         @Html.ActionLink("<<", "Videos", new { page = 1, LeitarStrengur = Model.SearchString})
         @Html.Raw(" ");
-        @Html.ActionLink("< Prev", "Videos", new { page = Model.SearchResults.PageNumber - 1, LeitarStrengur = Model.SearchString })
+        @Html.ActionLink("< Fyrri", "Videos", new { page = Model.SearchResults.PageNumber - 1, LeitarStrengur = Model.SearchString })
     }
     else
     {
@@ -80,7 +80,7 @@
     </div>
     @if (Model.SearchResults.HasNextPage)
     {
-        @Html.ActionLink("Next >", "Videos", new { page = Model.SearchResults.PageNumber + 1, LeitarStrengur = Model.SearchString})
+        @Html.ActionLink("Næsta >", "Videos", new { page = Model.SearchResults.PageNumber + 1, LeitarStrengur = Model.SearchString})
         @Html.Raw(" ");
         @Html.ActionLink(">>", "Videos", new { page = Model.SearchResults.PageCount, LeitarStrengur = Model.SearchString })
     }
