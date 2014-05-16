@@ -22,6 +22,7 @@ namespace skjatextar.Models
                          select s;
             return videos;
         }
+
         public IEnumerable<Category> GetAllCategories()
         {
             var result = from s in m_db.Categories
@@ -29,6 +30,7 @@ namespace skjatextar.Models
                              select s;
             return result;
         }
+
         public Category GetCategoryByName(string name)
         {
             var result = (from s in m_db.Categories
@@ -65,6 +67,7 @@ namespace skjatextar.Models
 
             return result;
         }
+
         public IEnumerable<Translation> GetAllTranslationsForVideoByDate(int id)
         {
             var result = from s in m_db.Translations
@@ -74,6 +77,7 @@ namespace skjatextar.Models
 
             return result;
         }
+
         public Video GetVideoByName(string name)
         {
             var result = (from s in m_db.Videos
@@ -89,21 +93,21 @@ namespace skjatextar.Models
             return cat.ID;
         }
 
-        // Get Video by categoryID
-
         public int VideoCount()
         {
             int count = (from s in m_db.Videos
                          select s).Count();
             return count;
         }
+
         public int AddVideo(Video v)
         {
             this.m_db.Videos.Add(v);
             this.m_db.SaveChanges();
             return v.ID;
         }
-          public void Save()
+
+        public void Save()
         {
             m_db.SaveChanges();
         }

@@ -37,15 +37,6 @@ namespace skjatextar.Models
             return result;
         }
 
-        public IEnumerable<Translation> GetTranslationByVideoID(int id)
-        {
-            //var result = (from s in m_db.Translations
-            //              where s.VideoID == id
-            //              select s).Take(10);
-            //return result;
-            throw new NotImplementedException();
-        }
-
         public Translation GetTranslationById(int id)
         {
             var result = (from s in m_db.Translations
@@ -60,18 +51,13 @@ namespace skjatextar.Models
             m_db.Translations.Add(s);
             Save();
         }
+
         public void AddLike(Likes s)
         {
             m_db.Likes.Add(s);
             Save();
         }
-        public int CountAllLikes(int id)
-        {
-            var result = (from s in m_db.Likes
-                          where s.TranslationID == id
-                          select s).Count();
-            return result;
-        }
+
         public bool LikeFound(string User, int id)
         {
             var result = (from s in m_db.Likes
@@ -83,6 +69,7 @@ namespace skjatextar.Models
             }
             else { return false; }
         }
+
         public void Save()
         {
             m_db.SaveChanges();
@@ -98,6 +85,7 @@ namespace skjatextar.Models
                 m_db.SaveChanges();
             }
         }
+
         public int AddVideo(Video v)
         {
             this.m_db.Videos.Add(v);
