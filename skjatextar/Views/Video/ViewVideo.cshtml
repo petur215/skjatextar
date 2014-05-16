@@ -7,13 +7,13 @@
     <span>@Model.First().Video.Name</span>
 </div>
 <div class="content-home">
-    <table class="table table-bordered">
+    <table class="table table-striped tableTranslations">
         <thead>
             <tr>
-                <th class="translations">Allir textar fyrir ákveðna mynd</th>
-                <th>Like</th>
+                <th class="translations">Titill</th>
+                <th>Atkvæði</th>
                 <th>Síðast uppfært</th>
-                <th>Sérstaklega fyrir heyrnalausa<span class="glyphicon glyphicon-deaf"></span></th>
+                <th>Fyrir heyrnalausa<span class="glyphicon glyphicon-deaf"></span></th>
             </tr>
         </thead>
         <tbody>
@@ -28,5 +28,6 @@
             }
         </tbody>
     </table>
-    @Html.ActionLink("Til baka", "Videos")
+  
+        @Html.ActionLink("Til baka", "Videos")
 </div>
