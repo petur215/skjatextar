@@ -184,7 +184,7 @@
     <Compile Include="Models\ViewModel\PagedViewModel.cs" />
     <Compile Include="Models\ViewModel\RequestViewModel.cs" />
     <Compile Include="Models\ViewModel\TranslationAndCommentViewModel.cs" />
-    <Compile Include="Models\ViewModel\TranslationViewModel.cs" />
+    <Compile Include="Models\ViewModel\VideoAndTranslationViewModel.cs" />
     <Compile Include="Repos\CommentRepository.cs" />
     <Compile Include="Repos\ITranslationRepository.cs" />
     <Compile Include="Models\Likes.cs" />

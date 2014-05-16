@@ -48,14 +48,6 @@ namespace skjatextar.Models
             m_db.Likes.Add(s);
             Save();
         }
-
-        public int CountAllLikes(int id)
-        {
-            var result = (from s in m_db.Likes
-                          where s.RequestID == id
-                          select s).Count();
-            return result;
-        }
         public bool LikeFound(string User, int id)
         {
             var result = (from s in m_db.Likes
@@ -72,8 +64,5 @@ namespace skjatextar.Models
         {
             m_db.SaveChanges();
         }
-
-       
-
     }
 }

@@ -1,10 +1,10 @@
-﻿@model IEnumerable<skjatextar.Models.Translation>
+﻿@model skjatextar.Models.ViewModel.VideoAndTranslationViewModel
 
 @{
     ViewBag.Title = "ViewVideo";
 }
 <div class="centerText">
-    <h2>@Model.First().Video.Name</h2>
+    <h2>@Model.ThisVideo.Name/h2>
     <div id="content-home">
         <table class="table table-striped tableTranslations">
             <thead class="viewVideoTableHead">
@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.ThoseTranslations)
                 {
                     <tr>
                         <td>@Html.ActionLink(item.Title, "ViewTranslation", "Home", new { id = item.ID }, null)</td>

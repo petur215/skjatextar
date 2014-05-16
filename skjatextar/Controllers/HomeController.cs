@@ -29,13 +29,6 @@ namespace skjatextar.Controllers
                 
             return View(result);
         }
-
-        [HttpGet]
-        public ActionResult LoadNewFile()
-        {
-            return View(new TranslationViewModel());
-        }
-
         [HttpGet]
         public ActionResult ViewTranslation(int? id)   //  Ef ekki er slegid inn id, kemur tom sida.
         {

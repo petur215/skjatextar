@@ -55,9 +55,11 @@ namespace skjatextar.Controllers
             if (id.HasValue)
             {
                 int realid = id.Value;
-                VideoRepository repo = new VideoRepository();
-                var model = repo.GetAllTranslationsForVideo(realid);
-                return View(model);
+                var video = repo2.GetVideoByID(realid);
+               
+                var model = repo2.GetAllTranslationsForVideo(realid);
+                var model2 = new VideoAndTranslationViewModel { ThisVideo = video, ThoseTranslations = model };
+                return View(model2);
             }
             return View("Error");
         }

@@ -9,12 +9,6 @@ namespace skjatextar.Models
     public class VideoRepository
     {
         TranslationContext m_db = new TranslationContext();
-        //public IEnumerable<Video> VideoIndex()
-        //{
-        //    //var result = m_db.Videos.Include(s => s.Category).OrderBy(s => s.Name);
-
-        //    //return result;
-        //}
         public IEnumerable<Video> GetAllVideos()
         {
             var videos = from s in m_db.Videos
@@ -65,13 +59,11 @@ namespace skjatextar.Models
 
             return result;
         }
-        public IEnumerable<Translation> GetAllTranslationsForVideoByDate(int id)
+        public Video GetVideoByID(int id)
         {
-            var result = from s in m_db.Translations
-                         where s.VideoID == id
-                         orderby s.DateLastEdited descending
-                         select s;
-
+            var result = (from s in m_db.Videos
+                          where s.ID == id
+                          select s).FirstOrDefault();
             return result;
         }
         public Video GetVideoByName(string name)
