@@ -331,3 +331,9 @@ text-align: center;
 .centerText{
     text-align:center;
 }
+
+#notFoundInList{
+    text-decoration:underline;
+    font-weight:bold;
+    color:red;
+}

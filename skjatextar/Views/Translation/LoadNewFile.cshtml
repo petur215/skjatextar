@@ -18,7 +18,7 @@
                 <span class="field-validation-error" id="spanfile"></span>
             </li>
             <li class="dropdownvideo">
-                <label for="ValinMynd" id="labelinn"> Veldu titil : </label>
+                <label for="ValinMynd" id="labelinn"> Veldu myndefni : </label>
                 <select name="ValinMynd" class="biomynd">
                     <option selected="selected" class="VideoDropdown" id="dropdownlisti"> -  </option>
                     @foreach (var item in Model)
@@ -27,7 +27,11 @@
                         <option value="@item.Name" id="dropdownlisti" class="VideoDropdown">@item.Name</option>
                     }
                 </select>
-                @Html.ActionLink("Ýttu hér ef titill er ekki í lista", "CreateVideo", "Video", new { }, null)
+                <span>
+                    <span id="notFoundInList">
+                        @Html.ActionLink("Ef myndefni er ekki í lista smelltu hér", "CreateVideo", "Video", new { }, null)
+                    </span>
+                </span>
             </li>
         </ul>
             <div class="DeafPeople">
