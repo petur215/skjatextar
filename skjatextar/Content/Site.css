@@ -17,15 +17,17 @@ textarea {
 }
 
 .tableCentered{
-    margin-left:-31px;
+    margin-left:40px;
 }
 .table-borderedTop{
     width:40%;
     position:absolute;
+    border-radius:10px;
 }
 .table-borderedNewest{
     width:40%;
-    margin-left:535px;
+    margin-left:580px;
+    border-radius:10px;
 }
 
 /* styles for validation helpers */
