@@ -23,13 +23,9 @@ namespace skjatextar.Controllers
         public ActionResult Index()
         {
             IndexViewModel result = new IndexViewModel();
-
-            result.Top10 = (from s in repo.GetAllTranslations()
-                               orderby s.LikeCount descending
-                               select s).Take(10);
-            result.Newest10 = (from r in repo.GetAllTranslations()
-                               orderby r.DateLastEdited descending
-                               select r).Take(10);
+            
+            result.Top10 = repo.Top10();
+            result.Newest10 = repo.Newest10();
                 
             return View(result);
         }
