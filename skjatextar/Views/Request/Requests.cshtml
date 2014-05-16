@@ -6,7 +6,7 @@
 {
     <script src="@Url.Content("~/Scripts/scripts.js")"></script>
 }
-<div class="allTextToCenter">
+<div class="centerText">
     <p>@Html.ActionLink("Senda inn fyrirspurn", "AddNewRequest", new { @class = "btn" })</p>
     <br />
     <p>
@@ -19,7 +19,7 @@
             <li class="list-group-item">
                 <p>
                     <span class="glyphicon glyphicon-user"> </span>
-                    <span class="text-primary">@Html.DisplayFor(modelItem => item.Username)</span>   |   
+                    <span class="text-primary">@Html.DisplayFor(modelItem => item.Username)</span>   |
                     <span class="text-muted">@item.RequestSent.ToString("dd.MM.yyyy. HH:mm") </span>
                 </p>
                 <p>
