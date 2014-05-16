@@ -59,7 +59,7 @@
     </table>
 </div>
 
-<div class="pageSplitter">
+<div class="pageSplitter" id="NextPrev">
     @if (Model.SearchResults.HasPreviousPage)
     {
         @Html.ActionLink("<<", "Videos", new { page = 1, LeitarStrengur = Model.SearchString})
